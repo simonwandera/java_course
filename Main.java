@@ -8,12 +8,11 @@ public class Main {
         * Simple Calculator
         * Author: Simon Wandera
         *
-        *
         * OPERATIONS SUPPORTED
         * +,-, /, *,
         *
         * Values supported
-        * int,
+        * int, float
         *
         * Decimal places 4
         * */
@@ -34,10 +33,6 @@ public class Main {
         divideIntegers(10,3);
         multiplyIntegers(23, 4);
 
-        /*
-        * variables supported
-        * operators supported
-        * */
 
            }
 //           ========================INTEGERS=========================
