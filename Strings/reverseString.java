@@ -5,15 +5,20 @@ import java.util.*;
 
 public class reverseString {
     public static void main(String[] args) {
-        System.out.println(" Args ");
-        Scanner sn = new Scanner(System.in);
-        System.out.println("Enter the first string: ");
-        String a = sn.next();
-        System.out.println("Enter the second string: ");
+//        Scanner sn = new Scanner(System.in);
+//        System.out.println("Enter the first string: ");
+//        String a = sn.next();
+//        System.out.println("Enter the integer value: ");
+//
+//        int b = sn.nextInt();
 
-        String b = sn.next();
+        String a = "Kalahari";
+        int b = 2;
 
-        System.out.println(comboString(a, b));
+        System.out.println(nTwice(a, b));
+
+
+//        System.out.println(comboString(a, b));
 //        reverse(name);
 //        reverse2(name);
 
@@ -43,8 +48,16 @@ public class reverseString {
         }else {
            return ("The strings are of equal lengths");
         }
-
     }
+
+    private static String nTwice(String a, int b){
+
+        String new_string = a.substring(0,b) + a.substring(a.length()-b);
+//
+        return new_string;
+    }
+
+
 
 
 }
