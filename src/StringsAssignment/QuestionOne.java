@@ -37,6 +37,7 @@ public class QuestionOne {
     }
 
     //    =====================QuestionTwo====================
+
     private static String left2(String str){
 
         String first_two_substrings = str.substring(0, 2);
@@ -52,16 +53,13 @@ public class QuestionOne {
         String defronted = str.substring(2);
         String first_letter = Character.toString(str.charAt(0));
         String second_letter = Character.toString(str.charAt(1));
-
         String prefix = "";
         if(first_letter.equals("a")){
             prefix = prefix.concat("a");
         }
-
         if (second_letter.equals("b")) {
             prefix = prefix.concat("b");
         }
-
         return prefix.concat(defronted);
     }
 
