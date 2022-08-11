@@ -1,10 +1,10 @@
 package Files;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,10 +17,10 @@ public class FilesReader {
         String mylist = "item1 , item2 , item3";
         commaseperated = Arrays.asList(mylist.trim().split(" , "));
         System.out.println(commaseperated.get(0));
-
         String PATH = "patients.db";
-
+        getAllPatients(PATH);
         getDetails(PATH);
+
 
     }
 
@@ -57,9 +57,28 @@ public class FilesReader {
 
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-YYYY");
         String today = LocalDate.now().format(myFormatObj);
-        String patient = idNumber + "," + name + "," + gender + "," + dateOfBirth + "," + healthCondition + ',' + today;
+        String patient = idNumber + "," + name + "," + gender + "," + dateOfBirth + "," + healthCondition + ',' + today + '\n';
         System.out.println("patient = " + patient);
         writeToFile(PATH, patient);
+    }
+
+    private static void getAllPatients(String PATH){
+
+        try {
+            File myObj = new File(PATH);
+            Scanner myReader = new Scanner(myObj);
+            List myList = new ArrayList();
+
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                myList = Arrays.asList(data.trim().split(" , "));
+                System.out.println("data = " + myList);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
 
     }
 }
