@@ -63,22 +63,39 @@ public class FilesReader {
     }
 
     private static void getAllPatients(String PATH){
-
+        List allPatients = new ArrayList();
         try {
             File myObj = new File(PATH);
             Scanner myReader = new Scanner(myObj);
-            List myList = new ArrayList();
-
+//            List allPatients = new ArrayList();
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                myList = Arrays.asList(data.trim().split(" , "));
+                List myList = new ArrayList(Arrays.asList(data.trim().split(" , ")));
+                allPatients.add(myList);
+
                 System.out.println("data = " + myList);
             }
             myReader.close();
+
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+
+        for (int row = 0; row < allPatients.size(); row++) {
+
+            List singlePatient = new ArrayList(List.of(allPatients.get(row)));
+            for (int col = 0; col < singlePatient.get(row); col++) {
+                List onePatient = new ArrayList(List.of(singlePatient.get(col)));
+                System.out.println("onePatient = " + onePatient);
+                for (int k=0; k < onePatient.size(); k++ ){
+                    System.out.println("onePatient.get(k) = " + onePatient.get(k));
+                }
+            }
+            System.out.println("allPatients.get(row). = " + allPatients.get(row));
+        }
+
+//        System.out.println("allPatients.size() = " + allPatients.size());
 
     }
 }
