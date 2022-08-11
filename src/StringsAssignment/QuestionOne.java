@@ -80,8 +80,7 @@ public class QuestionOne {
         }
     }
 
-    //    =====================QuestionFive====================
-
+    //    =====================QuestionFive======================
     private static String midThree(int[] array){
         int middle_index = (array.length - 1)/2;
         int[] final_array = { array[middle_index - 1], array[middle_index], array[middle_index + 1] };
