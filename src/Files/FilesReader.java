@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class FilesReader {
     public static void main(String[] args) {
@@ -18,21 +19,39 @@ public class FilesReader {
 
 
         getDetails(PATH);
+
     }
 
-    private static void getDetails(String PATH){
+    private static void writeToFile(String PATH){
         String name = "My name is Simon Wandera. What about you\n";
 
         try {
             FileWriter myWriter = new FileWriter(PATH, true);
             myWriter.write(name);
+            myWriter.flush();
             myWriter.close();
 
-            System.out.println("Successfully wrote to the file.\n");
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+    }
+
+    private static void getDetails(String PATH){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter Your Name: ");
+        String name = sc.next();
+
+        System.out.println("Enter Your Name: ");
+        String dateOfBirth = sc.next();
+
+        System.out.println("Enter Your Name: ");
+        String gender = sc.next();
+
+        String patients = name + "," + dateOfBirth + "," + gender;
+
+        
 
 
     }
