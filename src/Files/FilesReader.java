@@ -14,23 +14,25 @@ public class FilesReader {
         commaseperated = Arrays.asList(mylist.trim().split(" , "));
         System.out.println(commaseperated.get(0));
 
-//        Creating the file
-        try{
-            File myFile = new File("data.db");
-            if(myFile.createNewFile()){
-                System.out.println("File created: " + myFile.getName());
-            }else {
-                System.out.println("File already exists");
-            }
-        }catch (IOException e){
+        String PATH = "patients.db";
+
+
+        getDetails(PATH);
+    }
+
+    private static void getDetails(String PATH){
+        String name = "My name is Simon Wandera. What about you\n";
+
+        try {
+            FileWriter myWriter = new FileWriter(PATH, true);
+            myWriter.write(name);
+            myWriter.close();
+
+            System.out.println("Successfully wrote to the file.\n");
+        } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-    }
-
-    private static void getDetails(){
-        String name = "My name is Simon Wandera. What about you";
-        File myFile = new File("filename.txt");
 
 
     }
