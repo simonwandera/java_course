@@ -84,14 +84,17 @@ public class FilesReader {
 
         for (int row = 0; row < allPatients.size(); row++) {
 
+            System.out.println("size = " + allPatients.size());
+
             List singlePatient = new ArrayList(List.of(allPatients.get(row)));
-            for (int col = 0; col < singlePatient.get(row); col++) {
-                List onePatient = new ArrayList(List.of(singlePatient.get(col)));
-                System.out.println("onePatient = " + onePatient);
-                for (int k=0; k < onePatient.size(); k++ ){
-                    System.out.println("onePatient.get(k) = " + onePatient.get(k));
-                }
-            }
+
+//            for (int col = 0; col < singlePatient.get(row); col++) {
+//                List onePatient = new ArrayList(List.of(singlePatient.get(col)));
+//                System.out.println("onePatient = " + onePatient);
+//                for (int k=0; k < onePatient.size(); k++ ){
+//                    System.out.println("onePatient.get(k) = " + onePatient.get(k));
+//                }
+//            }
             System.out.println("allPatients.get(row). = " + allPatients.get(row));
         }
 
