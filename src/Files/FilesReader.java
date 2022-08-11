@@ -24,12 +24,10 @@ public class FilesReader {
 
     }
 
-    private static void writeToFile(String PATH){
-        String name = "My name is Simon Wandera. What about you\n";
-
+    private static void writeToFile(String PATH, String str){
         try {
             FileWriter myWriter = new FileWriter(PATH, true);
-            myWriter.write(name);
+            myWriter.write(str);
             myWriter.flush();
             myWriter.close();
 
@@ -42,6 +40,9 @@ public class FilesReader {
     private static void getDetails(String PATH){
         Scanner sc = new Scanner(System.in);
 
+        System.out.println("Enter your ID number: ");
+        String idNumber = sc.next();
+
         System.out.println("What is your name: ");
         String name = sc.next();
 
@@ -53,14 +54,12 @@ public class FilesReader {
 
         System.out.println("What is your health condition: ");
         String healthCondition = sc.next();
-        
+
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-YYYY");
         String today = LocalDate.now().format(myFormatObj);
-        String patient = name + "," + gender + "," + dateOfBirth + "," + healthCondition + ',' + today;
+        String patient = idNumber + "," + name + "," + gender + "," + dateOfBirth + "," + healthCondition + ',' + today;
         System.out.println("patient = " + patient);
-
-
-
+        writeToFile(PATH, patient);
 
     }
 }
