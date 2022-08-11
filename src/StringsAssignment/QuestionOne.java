@@ -22,8 +22,6 @@ public class QuestionOne {
 
         System.out.println(maxTriple(myarray));
 
-
-
     }
 
 //    =====================QuestionOne====================
@@ -108,12 +106,7 @@ public class QuestionOne {
         }
 
         return max;
-
-
-
     }
-
-
 
 
 }
