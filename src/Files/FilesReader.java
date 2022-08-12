@@ -16,7 +16,6 @@ public class FilesReader {
         List commaseperated = new ArrayList();
         String mylist = "item1 , item2 , item3";
         commaseperated = Arrays.asList(mylist.trim().split(" , "));
-        System.out.println(commaseperated.get(0));
         String PATH = "patients.db";
         getAllPatients(PATH);
         getDetails(PATH);
@@ -80,19 +79,14 @@ public class FilesReader {
             e.printStackTrace();
         }
 
-        for (int row = 0; row < allPatients.size(); row++) {
-            
-            List singlePatient = new ArrayList(List.of(allPatients.get(row)));
-
-            for(int i=0; i < allPatients.size(); i++){
-                for (int j=0; j<allPatients.get(i).size(); j++){
-                    System.out.println("Single items = " + allPatients.get(i).get(j));
-                }
-            }
-            System.out.println("allPatients.get(row). = " + allPatients.get(row));
+        for(int i=0; i < allPatients.size(); i++){
+                System.out.println("ID Number : " + allPatients.get(i).get(0));
+                System.out.println("Name : " + allPatients.get(i).get(1));
+                System.out.println("Gender : " + allPatients.get(i).get(2));
+                System.out.println("Date of Birth : " + allPatients.get(i).get(3));
+                System.out.println("Health Condition : " + allPatients.get(i).get(4));
+                System.out.println("Date of visit : " + allPatients.get(i).get(5));
+                System.out.println("**********************************************\n");
         }
-
-//        System.out.println("allPatients.size() = " + allPatients.size());
-
     }
 }
