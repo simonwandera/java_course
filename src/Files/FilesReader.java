@@ -63,17 +63,15 @@ public class FilesReader {
     }
 
     private static void getAllPatients(String PATH){
-        List allPatients = new ArrayList();
+        ArrayList<ArrayList<String>> allPatients = new ArrayList();
         try {
             File myObj = new File(PATH);
             Scanner myReader = new Scanner(myObj);
 //            List allPatients = new ArrayList();
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                List myList = new ArrayList(Arrays.asList(data.trim().split(" , ")));
+                ArrayList<String> myList = new ArrayList<String>(Arrays.asList(data.trim().split(",")));
                 allPatients.add(myList);
-
-                System.out.println("data = " + myList);
             }
             myReader.close();
 
@@ -83,18 +81,14 @@ public class FilesReader {
         }
 
         for (int row = 0; row < allPatients.size(); row++) {
-
-            System.out.println("size = " + allPatients.size());
-
+            
             List singlePatient = new ArrayList(List.of(allPatients.get(row)));
 
-//            for (int col = 0; col < singlePatient.get(row); col++) {
-//                List onePatient = new ArrayList(List.of(singlePatient.get(col)));
-//                System.out.println("onePatient = " + onePatient);
-//                for (int k=0; k < onePatient.size(); k++ ){
-//                    System.out.println("onePatient.get(k) = " + onePatient.get(k));
-//                }
-//            }
+            for(int i=0; i < allPatients.size(); i++){
+                for (int j=0; j<allPatients.get(i).size(); j++){
+                    System.out.println("Single items = " + allPatients.get(i).get(j));
+                }
+            }
             System.out.println("allPatients.get(row). = " + allPatients.get(row));
         }
 
