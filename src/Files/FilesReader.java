@@ -15,12 +15,7 @@ public class FilesReader {
 
         String PATH = "patients.db";
         MainMenu(PATH);
-        filterByDate(PATH, "20220813");
-        getAllPatients(PATH);
-
-
     }
-
     private static void writeToFile(String PATH, String str){
         try {
             FileWriter myWriter = new FileWriter(PATH, true);
@@ -160,14 +155,14 @@ public class FilesReader {
             System.out.println("New Patient \n");
             getDetails(PATH);
         }else if (Option.toLowerCase().equals("a")){
-
+            System.out.println("All Patients \n");
+            getAllPatients(PATH);
         }else if (Option.toLowerCase().equals("f")){
+            System.out.println("All Patients \n");
+            filterByDate(PATH, "20220813");
 
         }else {
-
+            System.out.println("The Option you selected was not recognized!! \n");
         }
-
-
-
     }
 }
