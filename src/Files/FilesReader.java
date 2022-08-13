@@ -165,7 +165,7 @@ public class FilesReader {
             getAllPatients(PATH);
         }else if (Option.toLowerCase().equals("f")){
             System.out.println("All Patients \n");
-            filterByDate(PATH, "20220813");
+            filterByDate(PATH);
 
         }else {
             System.out.println("The Option you selected was not recognized!! \n");
