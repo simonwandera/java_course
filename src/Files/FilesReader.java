@@ -78,7 +78,7 @@ public class FilesReader {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-
+        int count = 0;
         for(int i=0; i < allPatients.size(); i++){
             DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("YYYY-MM-dd");
             LocalDate dateOfBirth = LocalDate.parse((allPatients.get(i).get(3)), myFormatObj.BASIC_ISO_DATE);
@@ -91,6 +91,11 @@ public class FilesReader {
             System.out.println("Health Condition : " + allPatients.get(i).get(4));
             System.out.println("Date of visit : " + dateOfVisit);
             System.out.println("**********************************************\n");
+            count++;
+        }
+
+        if (count == 0){
+            System.out.println("############### NO DATA TO DISPLAY ###############");
         }
     }
 
