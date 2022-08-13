@@ -115,7 +115,7 @@ public class FilesReader {
 
     }
 
-    private static void filterByDate(String PATH) throws IOException {
+    private static void filterByDateOfVisit(String PATH) throws IOException {
         InputStreamReader inputStreamReader = new InputStreamReader(System.in);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
@@ -171,7 +171,7 @@ public class FilesReader {
             getAllPatients(PATH);
         }else if (Option.toLowerCase().equals("f")){
             System.out.println("All Patients \n");
-            filterByDate(PATH);
+            FilterMenu(PATH);
         }else if (Option.toLowerCase().equals("x")){
             System.out.println("Exiting... \n");
             System.exit(2);
@@ -195,8 +195,8 @@ public class FilesReader {
 
         String Option = bufferedReader.readLine();
 
-        if(Option.toLowerCase().equals("r")){
-            System.out.println("New Patient \n");
+        if(Option.toLowerCase().equals("fi")){
+            System.out.println("Filter By Id \n");
             getDetails(PATH);
         }else if (Option.toLowerCase().equals("a")){
             System.out.println("All Patients \n");
@@ -211,5 +211,109 @@ public class FilesReader {
         }else {
             System.out.println("The Option you selected was not recognized!! \n");
         }
+    }
+    private static void filterById(String PATH) throws IOException {
+        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+        System.out.println("Enter Id Number to Find patient");
+        String dateString = bufferedReader.readLine();
+
+        ArrayList<ArrayList<String>> allPatients = readFile(PATH);
+
+        int count = 0;
+        for(int i=0; i < allPatients.size(); i++){
+            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("YYYY-MM-dd");
+            LocalDate dateOfBirth = LocalDate.parse((allPatients.get(i).get(3)), myFormatObj.BASIC_ISO_DATE);
+            LocalDate dateOfVisit = LocalDate.parse((allPatients.get(i).get(5)), myFormatObj.BASIC_ISO_DATE);
+            LocalDate searchDate = LocalDate.parse(dateString, myFormatObj.BASIC_ISO_DATE);
+
+            if (dateOfVisit.equals(searchDate)){
+                System.out.println("ID Number : " + allPatients.get(i).get(0));
+                System.out.println("Name : " + allPatients.get(i).get(1));
+                System.out.println("Gender : " + allPatients.get(i).get(2));
+                System.out.println("Date of Birth : " + dateOfBirth);
+                System.out.println("Health Condition : " + allPatients.get(i).get(4));
+                System.out.println("Date of visit : " + dateOfVisit);
+                System.out.println("******************** **************************\n");
+                count = count + 1;
+            }
+        }
+
+        if (count == 0){
+            System.out.println("############### NO DATA TO DISPLAY ###############");
+        }
+
+        FilterMenu(PATH);
+    }
+
+    private static void filterByGender(String PATH) throws IOException {
+        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+        System.out.println("Enter Date in this format - YYYYMMDD");
+        String dateString = bufferedReader.readLine();
+
+        ArrayList<ArrayList<String>> allPatients = readFile(PATH);
+
+        int count = 0;
+        for(int i=0; i < allPatients.size(); i++){
+            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("YYYY-MM-dd");
+            LocalDate dateOfBirth = LocalDate.parse((allPatients.get(i).get(3)), myFormatObj.BASIC_ISO_DATE);
+            LocalDate dateOfVisit = LocalDate.parse((allPatients.get(i).get(5)), myFormatObj.BASIC_ISO_DATE);
+            LocalDate searchDate = LocalDate.parse(dateString, myFormatObj.BASIC_ISO_DATE);
+
+            if (dateOfVisit.equals(searchDate)){
+                System.out.println("ID Number : " + allPatients.get(i).get(0));
+                System.out.println("Name : " + allPatients.get(i).get(1));
+                System.out.println("Gender : " + allPatients.get(i).get(2));
+                System.out.println("Date of Birth : " + dateOfBirth);
+                System.out.println("Health Condition : " + allPatients.get(i).get(4));
+                System.out.println("Date of visit : " + dateOfVisit);
+                System.out.println("******************** **************************\n");
+                count = count + 1;
+            }
+        }
+
+        if (count == 0){
+            System.out.println("############### NO DATA TO DISPLAY ###############");
+        }
+
+        FilterMenu(PATH);
+    }
+
+    private static void filterByDateOfBirth(String PATH) throws IOException {
+        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+        System.out.println("Enter Date in this format - YYYYMMDD");
+        String dateString = bufferedReader.readLine();
+
+        ArrayList<ArrayList<String>> allPatients = readFile(PATH);
+
+        int count = 0;
+        for(int i=0; i < allPatients.size(); i++){
+            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("YYYY-MM-dd");
+            LocalDate dateOfBirth = LocalDate.parse((allPatients.get(i).get(3)), myFormatObj.BASIC_ISO_DATE);
+            LocalDate dateOfVisit = LocalDate.parse((allPatients.get(i).get(5)), myFormatObj.BASIC_ISO_DATE);
+            LocalDate searchDate = LocalDate.parse(dateString, myFormatObj.BASIC_ISO_DATE);
+
+            if (dateOfVisit.equals(searchDate)){
+                System.out.println("ID Number : " + allPatients.get(i).get(0));
+                System.out.println("Name : " + allPatients.get(i).get(1));
+                System.out.println("Gender : " + allPatients.get(i).get(2));
+                System.out.println("Date of Birth : " + dateOfBirth);
+                System.out.println("Health Condition : " + allPatients.get(i).get(4));
+                System.out.println("Date of visit : " + dateOfVisit);
+                System.out.println("******************** **************************\n");
+                count = count + 1;
+            }
+        }
+
+        if (count == 0){
+            System.out.println("############### NO DATA TO DISPLAY ###############");
+        }
+
+        MainMenu(PATH);
     }
 }
