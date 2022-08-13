@@ -12,10 +12,10 @@ public class Java_scanners {
 
         String dateOfBirth = "20220419";
 
-        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("YYYYMMdd");
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("YYYY-MM-dd");
         String today = LocalDate.now().format(myFormatObj);
         LocalDate dob = LocalDate.parse(dateOfBirth, myFormatObj.BASIC_ISO_DATE);
-        System.out.println("today = " + today);
+        System.out.println("dob = " + dob);
 
         System.out.println(" Welcome to java Scanners ");
         InputStreamReader inputStreamReader = new InputStreamReader(System.in);

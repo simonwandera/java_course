@@ -54,6 +54,7 @@ public class FilesReader {
         LocalDate dob = LocalDate.parse(dateOfBirth, myFormatObj.BASIC_ISO_DATE);
         String patient = idNumber + "," + name + "," + gender + "," + dob.format(myFormatObj) + "," + healthCondition + ',' + today + '\n';
         writeToFile(PATH, patient);
+        System.out.println("<< Patient Saved Successfully >>");
     }
 
     private static void getAllPatients(String PATH){
@@ -74,13 +75,17 @@ public class FilesReader {
         }
 
         for(int i=0; i < allPatients.size(); i++){
-                System.out.println("ID Number : " + allPatients.get(i).get(0));
-                System.out.println("Name : " + allPatients.get(i).get(1));
-                System.out.println("Gender : " + allPatients.get(i).get(2));
-                System.out.println("Date of Birth : " + allPatients.get(i).get(3));
-                System.out.println("Health Condition : " + allPatients.get(i).get(4));
-                System.out.println("Date of visit : " + allPatients.get(i).get(5));
-                System.out.println("**********************************************\n");
+            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("YYYY-MM-dd");
+            LocalDate dateOfBirth = LocalDate.parse((allPatients.get(i).get(3)), myFormatObj.BASIC_ISO_DATE);
+            LocalDate dateOfVisit = LocalDate.parse((allPatients.get(i).get(5)), myFormatObj.BASIC_ISO_DATE);
+
+            System.out.println("ID Number : " + allPatients.get(i).get(0));
+            System.out.println("Name : " + allPatients.get(i).get(1));
+            System.out.println("Gender : " + allPatients.get(i).get(2));
+            System.out.println("Date of Birth : " + dateOfBirth);
+            System.out.println("Health Condition : " + allPatients.get(i).get(4));
+            System.out.println("Date of visit : " + dateOfVisit);
+            System.out.println("**********************************************\n");
         }
     }
 }
