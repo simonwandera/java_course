@@ -112,7 +112,13 @@ public class FilesReader {
         }
     }
 
-    private static void filterByDate(String PATH, String dateString){
+    private static void filterByDate(String PATH) throws IOException {
+        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+        System.out.println("Enter Date in this format - YYYYMMDD");
+        String dateString = bufferedReader.readLine();
+
         ArrayList<ArrayList<String>> allPatients = readFile(PATH);
 
         int count = 0;
