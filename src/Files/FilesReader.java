@@ -13,11 +13,13 @@ public class FilesReader {
     public static void main(String[] args) throws IOException {
 
         String PATH = "patients.db";
-        String dateString = "20220808";
 
+        filterByDate(PATH, "20220813");
         getAllPatients(PATH);
         getDetails(PATH);
-        filterByDate(PATH, dateString);
+
+
+
     }
 
     private static void writeToFile(String PATH, String str){
@@ -93,6 +95,46 @@ public class FilesReader {
     }
 
     private static void filterByDate(String PATH, String dateString){
+        ArrayList<ArrayList<String>> allPatients = new ArrayList();
+        try {
+            File myObj = new File(PATH);
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                ArrayList<String> myList = new ArrayList<String>(Arrays.asList(data.trim().split(",")));
+                allPatients.add(myList);
+            }
+            myReader.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+        int count = 0;
+        for(int i=0; i < allPatients.size(); i++){
+            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("YYYY-MM-dd");
+            LocalDate dateOfBirth = LocalDate.parse((allPatients.get(i).get(3)), myFormatObj.BASIC_ISO_DATE);
+            LocalDate dateOfVisit = LocalDate.parse((allPatients.get(i).get(5)), myFormatObj.BASIC_ISO_DATE);
+            LocalDate searchDate = LocalDate.parse(dateString, myFormatObj.BASIC_ISO_DATE);
+
+            if (dateOfVisit.equals(searchDate)){
+                System.out.println("ID Number : " + allPatients.get(i).get(0));
+                System.out.println("Name : " + allPatients.get(i).get(1));
+                System.out.println("Gender : " + allPatients.get(i).get(2));
+                System.out.println("Date of Birth : " + dateOfBirth);
+                System.out.println("Health Condition : " + allPatients.get(i).get(4));
+                System.out.println("Date of visit : " + dateOfVisit);
+                System.out.println("******************** **************************\n");
+                count = count + 1;
+            }
+        }
+
+       if (count == 0){
+           System.out.println("############### NO DATA TO DISPLAY ###############");
+       }
+
+
 
     }
 }
