@@ -6,6 +6,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class FilesReader {
     public static void main(String[] args) throws IOException {
@@ -13,8 +15,6 @@ public class FilesReader {
         String PATH = "patients.db";
         getAllPatients(PATH);
         getDetails(PATH);
-
-
     }
 
     private static void writeToFile(String PATH, String str){
@@ -43,16 +43,16 @@ public class FilesReader {
         System.out.println("What is your gender(M/F): ");
         String gender = bufferedReader.readLine();
 
-        System.out.println("Enter date of birth (DDMMYYY): ");
+        System.out.println("Enter date of birth (YYYYMMDD): ");
         String dateOfBirth = bufferedReader.readLine();
 
         System.out.println("What is your health condition: ");
         String healthCondition = bufferedReader.readLine();
 
-        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-YYYY");
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("YYYYMMdd");
         String today = LocalDate.now().format(myFormatObj);
-        String patient = idNumber + "," + name + "," + gender + "," + dateOfBirth + "," + healthCondition + ',' + today + '\n';
-        System.out.println("patient = " + patient);
+        LocalDate dob = LocalDate.parse(dateOfBirth, myFormatObj.BASIC_ISO_DATE);
+        String patient = idNumber + "," + name + "," + gender + "," + dob.format(myFormatObj) + "," + healthCondition + ',' + today + '\n';
         writeToFile(PATH, patient);
     }
 
@@ -61,7 +61,6 @@ public class FilesReader {
         try {
             File myObj = new File(PATH);
             Scanner myReader = new Scanner(myObj);
-//            List allPatients = new ArrayList();
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
                 ArrayList<String> myList = new ArrayList<String>(Arrays.asList(data.trim().split(",")));
