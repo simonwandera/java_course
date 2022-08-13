@@ -5,15 +5,11 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.Scanner;
-
 
 public class FilesReader {
     public static void main(String[] args) throws IOException {
-
         String PATH = "patients.db";
-
         filterByDate(PATH, "20220813");
         getAllPatients(PATH);
         getDetails(PATH);
@@ -135,8 +131,5 @@ public class FilesReader {
        if (count == 0){
            System.out.println("############### NO DATA TO DISPLAY ###############");
        }
-
-
-
     }
 }
