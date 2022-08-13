@@ -180,4 +180,36 @@ public class FilesReader {
             System.out.println("The Option you selected was not recognized!! \n");
         }
     }
+
+    private static void FilterMenu(String PATH) throws IOException {
+
+        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+        System.out.println("Please select an option from the Menu below \n");
+        System.out.println("FI -> Filter by ID");
+        System.out.println("FV -> Filter by date of Visit");
+        System.out.println("FG -> Filter by gender");
+        System.out.println("FB -> Filter date of birth");
+        System.out.println("MM -> Main menu");
+
+        String Option = bufferedReader.readLine();
+
+        if(Option.toLowerCase().equals("r")){
+            System.out.println("New Patient \n");
+            getDetails(PATH);
+        }else if (Option.toLowerCase().equals("a")){
+            System.out.println("All Patients \n");
+            getAllPatients(PATH);
+        }else if (Option.toLowerCase().equals("f")){
+            System.out.println("All Patients \n");
+            filterByDate(PATH);
+        }else if (Option.toLowerCase().equals("x")){
+            System.out.println("Exiting... \n");
+            System.exit(2);
+
+        }else {
+            System.out.println("The Option you selected was not recognized!! \n");
+        }
+    }
 }
