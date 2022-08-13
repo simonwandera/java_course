@@ -13,6 +13,7 @@ public class FilesReader {
         filterByDate(PATH, "20220813");
         getAllPatients(PATH);
         getDetails(PATH);
+
     }
 
     private static void writeToFile(String PATH, String str){
@@ -55,7 +56,7 @@ public class FilesReader {
         System.out.println("<< Patient Saved Successfully >>");
     }
 
-    private static void getAllPatients(String PATH){
+    private static ArrayList<ArrayList<String>> readFile(String PATH){
         ArrayList<ArrayList<String>> allPatients = new ArrayList();
         try {
             File myObj = new File(PATH);
@@ -71,6 +72,12 @@ public class FilesReader {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+        return allPatients;
+
+    }
+
+    private static void getAllPatients(String PATH){
+        ArrayList<ArrayList<String>> allPatients = readFile(PATH);
         int count = 0;
         for(int i=0; i < allPatients.size(); i++){
             DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("YYYY-MM-dd");
@@ -93,21 +100,7 @@ public class FilesReader {
     }
 
     private static void filterByDate(String PATH, String dateString){
-        ArrayList<ArrayList<String>> allPatients = new ArrayList();
-        try {
-            File myObj = new File(PATH);
-            Scanner myReader = new Scanner(myObj);
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-                ArrayList<String> myList = new ArrayList<String>(Arrays.asList(data.trim().split(",")));
-                allPatients.add(myList);
-            }
-            myReader.close();
-
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
+        ArrayList<ArrayList<String>> allPatients = readFile(PATH);
 
         int count = 0;
         for(int i=0; i < allPatients.size(); i++){

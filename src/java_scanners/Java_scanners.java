@@ -7,11 +7,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Java_scanners {
-
     public static void main(String[] args) throws IOException {
 
         String dateOfBirth = "20220419";
-
         String date1 = "20220419";
         String date2 = "20220419";
 
@@ -29,7 +27,6 @@ public class Java_scanners {
         }
         LocalDate dob = LocalDate.parse(dateOfBirth, myFormatObj.BASIC_ISO_DATE);
         System.out.println("dob = " + dob);
-
 
 
         System.out.println(" Welcome to java Scanners ");
