@@ -69,6 +69,7 @@ public class FilesReader {
                 break;
             }
         }
+        MainMenu(PATH);
     }
     private static ArrayList<ArrayList<String>> readFile(String PATH){
         ArrayList<ArrayList<String>> allPatients = new ArrayList();
@@ -89,7 +90,7 @@ public class FilesReader {
         return allPatients;
     }
 
-    private static void getAllPatients(String PATH){
+    private static void getAllPatients(String PATH) throws IOException {
         ArrayList<ArrayList<String>> allPatients = readFile(PATH);
         int count = 0;
         for(int i=0; i < allPatients.size(); i++){
@@ -106,10 +107,12 @@ public class FilesReader {
             System.out.println("**********************************************\n");
             count++;
         }
-
         if (count == 0){
             System.out.println("############### NO DATA TO DISPLAY ###############");
         }
+
+        MainMenu(PATH);
+
     }
 
     private static void filterByDate(String PATH) throws IOException {
@@ -143,6 +146,8 @@ public class FilesReader {
        if (count == 0){
            System.out.println("############### NO DATA TO DISPLAY ###############");
        }
+
+       MainMenu(PATH);
     }
 
     private static void MainMenu(String PATH) throws IOException {
@@ -154,6 +159,7 @@ public class FilesReader {
         System.out.println("R -> Register new Patient");
         System.out.println("A -> View all Patients");
         System.out.println("F -> Filter Patients records");
+        System.out.println("X -> Exit Program");
 
         String Option = bufferedReader.readLine();
 
@@ -166,6 +172,9 @@ public class FilesReader {
         }else if (Option.toLowerCase().equals("f")){
             System.out.println("All Patients \n");
             filterByDate(PATH);
+        }else if (Option.toLowerCase().equals("x")){
+            System.out.println("Exiting... \n");
+            System.exit(2);
 
         }else {
             System.out.println("The Option you selected was not recognized!! \n");
