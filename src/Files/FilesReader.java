@@ -14,10 +14,10 @@ public class FilesReader {
         System.out.println("################################################################\n\n");
 
         String PATH = "patients.db";
-        MainMenu();
+        MainMenu(PATH);
         filterByDate(PATH, "20220813");
         getAllPatients(PATH);
-        getDetails(PATH);
+
 
     }
 
@@ -144,7 +144,7 @@ public class FilesReader {
        }
     }
 
-    private static void MainMenu() throws IOException {
+    private static void MainMenu(String PATH) throws IOException {
 
         InputStreamReader inputStreamReader = new InputStreamReader(System.in);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -155,6 +155,17 @@ public class FilesReader {
         System.out.println("F -> Filter Patients records");
 
         String Option = bufferedReader.readLine();
+
+        if(Option.toLowerCase().equals("r")){
+            System.out.println("New Patient \n");
+            getDetails(PATH);
+        }else if (Option.toLowerCase().equals("a")){
+
+        }else if (Option.toLowerCase().equals("f")){
+
+        }else {
+
+        }
 
 
 
