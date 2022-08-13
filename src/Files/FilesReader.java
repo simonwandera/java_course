@@ -164,13 +164,13 @@ public class FilesReader {
         String Option = bufferedReader.readLine();
 
         if(Option.toLowerCase().equals("r")){
-            System.out.println("New Patient \n");
+            System.out.println("Register patients \n");
             getDetails(PATH);
         }else if (Option.toLowerCase().equals("a")){
-            System.out.println("All Patients \n");
+            System.out.println("Get all patients \n");
             getAllPatients(PATH);
         }else if (Option.toLowerCase().equals("f")){
-            System.out.println("All Patients \n");
+            System.out.println("Filter Menu \n");
             FilterMenu(PATH);
         }else if (Option.toLowerCase().equals("x")){
             System.out.println("Exiting... \n");
