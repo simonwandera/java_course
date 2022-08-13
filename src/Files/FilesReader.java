@@ -5,16 +5,19 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
-import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
+
 
 public class FilesReader {
     public static void main(String[] args) throws IOException {
 
         String PATH = "patients.db";
+        String dateString = "20220808";
+
         getAllPatients(PATH);
         getDetails(PATH);
+        filterByDate(PATH, dateString);
     }
 
     private static void writeToFile(String PATH, String str){
@@ -87,5 +90,9 @@ public class FilesReader {
             System.out.println("Date of visit : " + dateOfVisit);
             System.out.println("**********************************************\n");
         }
+    }
+
+    private static void filterByDate(String PATH, String dateString){
+
     }
 }
