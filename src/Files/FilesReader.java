@@ -62,6 +62,11 @@ public class FilesReader {
 
             if (add.equals("N")){
                 addNew = false;
+            }else if (add.equals("Y")){
+                addNew = true;
+            }else {
+                System.out.println("Invalid Responce!");
+                break;
             }
 
         }
