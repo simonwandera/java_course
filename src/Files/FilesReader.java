@@ -9,7 +9,12 @@ import java.util.Scanner;
 
 public class FilesReader {
     public static void main(String[] args) throws IOException {
+        System.out.println("\n################################################################");
+        System.out.println("                             WELCOME                             ");
+        System.out.println("################################################################\n\n");
+
         String PATH = "patients.db";
+        MainMenu();
         filterByDate(PATH, "20220813");
         getAllPatients(PATH);
         getDetails(PATH);
@@ -65,12 +70,10 @@ public class FilesReader {
             }else if (add.equals("Y")){
                 addNew = true;
             }else {
-                System.out.println("Invalid Responce!");
+                System.out.println("Invalid Response!");
                 break;
             }
-
         }
-
     }
     private static ArrayList<ArrayList<String>> readFile(String PATH){
         ArrayList<ArrayList<String>> allPatients = new ArrayList();
@@ -141,7 +144,19 @@ public class FilesReader {
        }
     }
 
-    private static void MainMenu() {
+    private static void MainMenu() throws IOException {
+
+        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+        System.out.println("Please select an option from the Menu below \n");
+        System.out.println("R -> Register new Patient");
+        System.out.println("A -> View all Patients");
+        System.out.println("F -> Filter Patients records");
+
+        String Option = bufferedReader.readLine();
+
+
 
     }
 }
