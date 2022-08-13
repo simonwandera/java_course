@@ -17,9 +17,6 @@ public class FilesReader {
         filterByDate(PATH, "20220813");
         getAllPatients(PATH);
         getDetails(PATH);
-
-
-
     }
 
     private static void writeToFile(String PATH, String str){
