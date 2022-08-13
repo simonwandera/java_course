@@ -1,21 +1,15 @@
 package Files;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class FilesReader {
-    public static void main(String[] args) {
-        List commaseperated = new ArrayList();
-        String mylist = "item1 , item2 , item3";
-        commaseperated = Arrays.asList(mylist.trim().split(" , "));
+    public static void main(String[] args) throws IOException {
+
         String PATH = "patients.db";
         getAllPatients(PATH);
         getDetails(PATH);
@@ -36,23 +30,24 @@ public class FilesReader {
         }
     }
 
-    private static void getDetails(String PATH){
-        Scanner sc = new Scanner(System.in);
+    private static void getDetails(String PATH) throws IOException {
+        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
         System.out.println("Enter your ID number: ");
-        String idNumber = sc.next();
+        String idNumber = bufferedReader.readLine();
 
         System.out.println("What is your name: ");
-        String name = sc.next();
+        String name = bufferedReader.readLine();
 
         System.out.println("What is your gender(M/F): ");
-        String gender = sc.next();
+        String gender = bufferedReader.readLine();
 
         System.out.println("Enter date of birth (DDMMYYY): ");
-        String dateOfBirth = sc.next();
+        String dateOfBirth = bufferedReader.readLine();
 
         System.out.println("What is your health condition: ");
-        String healthCondition = sc.next();
+        String healthCondition = bufferedReader.readLine();
 
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-YYYY");
         String today = LocalDate.now().format(myFormatObj);
