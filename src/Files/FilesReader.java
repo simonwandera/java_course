@@ -33,29 +33,40 @@ public class FilesReader {
         InputStreamReader inputStreamReader = new InputStreamReader(System.in);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
-        System.out.println("Enter your ID number: ");
-        String idNumber = bufferedReader.readLine();
+        Boolean addNew = true;
+        while (addNew ){
+            System.out.println("Enter your ID number: ");
+            String idNumber = bufferedReader.readLine();
 
-        System.out.println("What is your name: ");
-        String name = bufferedReader.readLine();
+            System.out.println("What is your name: ");
+            String name = bufferedReader.readLine();
 
-        System.out.println("What is your gender(M/F): ");
-        String gender = bufferedReader.readLine();
+            System.out.println("What is your gender(M/F): ");
+            String gender = bufferedReader.readLine();
 
-        System.out.println("Enter date of birth (YYYYMMDD): ");
-        String dateOfBirth = bufferedReader.readLine();
+            System.out.println("Enter date of birth (YYYYMMDD): ");
+            String dateOfBirth = bufferedReader.readLine();
 
-        System.out.println("What is your health condition: ");
-        String healthCondition = bufferedReader.readLine();
+            System.out.println("What is your health condition: ");
+            String healthCondition = bufferedReader.readLine();
 
-        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("YYYYMMdd");
-        String today = LocalDate.now().format(myFormatObj);
-        LocalDate dob = LocalDate.parse(dateOfBirth, myFormatObj.BASIC_ISO_DATE);
-        String patient = idNumber + "," + name + "," + gender + "," + dob.format(myFormatObj) + "," + healthCondition + ',' + today + '\n';
-        writeToFile(PATH, patient);
-        System.out.println("<< Patient Saved Successfully >>");
+            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("YYYYMMdd");
+            String today = LocalDate.now().format(myFormatObj);
+            LocalDate dob = LocalDate.parse(dateOfBirth, myFormatObj.BASIC_ISO_DATE);
+            String patient = idNumber + "," + name + "," + gender + "," + dob.format(myFormatObj) + "," + healthCondition + ',' + today + '\n';
+            writeToFile(PATH, patient);
+            System.out.println("<< Patient Saved Successfully >>");
+
+            System.out.println("Do you wish to add another? (Y/N)");
+            String add = bufferedReader.readLine();
+
+            if (add.equals("N")){
+                addNew = false;
+            }
+
+        }
+
     }
-
     private static ArrayList<ArrayList<String>> readFile(String PATH){
         ArrayList<ArrayList<String>> allPatients = new ArrayList();
         try {
@@ -73,7 +84,6 @@ public class FilesReader {
             e.printStackTrace();
         }
         return allPatients;
-
     }
 
     private static void getAllPatients(String PATH){
@@ -124,5 +134,9 @@ public class FilesReader {
        if (count == 0){
            System.out.println("############### NO DATA TO DISPLAY ###############");
        }
+    }
+
+    private static void MainMenu() {
+
     }
 }
