@@ -60,9 +60,9 @@ public class FilesReader {
             System.out.println("Do you wish to add another? (Y/N)");
             String add = bufferedReader.readLine();
 
-            if (add.equals("N")){
+            if (add.toLowerCase().equals("n")){
                 addNew = false;
-            }else if (add.equals("Y")){
+            }else if (add.toLowerCase().equals("y")){
                 addNew = true;
             }else {
                 System.out.println("Invalid Response!");
@@ -178,6 +178,7 @@ public class FilesReader {
 
         }else {
             System.out.println("The Option you selected was not recognized!! \n");
+            MainMenu(PATH);
         }
     }
 
@@ -217,6 +218,7 @@ public class FilesReader {
 
         }else {
             System.out.println("The Option you selected was not recognized!! \n");
+            FilterMenu(PATH);
         }
     }
     private static void filterById(String PATH) throws IOException {
@@ -268,7 +270,7 @@ public class FilesReader {
             LocalDate dateOfBirth = LocalDate.parse((allPatients.get(i).get(3)), myFormatObj.BASIC_ISO_DATE);
             LocalDate dateOfVisit = LocalDate.parse((allPatients.get(i).get(5)), myFormatObj.BASIC_ISO_DATE);
 
-            if (allPatients.get(i).get(2).toLowerCase().equals(searchGender)){
+            if (allPatients.get(i).get(2).toLowerCase().equals(searchGender.toLowerCase())){
                 System.out.println("ID Number : " + allPatients.get(i).get(0));
                 System.out.println("Name : " + allPatients.get(i).get(1));
                 System.out.println("Gender : " + allPatients.get(i).get(2));
