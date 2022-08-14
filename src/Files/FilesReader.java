@@ -268,7 +268,7 @@ public class FilesReader {
             LocalDate dateOfBirth = LocalDate.parse((allPatients.get(i).get(3)), myFormatObj.BASIC_ISO_DATE);
             LocalDate dateOfVisit = LocalDate.parse((allPatients.get(i).get(5)), myFormatObj.BASIC_ISO_DATE);
 
-            if (allPatients.get(i).get(2).equals(searchGender)){
+            if (allPatients.get(i).get(2).toLowerCase().equals(searchGender)){
                 System.out.println("ID Number : " + allPatients.get(i).get(0));
                 System.out.println("Name : " + allPatients.get(i).get(1));
                 System.out.println("Gender : " + allPatients.get(i).get(2));
