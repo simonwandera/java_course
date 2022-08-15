@@ -53,9 +53,9 @@ public class FilesReader {
             DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("YYYYMMdd");
             String today = LocalDate.now().format(myFormatObj);
             LocalDate dob = LocalDate.parse(dateOfBirth, myFormatObj.BASIC_ISO_DATE);
-            String patient = idNumber + "," + name + "," + gender + "," + dob.format(myFormatObj) + "," + healthCondition + ',' + today + '\n';
+            String patient = idNumber + "," + name + "," + gender.toUpperCase() + "," + dob.format(myFormatObj) + "," + healthCondition + ',' + today + '\n';
             writeToFile(PATH, patient);
-            System.out.println("<< Patient Saved Successfully >>");
+            System.out.println("** Patient Saved Successfully **");
 
             System.out.println("Do you wish to add another? (Y/N)");
             String add = bufferedReader.readLine();
