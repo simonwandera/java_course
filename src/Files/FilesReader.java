@@ -112,7 +112,6 @@ public class FilesReader {
         }
 
         MainMenu(PATH);
-
     }
 
     private static void filterByDateOfVisit(String PATH) throws IOException {
