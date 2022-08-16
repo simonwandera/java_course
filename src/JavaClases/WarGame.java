@@ -1,11 +1,9 @@
 package JavaClases;
 
-import WarGameV1.Soldier;
-
 import java.util.Random;
 
 public class WarGame {
-    private static WarGameV1.Soldier[] createSoldiers() {
+    private static Soldier[] createSoldiers() {
         Soldier[] soldiers = new Soldier[1000];
         for (int k = 0; k < 1000; k ++) {
             Soldier soldier = new Soldier("MIL_ID_000747");
