@@ -14,6 +14,7 @@ public class WarGame {
     public static void main(String[] args) {
         Army army = new Army();
         army.setSoldiers(createSoldiers());
+
         Soldier soldier = new Soldier("MIL_ID_000747");
         int i = 0;
         while (i <= 10000) {

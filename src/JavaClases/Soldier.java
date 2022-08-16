@@ -13,7 +13,6 @@ public class Soldier {
         this.gun.shootBullets();
     }
     public void changeShootingMode() {
-
         this.gun.changeShootingMode();
     }
 }
