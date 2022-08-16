@@ -1,15 +1,13 @@
 package ClassAssignment;
 
-public class Solutuion {
+public class Solution {
     public static String repeatSeparator(String word, String sep, int count){
-
         String bigString = "";
         for(int i=1; i<= count; i++){
-            if(i==count){
+            if(i==count)
                 bigString = bigString.concat(word);
-            }else {
+            else
                 bigString = bigString.concat(word).concat(sep);
-            }
         }
         return bigString;
     }
@@ -19,12 +17,10 @@ public class Solutuion {
         int yLastPosition = 0;
 
         for (int i = 0; i < str.toLowerCase().length(); i++) {
-            if (str.toLowerCase().charAt(i) == 'x') {
+            if (str.toLowerCase().charAt(i) == 'x')
                 xLastPosition = i;
-            }
-            if (str.toLowerCase().charAt(i) == 'y') {
+            if (str.toLowerCase().charAt(i) == 'y')
                 yLastPosition = i;
-            }
         }
 
         if(yLastPosition > xLastPosition)
@@ -35,8 +31,7 @@ public class Solutuion {
 
     public static Boolean prefixAgain(String str, int len){
         String withoutSub = str.substring(len);
-        boolean isFound = withoutSub.contains(str.substring(0, len));
-        if (isFound)
+        if (withoutSub.contains(str.substring(0, len)))
             return true;
         else
             return false;
@@ -44,9 +39,8 @@ public class Solutuion {
 
     public static String zipZap(String str){
         for(int i=0; i < (str.length()-2); i++){
-            if((str.charAt(i) == 'z') && (str.charAt(i+2) == 'p') ){
+            if((str.charAt(i) == 'z') && (str.charAt(i+2) == 'p'))
                 str = str.replace(Character.toString(str.charAt(i+1)), "");
-            }
         }
         return str;
     }
