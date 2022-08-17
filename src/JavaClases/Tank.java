@@ -14,6 +14,9 @@ public class Tank {
         this.maxShell = 500;
 
     }
+    public void reloadShell(){
+        shell = maxShell;
+    }
 
     public int getMaxShell() {
         return maxShell;
@@ -31,7 +34,8 @@ public class Tank {
         this.tankNumber = tankNumber;
     }
 
-    public void shoot() {
+    public void changeTank(String model) {
+        this.model = model;
         
     }
 }
