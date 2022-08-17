@@ -7,7 +7,6 @@ public class Tank {
     private String tankSize;
     private int maxShell;
     private String tankWeight;
-
     private Gun gun;
 
 
@@ -50,10 +49,6 @@ public class Tank {
     }
 
     public void fireShell(){
-        if(shell > 0){
-            if(tankSize == 'canon'){
-
-            }
-        }
+        System.out.println("tankNumber = " + tankNumber);
     }
 }
