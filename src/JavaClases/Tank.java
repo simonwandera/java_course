@@ -34,7 +34,7 @@ public class Tank {
         this.tankNumber = tankNumber;
     }
 
-    public void changeTank(String model) {
+    public void changeTankModel(String model) {
         this.model = model;
         
     }
