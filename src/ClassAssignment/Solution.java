@@ -24,12 +24,14 @@ public class Solution {
         }
 
         if(yLastPosition > xLastPosition)
+
             return true;
         else
             return false;
     }
 
     public static Boolean prefixAgain(String str, int len){
+
         String withoutSub = str.substring(len);
         if (withoutSub.contains(str.substring(0, len)))
             return true;
