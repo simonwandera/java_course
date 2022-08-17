@@ -20,8 +20,6 @@ public class Main {
         System.out.println(mySolution.zipZap("zopzop"));
         System.out.println(mySolution.zipZap("zzzopzop"));
         System.out.println(mySolution.zipZap("cowadia"));
-        System.out.printf("dn");
-        System.out.print("dn");
 
 
 //        System.out.println("skipped".charAt(0));

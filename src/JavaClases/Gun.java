@@ -35,11 +35,12 @@ public class Gun {
             this.setShootingMode('S');
     }
 
-    public Gun(String size) {
+    public Gun(String size, int bullets) {
         this.shootingMode = 'S';
         this.maxBullets = 1000;
         reloadBullets();
         this.gunSize = size;
+        this.bullets = bullets;
     }
     public void shootBullets() {
         if (bullets > 0)
@@ -51,6 +52,24 @@ public class Gun {
             else {
                 bullets -= 5;
                 System.out.println("-----");
+            }
+        }
+    }
+
+    public void shootMissiles() {
+        if (bullets > 0)
+        {
+            if (this.gunSize.equals("small")){
+                bullets --;
+                System.out.println("------");
+            }
+            else if(this.gunSize.equals("medium")) {
+                bullets --;
+                System.out.println("---------------");
+            } else if (this.gunSize.equals("large")) {
+                bullets --;
+                System.out.println("------------------------------");
+                
             }
         }
     }

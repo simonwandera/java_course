@@ -15,6 +15,20 @@ public class WarGame {
         Army army = new Army();
         army.setSoldiers(createSoldiers());
 
+        Tank tank = new Tank("T1123", "canon", 13, "small");
+
+        Soldier my_soldier = new Soldier("MIL_ID_000790");
+        for(int i=0; i<50; i++){
+            if(i < 15){
+                tank.setTankSize("small");
+            } else if(i < 30){
+                tank.setTankSize("medium");
+            } else {
+                tank.setTankSize("large");
+            }
+        }
+
+
         Soldier soldier = new Soldier("MIL_ID_000747");
         int i = 0;
         while (i <= 10000) {

@@ -5,7 +5,6 @@ public class Tank {
     private String model; // T-72
     private int shell;
     private String tankSize;
-    private int maxShell;
     private String tankWeight;
     private Gun gun;
 
@@ -14,29 +13,21 @@ public class Tank {
         this.tankNumber = tankNumber;
         this.model = model;
         this.shell = shell;
-        this.maxShell = 500;
         this.tankSize = size;
-        this.gun = new Gun("large");
-    }
-    public void reloadShell(){
-        shell = maxShell;
-    }
+        this.gun = new Gun("large", 30);
 
+    }
+    public void reloadShell(int reload){
+        shell = reload;
+        gun.setBullets(reload);
+    }
     public String getTankSize() {
         return tankSize;
     }
-
     public void setTankSize(String tankSize) {
         this.tankSize = tankSize;
     }
 
-    public int getMaxShell() {
-        return maxShell;
-    }
-
-    public void setMaxShell(int maxShell) {
-        this.maxShell = maxShell;
-    }
     public String getTankNumber() {
         return tankNumber;
     }
@@ -48,7 +39,25 @@ public class Tank {
         this.model = model;
     }
 
+    public int getShell() {
+        return shell;
+    }
+
+    public void setShell(int shell) {
+        this.shell = shell;
+    }
+
     public void fireShell(){
-        System.out.println("tankNumber = " + tankNumber);
+        if(this.tankSize == "small"){
+            gun.setGunSize("small");
+            gun.shootMissiles();
+        }else if(this.tankSize == "medium"){
+            gun.setGunSize("medium");
+            gun.shootMissiles();
+        } else if(this.tankSize == "large"){
+            gun.setGunSize("large");
+            gun.shootMissiles();
+        }
+        this.shell--;
     }
 }
