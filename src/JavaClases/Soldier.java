@@ -6,7 +6,7 @@ public class Soldier {
     private char type; // A or E
     public Soldier(String militaryId) {
         this.militaryId = militaryId;
-        this.gun = new Gun();
+        this.gun = new Gun("small");
     }
     public void shoot() {
         System.out.println(this.militaryId + " shooting");
