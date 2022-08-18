@@ -71,6 +71,9 @@ public class Gun {
                 System.out.println("------------------------------");
                 
             }
+        }else {
+            System.out.println("Reloadin ...");
+            this.setBullets(15);
         }
     }
     public int getBullets() {

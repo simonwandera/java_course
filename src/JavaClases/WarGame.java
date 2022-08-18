@@ -19,20 +19,28 @@ public class WarGame {
 
         Soldier my_soldier = new Soldier("MIL_ID_000790");
         for(int i=0; i<50; i++){
-            if(i < 15){
-                tank.setTankSize("small");
-            } else if(i < 30){
-                tank.setTankSize("medium");
-            } else {
-                tank.setTankSize("large");
+            if(i < 20){
+                my_soldier.changeGunSize("small");
+            } else if (i < 35) {
+                my_soldier.changeGunSize("medium");
+            }else {
+                my_soldier.changeGunSize("large");
             }
+
+            if(my_soldier.getBullets() < 1){
+                System.out.println("Reloading ...");
+                my_soldier.reloadGun();
+            }
+
+            my_soldier.shootMissile();
+
         }
 
 
         Soldier soldier = new Soldier("MIL_ID_000747");
         int i = 0;
         while (i <= 10000) {
-           soldier.shoot();
+           soldier.shootBullets();
            if (new Random().nextInt() % 2 == 0)
                soldier.changeShootingMode();
            i += 1000;
