@@ -45,5 +45,13 @@ public class WarGame {
                soldier.changeShootingMode();
            i += 1000;
         }
+
+        for(int j =0; j < 200; j++){
+            if(my_soldier.getJetMissiles() < 0){
+                System.out.println("No missiles to fire. Please Go back and reload");
+            }else {
+                my_soldier.fireJetMissile();
+            }
+        }
     }
 }
