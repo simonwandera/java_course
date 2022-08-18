@@ -38,6 +38,7 @@ public class Soldier {
 
     public void fireJetMissile(){
         this.jet.fireMissiles();
+        this.jet.missiles --;
     }
 
     public void reloadJetMissile(){

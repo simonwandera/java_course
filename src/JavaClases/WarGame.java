@@ -31,11 +31,8 @@ public class WarGame {
                 System.out.println("Reloading ...");
                 my_soldier.reloadGun();
             }
-
             my_soldier.shootMissile();
-
         }
-
 
         Soldier soldier = new Soldier("MIL_ID_000747");
         int i = 0;
@@ -49,6 +46,7 @@ public class WarGame {
         for(int j =0; j < 200; j++){
             if(my_soldier.getJetMissiles() < 0){
                 System.out.println("No missiles to fire. Please Go back and reload");
+                break;
             }else {
                 my_soldier.fireJetMissile();
             }
