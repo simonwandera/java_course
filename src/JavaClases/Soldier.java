@@ -9,7 +9,7 @@ public class Soldier {
     public Soldier(String militaryId) {
         this.militaryId = militaryId;
         this.gun = new Gun("small", 30);
-        this.jet = new Jet(12, "JET_0054");
+        this.jet = new Jet(10, "JET_0054");
     }
     public void shootBullets() {
         System.out.println(this.militaryId + " shooting");
