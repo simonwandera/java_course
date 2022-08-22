@@ -10,7 +10,6 @@ public class Jet {
 
     public void setMissiles(int missiles) {
         this.missiles = missiles;
-
     }
 
     public Jet(int missiles, String jetNo){
