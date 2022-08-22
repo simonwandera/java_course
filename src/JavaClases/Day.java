@@ -32,10 +32,8 @@ class EnumTest {
     }
 
     public static void main(String[] args) throws CloneNotSupportedException {
-        EnumTest firstDay = new EnumTest(Day.MONDAY);
-        firstDay.tellItLikeItIs();
-        EnumTest secondDay = new EnumTest(Day.TUESDAY);
-        System.out.println(firstDay);
-
+        for(Day d: Day.values()){
+            System.out.println(d.ordinal());
+        }
     }
 }
