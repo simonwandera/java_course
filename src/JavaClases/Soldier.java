@@ -1,19 +1,32 @@
 package JavaClases;
-
 public class Soldier {
     private Gun gun;
+    private boolean alive;
     private String militaryId;
     private char type; // A or E
-
     private Jet jet;
     public Soldier(String militaryId) {
         this.militaryId = militaryId;
-        this.gun = new Gun("small", 30);
-        this.jet = new Jet(10, "JET_0054");
+        this.alive = true;
     }
-    public void shootBullets() {
+
+    public boolean isAlive() {
+        return alive;
+    }
+
+    public boolean gunHasBullets() {
+        if (this.gun.getBullets() > 0)
+            return true;
+        else
+            return false;
+    }
+    public void shoot() {
         System.out.println(this.militaryId + " shooting");
         this.gun.shootBullets();
+    }
+
+    public void setGun(Gun gun) {
+        this.gun = gun;
     }
 
     public void shootMissile(){
@@ -23,15 +36,12 @@ public class Soldier {
     public void changeShootingMode() {
         this.gun.changeShootingMode();
     }
-
     public int getBullets(){
         return this.gun.getBullets();
     }
-
     public void reloadGun(){
         this.gun.setBullets(20);
     }
-
     public void changeGunSize(String size){
         this.gun.setGunSize(size);
     }
@@ -48,4 +58,10 @@ public class Soldier {
     public int getJetMissiles(){
         return this.jet.getMissiles();
     }
+
+    public void shot() {
+        this.alive = false;
+        System.out.println(this.militaryId + " Was shot");
+    }
+
 }

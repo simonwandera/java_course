@@ -37,7 +37,7 @@ public class WarGame {
         Soldier soldier = new Soldier("MIL_ID_000747");
         int i = 0;
         while (i <= 10000) {
-           soldier.shootBullets();
+           soldier.shoot();
            if (new Random().nextInt() % 2 == 0)
                soldier.changeShootingMode();
            i += 1000;
