@@ -10,6 +10,10 @@ public class MountainBike extends Bicycle{
         seatHeight = startHeight;
     }
 
+    public MountainBike() {
+        super(23,23,23);
+    }
+
     // the MountainBike subclass adds one method
     public void setHeight(int newValue) {
         seatHeight = newValue;
@@ -22,6 +26,11 @@ public class MountainBike extends Bicycle{
         System.out.println(myBike.speed);
         myBike.speedUp(12);
         System.out.println(myBike.speed);
+
+        Object obj = new MountainBike();
+
+        MountainBike mountainBike = (MountainBike)obj;
+
 
     }
 
