@@ -15,4 +15,14 @@ public class MountainBike extends Bicycle{
         seatHeight = newValue;
     }
 
+
+    public static void main(String[] args) {
+
+        MountainBike myBike = new MountainBike(12, 20, 40, 3);
+        System.out.println(myBike.speed);
+        myBike.speedUp(12);
+        System.out.println(myBike.speed);
+
+    }
+
 }
