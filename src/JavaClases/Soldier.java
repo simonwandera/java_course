@@ -3,7 +3,6 @@ public class Soldier {
     private Gun gun;
     private boolean alive;
     private String militaryId;
-    private char type; // A or E
     private Jet jet;
     public Soldier(String militaryId) {
         this.militaryId = militaryId;
@@ -63,5 +62,4 @@ public class Soldier {
         this.alive = false;
         System.out.println(this.militaryId + " Was shot");
     }
-
 }
