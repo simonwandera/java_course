@@ -14,11 +14,11 @@ public class Army {
         for (int k = 0; k < maxGuns; k ++) {
             int rand = new Random().nextInt(100);
             if (rand % 3 == 0)
-                guns[k] = new Gun("medium", 100);
+                guns[k] = new Gun("medium", 5);
             else if (rand % 5 == 0)
-                guns[k] = new Gun("small", 50);
+                guns[k] = new Gun("small", 5);
             else
-                guns[k] = new Gun("large", 250);
+                guns[k] = new Gun("large", 5);
         }
     }
 

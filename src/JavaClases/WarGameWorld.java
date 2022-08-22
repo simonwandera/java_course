@@ -3,7 +3,7 @@ package JavaClases;
 import java.util.Random;
 
 public class WarGameWorld {
-    private final static int maxSoldiers = 100;
+    private final static int maxSoldiers = 20;
     private Army ally;
     private Army enemy;
     public WarGameWorld() {
@@ -27,9 +27,8 @@ public class WarGameWorld {
 
     private void runGame() {
         // randomize enemy or ally
-        int choice = new Random().nextInt(10);
-        if (choice % 2 == 0)
-        {
+        int choice = new Random().nextInt(5);
+        if (choice % 2 == 0) {
             // enemy
             for (int k = 0; k < 10; k ++) {
                 int soldierIndex = new Random().nextInt(enemy.getSoldiers().length - 1);
@@ -38,13 +37,12 @@ public class WarGameWorld {
             // ally
             for (int k = 0; k < 10; k ++) {
                 int soldierIndex = new Random().nextInt(ally.getSoldiers().length - 1);
-                choice = new Random().nextInt(10);
+                choice = new Random().nextInt(5);
                 if (choice % 2 == 0 && ally.getSoldiers()[soldierIndex].isAlive())
                     ally.getSoldiers()[soldierIndex].shot();
             }
         }
-        else
-        {
+        else {
             for (int k = 0; k < 10; k ++) {
                 int soldierIndex = new Random().nextInt(ally.getSoldiers().length - 1);
                 ally.getSoldiers()[soldierIndex].shoot();
@@ -80,11 +78,17 @@ public class WarGameWorld {
         // [1 - All soldiers are dead,
         // [2 - No weapon has bullets
         while (true) {
-            this.runGame();
-            if (allSoldiersAreDead(ally) || allSoldiersAreDead(enemy)
-                    || noWeaponHasBullets(ally) || noWeaponHasBullets(enemy))
+
+            if (allSoldiersAreDead(ally) || allSoldiersAreDead(enemy) || noWeaponHasBullets(ally) || noWeaponHasBullets(enemy)) {
+                System.out.println("Ended");
                 break;
+
+            }
+
+            System.out.println();
+            this.runGame();
             Thread.sleep(2000);
+
         }
     }
 }

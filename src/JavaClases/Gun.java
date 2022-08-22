@@ -4,7 +4,6 @@ public class Gun {
     int bullets;
     int maxBullets;
     char shootingMode; // S for single, A for automatic 5 bullets (per shot)
-
     String gunSize;
 
     public String getGunSize() {
@@ -37,7 +36,7 @@ public class Gun {
 
     public Gun(String size, int bullets) {
         this.shootingMode = 'S';
-        this.maxBullets = 1000;
+        this.maxBullets = 5;
         reloadBullets();
         this.gunSize = size;
         this.bullets = bullets;
