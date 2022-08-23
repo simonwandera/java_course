@@ -1,11 +1,13 @@
 package JavaClases;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class WarGameWorld {
-    private final static int maxSoldiers = 20;
+    private static int maxSoldiers = 20;
     private Army ally;
     private Army enemy;
+    private boolean runWithLess = false;
     public WarGameWorld() {
         this.setupGame();
     }
@@ -27,7 +29,7 @@ public class WarGameWorld {
 
     private void runGame() {
         // randomize enemy or ally
-        int choice = new Random().nextInt(10);
+        int choice = new Random().nextInt(20);
         if (choice % 2 == 0) {
             // enemy
             for (int k = 0; k < 10; k ++) {
@@ -90,8 +92,6 @@ public class WarGameWorld {
         return deadSoldiers;
     }
 
-
-
     public void run() throws InterruptedException {
         // - Setup the game [Soldiers, Army (Ally, Enemy), Weapon Arsenal]
         // - Run the game [ Soldiers shoot at enemy, Control Weapons + Arsenal ]
@@ -106,6 +106,23 @@ public class WarGameWorld {
             }
 
             this.runGame();
+
+            Scanner sc = new Scanner(System.in);
+
+            if(!runWithLess){
+                if(maxSoldiers/2 < deadSoldiers(ally)){
+                    System.out.println("Half of the soldiers are dead, would you like to add Soldiers? (Y/N)");
+                    String answer = sc.nextLine();
+
+                    if (answer.toLowerCase().equals("y")){
+                        System.out.println("Enter the number of soldiers to add");
+                        maxSoldiers = sc.nextInt();
+                        this.setupGame();
+                    }else if(answer.toLowerCase().equals("n")) {
+                        runWithLess = true;
+                    }
+                }
+            }
             Thread.sleep(100);
 
         }
