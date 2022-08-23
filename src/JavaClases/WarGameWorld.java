@@ -1,5 +1,6 @@
 package JavaClases;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -17,11 +18,18 @@ public class WarGameWorld {
         ally = new Army();
         enemy = new Army();
         // 1000 soldiers per army
-        Soldier[] allySoldiers = new Soldier[maxSoldiers];
-        Soldier[] enemySoldiers = new Soldier[maxSoldiers];
+//        Soldier[] allySoldiers = new Soldier[maxSoldiers];
+//        Soldier[] enemySoldiers = new Soldier[maxSoldiers];
+
+        ArrayList<Soldier> allySoldiers = new ArrayList<>();
+        ArrayList<Soldier> enemySoldiers = new ArrayList<>();
+
         for (int k = 0; k < maxSoldiers; k++) {
-            allySoldiers[k] = new Soldier("ALLY_00" + k);
-            enemySoldiers[k] = new Soldier("ENEMY_00" + k);
+//            allySoldiers[k] = new Soldier("ALLY_00" + k);
+//            enemySoldiers[k] = new Soldier("ENEMY_00" + k);
+
+            allySoldiers.add(new Soldier("ALLY_00" + k));
+            enemySoldiers.add(new Soldier("ENEMY_00" + k));
         }
         ally.setSoldiers(allySoldiers);
         enemy.setSoldiers(enemySoldiers);
@@ -33,49 +41,50 @@ public class WarGameWorld {
         if (choice % 2 == 0) {
             // enemy
             for (int k = 0; k < 10; k ++) {
-                int soldierIndex = new Random().nextInt(enemy.getSoldiers().length - 1);
-                if (enemy.getSoldiers()[soldierIndex].getBullets() > 0 && enemy.getSoldiers()[soldierIndex].isAlive())
-                    enemy.getSoldiers()[soldierIndex].shoot();
+                int soldierIndex = new Random().nextInt(enemy.getSoldiers().size() - 1);
+                if (enemy.getSoldiers().get(soldierIndex).getBullets() > 0 && enemy.getSoldiers().get(soldierIndex).isAlive())
+                    enemy.getSoldiers().get(soldierIndex).shoot();
                 else
-                    enemy.getSoldiers()[soldierIndex].setAlive(false);
+                    enemy.getSoldiers().get(soldierIndex).setAlive(false);
             }
             // ally
             for (int k = 0; k < 10; k ++) {
-                int soldierIndex = new Random().nextInt(ally.getSoldiers().length - 1);
+                int soldierIndex = new Random().nextInt(ally.getSoldiers().size() - 1);
                 choice = new Random().nextInt(5);
-                if (choice % 2 == 0 && ally.getSoldiers()[soldierIndex].isAlive())
-                    ally.getSoldiers()[soldierIndex].shot();
+
+                if (choice % 2 == 0 && ally.getSoldiers().get(soldierIndex).isAlive())
+                    ally.getSoldiers().get(soldierIndex).shot();
             }
         }
         else {
             for (int k = 0; k < 10; k ++) {
-                int soldierIndex = new Random().nextInt(ally.getSoldiers().length - 1);
-                if (ally.getSoldiers()[soldierIndex].getBullets() > 0 && ally.getSoldiers()[soldierIndex].isAlive())
-                    ally.getSoldiers()[soldierIndex].shoot();
+                int soldierIndex = new Random().nextInt(ally.getSoldiers().size() - 1);
+                if (ally.getSoldiers().get(soldierIndex).getBullets() > 0 && ally.getSoldiers().get(soldierIndex).isAlive())
+                    ally.getSoldiers().get(soldierIndex).shoot();
                 else
-                    ally.getSoldiers()[soldierIndex].setAlive(false);
+                    ally.getSoldiers().get(soldierIndex).setAlive(false);
             }
             // ally
             for (int k = 0; k < 10; k ++) {
-                int soldierIndex = new Random().nextInt(enemy.getSoldiers().length - 1);
+                int soldierIndex = new Random().nextInt(enemy.getSoldiers().size() - 1);
                 choice = new Random().nextInt(10);
-                if (choice % 2 == 0 && enemy.getSoldiers()[soldierIndex].isAlive())
-                    enemy.getSoldiers()[soldierIndex].shot();
+                if (choice % 2 == 0 && enemy.getSoldiers().get(soldierIndex).isAlive())
+                    enemy.getSoldiers().get(soldierIndex).shot();
             }
         }
     }
 
     private boolean allSoldiersAreDead(Army army) {
-        for (int k = 0; k < army.getSoldiers().length; k ++)
-            if (army.getSoldiers()[k].isAlive())
+        for (int k = 0; k < army.getSoldiers().size(); k ++)
+            if (army.getSoldiers().get(k).isAlive())
                 return false;
         return true;
     }
 
     private boolean noWeaponHasBullets(Army army) {
 
-        for (int k = 0; k < army.getSoldiers().length; k++) {
-            if (army.getSoldiers()[k].gunHasBullets())
+        for (int k = 0; k < army.getSoldiers().size(); k++) {
+            if (army.getSoldiers().get(k).gunHasBullets())
                 return false;
         }
         return true;
@@ -83,12 +92,12 @@ public class WarGameWorld {
 
     private int deadSoldiers(Army army){
         int alive = 0;
-        for (int k = 0; k < army.getSoldiers().length; k++){
-            if (army.getSoldiers()[k].isAlive()) {
+        for (int k = 0; k < army.getSoldiers().size(); k++){
+            if (army.getSoldiers().get(k).isAlive()) {
                 alive = alive + 1;
             }
         }
-        int deadSoldiers = army.getSoldiers().length - alive;
+        int deadSoldiers = army.getSoldiers().size() - alive;
         return deadSoldiers;
     }
 
