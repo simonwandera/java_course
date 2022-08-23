@@ -12,7 +12,7 @@ public class ListExample {
     List <String> list3 = new Vector();
     List <String> list4 = new Stack();
 
-    private void addtoArraylit(String st){
+    public void addtoArraylist1(String st){
         list1.add(st);
     }
 
