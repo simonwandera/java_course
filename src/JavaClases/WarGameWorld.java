@@ -120,11 +120,12 @@ public class WarGameWorld {
                         this.setupGame();
                     }else if(answer.toLowerCase().equals("n")) {
                         runWithLess = true;
+                    }else {
+                        break;
                     }
                 }
             }
-            Thread.sleep(100);
-
+            Thread.sleep(2000);
         }
     }
 }
