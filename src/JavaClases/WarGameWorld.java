@@ -36,7 +36,6 @@ public class WarGameWorld {
                     enemy.getSoldiers()[soldierIndex].shoot();
                 else
                     enemy.getSoldiers()[soldierIndex].setAlive(false);
-
             }
             // ally
             for (int k = 0; k < 10; k ++) {
@@ -80,14 +79,15 @@ public class WarGameWorld {
         return true;
     }
 
-    private boolean halfSoldiersAreDead(Army army){
+    private int deadSoldiers(Army army){
         int alive = 0;
         for (int k = 0; k < army.getSoldiers().length; k++){
             if (army.getSoldiers()[k].isAlive()) {
                 alive = alive + 1;
             }
         }
-        return false;
+        int deadSoldiers = army.getSoldiers().length - alive;
+        return deadSoldiers;
     }
 
 
@@ -101,13 +101,12 @@ public class WarGameWorld {
         while (true) {
 
             if (allSoldiersAreDead(ally) || allSoldiersAreDead(enemy) || noWeaponHasBullets(ally) || noWeaponHasBullets(enemy)) {
-                System.out.println("Ended");
+                System.out.println("Exit...");
                 break;
             }
 
-            System.out.println();
             this.runGame();
-            Thread.sleep(2000);
+            Thread.sleep(100);
 
         }
     }
