@@ -32,7 +32,10 @@ public class WarGameWorld {
             // enemy
             for (int k = 0; k < 10; k ++) {
                 int soldierIndex = new Random().nextInt(enemy.getSoldiers().length - 1);
-                enemy.getSoldiers()[soldierIndex].shoot();
+                if (enemy.getSoldiers()[soldierIndex].getBullets() == 0)
+                    enemy.getSoldiers()[soldierIndex].setAlive(false);
+                else
+                    enemy.getSoldiers()[soldierIndex].shoot();
             }
             // ally
             for (int k = 0; k < 10; k ++) {
@@ -45,7 +48,10 @@ public class WarGameWorld {
         else {
             for (int k = 0; k < 10; k ++) {
                 int soldierIndex = new Random().nextInt(ally.getSoldiers().length - 1);
-                ally.getSoldiers()[soldierIndex].shoot();
+                if (ally.getSoldiers()[soldierIndex].getBullets() == 0)
+                    ally.getSoldiers()[soldierIndex].setAlive(false);
+                else
+                    ally.getSoldiers()[soldierIndex].shoot();
             }
             // ally
             for (int k = 0; k < 10; k ++) {
@@ -82,7 +88,6 @@ public class WarGameWorld {
             if (allSoldiersAreDead(ally) || allSoldiersAreDead(enemy) || noWeaponHasBullets(ally) || noWeaponHasBullets(enemy)) {
                 System.out.println("Ended");
                 break;
-
             }
 
             System.out.println();

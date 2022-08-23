@@ -13,6 +13,10 @@ public class Soldier {
         return alive;
     }
 
+    public void setAlive(boolean alive){
+        this.alive = alive;
+    }
+
     public boolean gunHasBullets() {
         if (this.gun.getBullets() > 0)
             return true;
@@ -60,6 +64,7 @@ public class Soldier {
 
     public void shot() {
         this.alive = false;
-        System.out.println(this.militaryId + " Was shot");
+        System.out.println(this.militaryId + " Was just killed");
+        this.gun.setBullets(0);
     }
 }
