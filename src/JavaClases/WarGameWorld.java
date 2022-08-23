@@ -27,15 +27,16 @@ public class WarGameWorld {
 
     private void runGame() {
         // randomize enemy or ally
-        int choice = new Random().nextInt(5);
+        int choice = new Random().nextInt(10);
         if (choice % 2 == 0) {
             // enemy
             for (int k = 0; k < 10; k ++) {
                 int soldierIndex = new Random().nextInt(enemy.getSoldiers().length - 1);
-                if (enemy.getSoldiers()[soldierIndex].getBullets() == 0)
-                    enemy.getSoldiers()[soldierIndex].setAlive(false);
-                else
+                if (enemy.getSoldiers()[soldierIndex].getBullets() > 0 && enemy.getSoldiers()[soldierIndex].isAlive())
                     enemy.getSoldiers()[soldierIndex].shoot();
+                else
+                    enemy.getSoldiers()[soldierIndex].setAlive(false);
+
             }
             // ally
             for (int k = 0; k < 10; k ++) {
@@ -48,10 +49,10 @@ public class WarGameWorld {
         else {
             for (int k = 0; k < 10; k ++) {
                 int soldierIndex = new Random().nextInt(ally.getSoldiers().length - 1);
-                if (ally.getSoldiers()[soldierIndex].getBullets() == 0)
-                    ally.getSoldiers()[soldierIndex].setAlive(false);
-                else
+                if (ally.getSoldiers()[soldierIndex].getBullets() > 0 && ally.getSoldiers()[soldierIndex].isAlive())
                     ally.getSoldiers()[soldierIndex].shoot();
+                else
+                    ally.getSoldiers()[soldierIndex].setAlive(false);
             }
             // ally
             for (int k = 0; k < 10; k ++) {
@@ -71,11 +72,25 @@ public class WarGameWorld {
     }
 
     private boolean noWeaponHasBullets(Army army) {
-        for (int k = 0; k < army.getSoldiers().length; k ++)
+
+        for (int k = 0; k < army.getSoldiers().length; k++) {
             if (army.getSoldiers()[k].gunHasBullets())
                 return false;
+        }
         return true;
     }
+
+    private boolean halfSoldiersAreDead(Army army){
+        int alive = 0;
+        for (int k = 0; k < army.getSoldiers().length; k++){
+            if (army.getSoldiers()[k].isAlive()) {
+                alive = alive + 1;
+            }
+        }
+        return false;
+    }
+
+
 
     public void run() throws InterruptedException {
         // - Setup the game [Soldiers, Army (Ally, Enemy), Weapon Arsenal]
