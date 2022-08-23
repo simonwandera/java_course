@@ -17,5 +17,11 @@ public class run {
         while (itr.hasNext()){
             System.out.println(itr.next());
         }
+
+        System.out.println("Traversing list through forEach() method:");
+
+        listExample.list1.forEach(a ->{
+            System.out.println(a);
+        });
     }
 }
