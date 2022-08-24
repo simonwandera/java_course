@@ -1,6 +1,8 @@
 package CollectionsAndDataStructures;
 
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 class Car{
     String model;
@@ -142,5 +144,11 @@ public class ArrayListPractise {
         System.out.println(csSoftwareEng);
         csClass.retainAll(csSoftwareEng);
         System.out.println(csClass);
+    }
+
+    public void isEmpty(){
+        System.out.println("Check if ArrayList is empty before clear: " + arrayList.isEmpty());
+        arrayList.clear();
+        System.out.println("Check if ArrayList is empty after clear: " + arrayList.isEmpty());
     }
 }

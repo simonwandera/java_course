@@ -15,7 +15,8 @@ public class run {
 //        arrayListPractise.traverseUsingForeachMethod();
 //        arrayListPractise.traverserCars();
 //        arrayListPractise.removeElements();
-        arrayListPractise.retainAll();
+//        arrayListPractise.retainAll();
+        arrayListPractise.isEmpty();
 
 
 
