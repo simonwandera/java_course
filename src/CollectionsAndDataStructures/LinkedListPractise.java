@@ -10,8 +10,10 @@ public class LinkedListPractise {
 
         linkedList.addAll(arrayListPractise.getArrayList());
         linkedList.add(3, "Valeria");
-        linkedList.add("Kevin");
+        linkedList.add("James");
         linkedList.addLast("Kiche");
+        linkedList.add(3,"James");
+        linkedList.add(5,"James");
         linkedList.addFirst("Erastus");
         System.out.println(linkedList);
     }
@@ -41,8 +43,10 @@ public class LinkedListPractise {
         System.out.println(linkedList);
         System.out.println("Removing the last occurence of item James");
         linkedList.removeLastOccurrence("James");
+        System.out.println(linkedList);
         System.out.println("clearing the linked list");
         linkedList.clear();
+        System.out.println(linkedList);
 
     }
 }

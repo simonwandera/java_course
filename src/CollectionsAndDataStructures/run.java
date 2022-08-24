@@ -19,11 +19,10 @@ public class run {
 //        arrayListPractise.retainAll();
 //        arrayListPractise.isEmpty();
 
-
         LinkedListPractise linkedListPractise = new LinkedListPractise();
 
-
-        linkedListPractise.displayListItems();
+//        linkedListPractise.displayListItems();
+        linkedListPractise.removeListItems();
 
 
     }
