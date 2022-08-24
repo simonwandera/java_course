@@ -8,6 +8,7 @@ public class run {
 //        arrayListPractise.traverseUsingForEach();
 //        arrayListPractise.traverseUsingForeachMethod();
 //        arrayListPractise.accessingAnElement(2);
-        arrayListPractise.sortingAndOutput();
+//        arrayListPractise.sortingAndOutput();
+        arrayListPractise.usingIteratorInterface();
     }
 }

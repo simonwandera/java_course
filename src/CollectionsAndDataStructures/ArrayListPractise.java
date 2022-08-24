@@ -1,9 +1,6 @@
 package CollectionsAndDataStructures;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class ArrayListPractise {
     List<String> arrayList = new ArrayList();
@@ -47,6 +44,13 @@ public class ArrayListPractise {
     public void sortingAndOutput(){
         Collections.sort(arrayList);
         traverseUsingForeachMethod();
+    }
+
+    public void usingIteratorInterface(){
+        Iterator itr = arrayList.iterator();
+        while (itr.hasNext()){
+            System.out.println(itr.next());
+        }
     }
 
 }
