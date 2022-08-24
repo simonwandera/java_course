@@ -92,6 +92,14 @@ public class LinkedListPractise {
             System.out.println(bicycle.bikeNumber + " " + bicycle.type + " " + bicycle.color);
         });
 
+        System.out.println("Using an iterator");
+        ListIterator<Bike> iterator = bicycles.listIterator();
+
+        while (iterator.hasNext()){
+            Bike bike = (Bike) iterator.next();
+            System.out.println(bike.bikeNumber + " " + bike.type + " " + bike.color);
+        }
+
 
     }
 }
