@@ -97,9 +97,25 @@ public class ArrayListPractise {
     public void traverserCars(){
 //        Iterator iterator = myCars.iterator();
         ListIterator<Car> iterator = myCars.listIterator();
-        while (iterator.hasNext()){
-            Car car = (Car)iterator.next();
+//        while (iterator.hasNext()){
+//            Car car = (Car)iterator.next();
+//            System.out.println(car.manufacturer + " " + car.model + " "+ car.odemeter);
+//        }
+
+        myCars.forEach( item ->{
+            Car car = (Car) item;
             System.out.println(car.manufacturer + " " + car.model + " "+ car.odemeter);
-        }
+        });
+    }
+
+    public void removeElements(){
+        System.out.println("Before removing elements");
+        traverseUsingForeachMethod();
+        arrayList.remove(0);
+        System.out.println("After removing element 0");
+        traverseUsingForeachMethod();
+        arrayList.removeIf(str -> str.toLowerCase().contains("j"));
+        System.out.println("After removeif");
+        traverseUsingForeachMethod();
     }
 }
