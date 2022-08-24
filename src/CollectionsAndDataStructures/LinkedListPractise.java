@@ -1,5 +1,6 @@
 package CollectionsAndDataStructures;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
@@ -47,6 +48,12 @@ public class LinkedListPractise {
         System.out.println("clearing the linked list");
         linkedList.clear();
         System.out.println(linkedList);
+    }
 
+    public void reverseIterator(){
+        Iterator iterator = linkedList.descendingIterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
     }
 }

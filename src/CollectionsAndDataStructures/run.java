@@ -22,8 +22,8 @@ public class run {
         LinkedListPractise linkedListPractise = new LinkedListPractise();
 
 //        linkedListPractise.displayListItems();
-        linkedListPractise.removeListItems();
-
+//        linkedListPractise.removeListItems();
+        linkedListPractise.reverseIterator();
 
     }
 }
