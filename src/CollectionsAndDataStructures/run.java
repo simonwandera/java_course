@@ -12,7 +12,8 @@ public class run {
 //        arrayListPractise.accessingAnElement(2);
 //        arrayListPractise.sortingAndOutput();
 //        arrayListPractise.usingIteratorInterface();
-        arrayListPractise.traverseUsingForeachMethod();
+//        arrayListPractise.traverseUsingForeachMethod();
+        arrayListPractise.traverserCars();
 
 
     }

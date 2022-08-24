@@ -2,8 +2,28 @@ package CollectionsAndDataStructures;
 
 import java.util.*;
 
+class Car{
+    String model;
+    String manufacturer;
+    int odemeter;
+
+    public Car(String model, String manufacturer, int odemeter) {
+        this.model = model;
+        this.manufacturer = manufacturer;
+        this.odemeter = odemeter;
+    }
+}
+
 public class ArrayListPractise {
     List<String> arrayList = new ArrayList();
+    ArrayList<Car> myCars = new ArrayList<>();
+
+    Car c1 = new Car("V8", "Ford", 180);
+    Car c2 = new Car("RandeRover", "Toyota", 100);
+    Car c3 = new Car("Lexus", "Nissan", 210);
+    Car c4 = new Car("Oppa","Totoya", 190);
+
+
 
     public ArrayListPractise() {
 
@@ -16,6 +36,12 @@ public class ArrayListPractise {
         this.arrayList.add("Jackie");
         this.arrayList.add("James");
         this.arrayList.add("Paul");
+
+
+        myCars.add(c1);
+        myCars.add(c2);
+        myCars.add(c3);
+        myCars.add(c4);
     }
 
     public void addToArraylist1(String st){
@@ -59,7 +85,6 @@ public class ArrayListPractise {
             System.out.println(litr.previous());
         }
     }
-
     public void traversigUsingForEachRemaining(){
 //        Iterator<String> iterator = arrayList.iterator();
 //        Iterator iterator = arrayList.iterator();
@@ -67,5 +92,14 @@ public class ArrayListPractise {
         iterator.forEachRemaining(item ->{
             System.out.println(item);
         });
+    }
+
+    public void traverserCars(){
+//        Iterator iterator = myCars.iterator();
+        ListIterator<Car> iterator = myCars.listIterator();
+        while (iterator.hasNext()){
+            Car car = (Car)iterator.next();
+            System.out.println(car.manufacturer + " " + car.model + " "+ car.odemeter);
+        }
     }
 }
