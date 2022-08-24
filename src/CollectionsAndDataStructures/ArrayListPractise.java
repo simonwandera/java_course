@@ -18,6 +18,9 @@ public class ArrayListPractise {
     List<String> arrayList = new ArrayList();
     ArrayList<Car> myCars = new ArrayList<>();
 
+    List<String> csClass = new ArrayList<>();
+    List<String> csSoftwareEng = new ArrayList<>();
+
     Car c1 = new Car("V8", "Ford", 180);
     Car c2 = new Car("RandeRover", "Toyota", 100);
     Car c3 = new Car("Lexus", "Nissan", 210);
@@ -36,6 +39,21 @@ public class ArrayListPractise {
         this.arrayList.add("Jackie");
         this.arrayList.add("James");
         this.arrayList.add("Paul");
+
+        this.csClass.add("Simon");
+        this.csClass.add("Jackie");
+        this.csClass.add("Jeff");
+        this.csClass.add("Livingstone");
+        this.csClass.add("Cynthia");
+        this.csClass.add("Mateo");
+        this.csClass.add("Calvin");
+
+        this.csSoftwareEng.add("Jeff");
+        this.csSoftwareEng.add("Livingstone");
+        this.csSoftwareEng.add("Calvin");
+        this.csSoftwareEng.add("Mateo");
+        this.csSoftwareEng.add("Msembi");
+
 
 
         myCars.add(c1);
@@ -117,5 +135,12 @@ public class ArrayListPractise {
         arrayList.removeIf(str -> str.toLowerCase().contains("j"));
         System.out.println("After removeif");
         traverseUsingForeachMethod();
+    }
+
+    public void retainAll(){
+        System.out.println(csClass);
+        System.out.println(csSoftwareEng);
+        csClass.retainAll(csSoftwareEng);
+        System.out.println(csClass);
     }
 }
