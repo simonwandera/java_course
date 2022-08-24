@@ -4,16 +4,12 @@ import java.util.LinkedList;
 import java.util.ListIterator;
 
 public class LinkedListPractise {
-    LinkedList<String> linkedList = new LinkedList<>();
-
+    private LinkedList<String> linkedList = new LinkedList<>();
+    ArrayListPractise arrayListPractise = new ArrayListPractise();
     public LinkedListPractise() {
-        linkedList.add("Simon");
-        linkedList.add("Jackie");
-        linkedList.add("Jeff");
-        linkedList.add("Livingstone");
-        linkedList.add("Cynthia");
-        linkedList.add("Mateo");
-        linkedList.add("Calvin");
+
+        linkedList.addAll(arrayListPractise.getArrayList());
+        System.out.println(linkedList);
     }
 
     public void displayListItems(){

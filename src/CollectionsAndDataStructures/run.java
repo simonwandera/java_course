@@ -17,10 +17,13 @@ public class run {
 //        arrayListPractise.traverserCars();
 //        arrayListPractise.removeElements();
 //        arrayListPractise.retainAll();
-        arrayListPractise.isEmpty();
+//        arrayListPractise.isEmpty();
 
 
         LinkedListPractise linkedListPractise = new LinkedListPractise();
+
+
+        linkedListPractise.displayListItems();
 
 
     }
