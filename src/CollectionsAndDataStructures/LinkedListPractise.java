@@ -9,6 +9,10 @@ public class LinkedListPractise {
     public LinkedListPractise() {
 
         linkedList.addAll(arrayListPractise.getArrayList());
+
+        linkedList.add(3, "Valeria");
+        linkedList.addLast("Kiche");
+        linkedList.addFirst("Erastus");
         System.out.println(linkedList);
     }
 
