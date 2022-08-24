@@ -23,7 +23,8 @@ public class run {
 
 //        linkedListPractise.displayListItems();
 //        linkedListPractise.removeListItems();
-        linkedListPractise.reverseIterator();
+//        linkedListPractise.reverseIterator();
+        linkedListPractise.getBicycleItems();
 
     }
 }

@@ -4,19 +4,40 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
+class Bike {
+    String type;
+    String color;
+    int bikeNumber;
+    public Bike(String type, String color, int bikeNumber) {
+        this.type = type;
+        this.color = color;
+        this.bikeNumber = bikeNumber;
+    }
+}
+
 public class LinkedListPractise {
     private LinkedList<String> linkedList = new LinkedList<>();
     ArrayListPractise arrayListPractise = new ArrayListPractise();
+    LinkedList<Bike> bicycles = new LinkedList<>();
     public LinkedListPractise() {
 
         linkedList.addAll(arrayListPractise.getArrayList());
         linkedList.add(3, "Valeria");
         linkedList.add("James");
         linkedList.addLast("Kiche");
-        linkedList.add(3,"James");
-        linkedList.add(5,"James");
+        linkedList.add(3, "James");
+        linkedList.add(5, "James");
         linkedList.addFirst("Erastus");
         System.out.println(linkedList);
+
+        Bike bike1 = new Bike("Black Mamba", "Black", 101);
+        Bike bike2 = new Bike("Mountain bike", "Yellow", 102);
+        Bike bike3 = new Bike("Sports bike", "Green", 103);
+
+        bicycles.add(bike1);
+        bicycles.add(bike2);
+        bicycles.add(bike3);
+
     }
 
     public void displayListItems(){
@@ -55,5 +76,22 @@ public class LinkedListPractise {
         while (iterator.hasNext()){
             System.out.println(iterator.next());
         }
+    }
+
+    public void getBicycleItems(){
+        for (Bike b: bicycles){
+            System.out.println(b.bikeNumber + " " + b.type + " " + b.color);
+        }
+
+//        Using forEach method
+
+        System.out.println("Using foreach() method");
+
+        bicycles.forEach( item ->{
+            Bike bicycle = (Bike) item;
+            System.out.println(bicycle.bikeNumber + " " + bicycle.type + " " + bicycle.color);
+        });
+
+
     }
 }
