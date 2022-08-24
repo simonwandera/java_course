@@ -7,6 +7,7 @@ import java.util.ListIterator;
 public class run {
     public static void main(String[] args) {
         ArrayListPractise arrayListPractise = new ArrayListPractise();
+
 //        arrayListPractise.traverseUsingForEach();
 //        arrayListPractise.traverseUsingForeachMethod();
 //        arrayListPractise.accessingAnElement(2);
@@ -18,6 +19,8 @@ public class run {
 //        arrayListPractise.retainAll();
         arrayListPractise.isEmpty();
 
+
+        LinkedListPractise linkedListPractise = new LinkedListPractise();
 
 
     }
