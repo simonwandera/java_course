@@ -4,23 +4,18 @@ import java.util.Iterator;
 
 public class run {
     public static void main(String[] args) {
-        ListExample listExample = new ListExample();
-        for(int i = 0; i < 50; i++){
-            listExample.addtoArraylist1("Added" + i);
+        ArrayListPractise listExample = new ArrayListPractise();
+        for(int i = 1; i <= 50; i++){
+            listExample.addToArraylist1("item " + i);
         }
 
-//        for (int j = 0; j < listExample.list1.size(); j++){
-//            System.out.println(j);
-//        }
-
-        Iterator itr = listExample.list1.iterator();
+        Iterator itr = listExample.arrayList.iterator();
         while (itr.hasNext()){
             System.out.println(itr.next());
         }
 
         System.out.println("Traversing list through forEach() method:");
-
-        listExample.list1.forEach(a ->{
+        listExample.arrayList.forEach(a ->{
             System.out.println(a);
         });
     }
