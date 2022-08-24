@@ -1,6 +1,8 @@
 package CollectionsAndDataStructures;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class ArrayListPractise {
@@ -41,6 +43,10 @@ public class ArrayListPractise {
     //accessing the element using get
     public void accessingAnElement(int i){
         System.out.println(arrayList.get(i));
+    }
+    public void sortingAndOutput(){
+        Collections.sort(arrayList);
+        traverseUsingForeachMethod();
     }
 
 }
