@@ -47,10 +47,16 @@ public class ArrayListPractise {
     }
 
     public void usingIteratorInterface(){
-        Iterator itr = arrayList.iterator();
+        ListIterator<String> itr = arrayList.listIterator();
         while (itr.hasNext()){
             System.out.println(itr.next());
         }
-    }
 
+//        Reverse Order
+        System.out.println("Reverse Order\n");
+        ListIterator<String> litr = arrayList.listIterator(arrayList.size());
+        while (litr.hasPrevious()){
+            System.out.println(litr.previous());
+        }
+    }
 }
