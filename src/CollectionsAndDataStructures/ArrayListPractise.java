@@ -59,4 +59,13 @@ public class ArrayListPractise {
             System.out.println(litr.previous());
         }
     }
+
+    public void traversigUsingForEachRemaining(){
+//        Iterator<String> iterator = arrayList.iterator();
+//        Iterator iterator = arrayList.iterator();
+        ListIterator<String> iterator = arrayList.listIterator();
+        iterator.forEachRemaining(item ->{
+            System.out.println(item);
+        });
+    }
 }
