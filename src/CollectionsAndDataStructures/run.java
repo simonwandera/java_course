@@ -39,7 +39,9 @@ public class run {
 //        linkedHashSetPractise.moreLinkedHashSetMethods();
 
         TreeSetPractise treeSetPractise = new TreeSetPractise();
-        treeSetPractise.iteratingItemsInATreeSet();
+//        treeSetPractise.iteratingItemsInATreeSet();
+
+        treeSetPractise.retrieveHighestAndLowest();
 
     }
 }

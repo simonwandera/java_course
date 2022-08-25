@@ -27,4 +27,9 @@ public class TreeSetPractise {
             System.out.println(descendingIterator.next());
         }
     }
+
+    public void retrieveHighestAndLowest(){
+        System.out.println("Lowest value: " + treeSet.pollLast());
+        System.out.println("Highest value: " + treeSet.pollFirst());
+    }
 }
