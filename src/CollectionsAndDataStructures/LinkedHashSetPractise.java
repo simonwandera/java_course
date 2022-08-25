@@ -61,5 +61,24 @@ public class LinkedHashSetPractise {
         }
     }
 
+    public void moreLinkedHashSetMethods(){
+        System.out.println("Getting the size of a linked hashset");
+        System.out.println(linkedHashSet.size());
+        System.out.println("Check if the linked hashset contain Amos");
+        System.out.println(linkedHashSet.contains("Amos"));
+        System.out.println("Check if the linked hashset is empty");
+        System.out.println(linkedHashSet.isEmpty());
+        System.out.println("Convert linked hashset to array");
+        linkedHashSet.toArray();
+        System.out.println("Get linked hashset to hashcode");
+        System.out.println(linkedHashSet.hashCode());
+        System.out.println("use remove using removeif");
+        linkedHashSet.removeIf(item -> item.equals("Amos"));
+        System.out.println("Printing linked hashlist");
+        System.out.println(linkedHashSet);
+        System.out.println("Clearing the linked hashlist");
+        linkedHashSet.clear();
+        System.out.println(linkedHashSet);
+    }
 
 }

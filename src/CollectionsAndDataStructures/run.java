@@ -34,8 +34,9 @@ public class run {
 
         LinkedHashSetPractise linkedHashSetPractise = new LinkedHashSetPractise();
 //        linkedHashSetPractise.removeItemsInHashSet();
-        linkedHashSetPractise.iterateCustomClassItems();
-        linkedHashSetPractise.iteratingCustonClassUsinForEach();
+//        linkedHashSetPractise.iterateCustomClassItems();
+//        linkedHashSetPractise.iteratingCustonClassUsinForEach();
+        linkedHashSetPractise.moreLinkedHashSetMethods();
 
     }
 }
