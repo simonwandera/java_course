@@ -31,8 +31,7 @@ public class run {
 
         HashSetPractise hashSetPractise = new HashSetPractise();
 //        hashSetPractise.getBookHashset();
-
-
+        
         LinkedHashSetPractise linkedHashSetPractise = new LinkedHashSetPractise();
 //        linkedHashSetPractise.removeItemsInHashSet();
         linkedHashSetPractise.iterateCustomClassItems();
