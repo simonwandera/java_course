@@ -54,5 +54,12 @@ public class LinkedHashSetPractise {
         });
     }
 
+    public void iteratingCustonClassUsinForEach(){
+        System.out.println("Iterating using foreach");
+        for (Book book: library) {
+            System.out.println(book.id + "\t" + book.publisher + "\t" + book.title + "\t"+ book.author);
+        }
+    }
+
 
 }
