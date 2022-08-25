@@ -30,7 +30,8 @@ public class run {
 //        convertArrayToList.convert();
 
         HashSetPractise hashSetPractise = new HashSetPractise();
-        hashSetPractise.getBookHashset();
-        
+//        hashSetPractise.getBookHashset();
+        hashSetPractise.removeItemsInHashSet();
+
     }
 }

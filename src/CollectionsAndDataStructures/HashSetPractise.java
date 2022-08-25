@@ -62,4 +62,15 @@ public class HashSetPractise {
         });
     }
 
+    public void removeItemsInHashSet(){
+        System.out.println("Before removing Paul, Jane and James");
+        System.out.println(hashSet);
+        hashSet.remove("Paul");
+        hashSet.remove("Jane");
+        hashSet.remove("James");
+        System.out.println("After removing paul, jane and James");
+        System.out.println(hashSet);
+
+    }
+
 }
