@@ -36,9 +36,8 @@ public class TreeSetPractise {
     public void treeSetOperations(){
         System.out.println("Initial set: " + treeSet);
         System.out.println("Reverse set: " + treeSet.descendingSet());
-        System.out.println("Head set" + treeSet.headSet("Sam", true));
+        System.out.println("Head set" + treeSet.headSet("Nancy", false));
         System.out.println("Initial set" + treeSet.tailSet("Moses", false));
         System.out.println("Initial set" + treeSet.tailSet("Moses", true));
-
     }
 }
