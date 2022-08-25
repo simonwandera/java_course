@@ -31,7 +31,10 @@ public class run {
 
         HashSetPractise hashSetPractise = new HashSetPractise();
 //        hashSetPractise.getBookHashset();
-        hashSetPractise.removeItemsInHashSet();
+
+
+        LinkedHashSetPractise linkedHashSetPractise = new LinkedHashSetPractise();
+        linkedHashSetPractise.removeItemsInHashSet();
 
     }
 }

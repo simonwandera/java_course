@@ -21,4 +21,14 @@ public class LinkedHashSetPractise {
             System.out.println(iterator.next());
         }
     }
+
+    public void removeItemsInHashSet(){
+        System.out.println("Before removing Amos, Kelly and Felix");
+        System.out.println(linkedHashSet);
+        linkedHashSet.remove("Amos");
+        linkedHashSet.remove("Kelly");
+        linkedHashSet.remove("Felix");
+        System.out.println("After removing Amos, Kelly and Felix");
+        System.out.println(linkedHashSet);
+    }
 }
