@@ -31,7 +31,6 @@ public class run {
 
         HashSetPractise hashSetPractise = new HashSetPractise();
         hashSetPractise.getBookHashset();
-
-
+        
     }
 }
