@@ -1,9 +1,5 @@
 package CollectionsAndDataStructures;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.ListIterator;
-
 public class run {
     public static void main(String[] args) {
         ArrayListPractise arrayListPractise = new ArrayListPractise();
@@ -41,7 +37,8 @@ public class run {
         TreeSetPractise treeSetPractise = new TreeSetPractise();
 //        treeSetPractise.iteratingItemsInATreeSet();
 
-        treeSetPractise.retrieveHighestAndLowest();
+//        treeSetPractise.retrieveHighestAndLowest();
+        treeSetPractise.treeSetOperations();
 
     }
 }
