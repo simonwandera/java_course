@@ -15,6 +15,7 @@ public class convertArrayToList {
             list.add(bike);
         }
 
+        list.set(2, "Kawasaki");
         System.out.println("Printing Arraylist: " + list);
     }
 }

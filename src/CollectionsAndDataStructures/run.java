@@ -27,7 +27,10 @@ public class run {
 //        linkedListPractise.getBicycleItems();
 
         convertArrayToList convertArrayToList = new convertArrayToList();
-        convertArrayToList.convert();
+//        convertArrayToList.convert();
+
+        HashSetPractise hashSetPractise = new HashSetPractise();
+        hashSetPractise.iterratingElements();
 
     }
 }
