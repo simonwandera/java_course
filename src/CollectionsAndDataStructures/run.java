@@ -36,7 +36,10 @@ public class run {
 //        linkedHashSetPractise.removeItemsInHashSet();
 //        linkedHashSetPractise.iterateCustomClassItems();
 //        linkedHashSetPractise.iteratingCustonClassUsinForEach();
-        linkedHashSetPractise.moreLinkedHashSetMethods();
+//        linkedHashSetPractise.moreLinkedHashSetMethods();
+
+        TreeSetPractise treeSetPractise = new TreeSetPractise();
+        treeSetPractise.iteratingItemsInATreeSet();
 
     }
 }
