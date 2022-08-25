@@ -37,7 +37,7 @@ public class HashSetPractise {
         Book book2 = new Book(2, "Eleven Minutes", "Paulo Coelho", "oxford Press");
         Book book3 = new Book(3, "Rich dad", "Robert Kiyasaki", "oxford Press");
         Book book4 = new Book(4, "Talking to strangers", "Paulo Coelho", "oxford Press");
-        Book book5 = new Book(5, "Weapons of math destruction", "Agnes Mwangi", "KLB Publishers");
+        Book book5 = new Book(5, "Weapons of math destruction", "Agnes Wairimu", "KLB Publishers");
         Book book6 = new Book(6, "Black and White", "Florence Mwangi", "Maseno publishers");
 
         library.add(book1);
@@ -46,6 +46,7 @@ public class HashSetPractise {
         library.add(book4);
         library.add(book5);
         library.add(book6);
+
     }
     public void iterratingElements(){
         Iterator<String> iterator = hashSet.iterator();
