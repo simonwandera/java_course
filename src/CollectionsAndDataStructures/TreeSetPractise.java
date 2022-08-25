@@ -32,4 +32,13 @@ public class TreeSetPractise {
         System.out.println("Lowest value: " + treeSet.pollLast());
         System.out.println("Highest value: " + treeSet.pollFirst());
     }
+
+    public void teeSetOperations(){
+        System.out.println("Initial set: " + treeSet);
+        System.out.println("Reverse set: " + treeSet.descendingSet());
+        System.out.println("Head set" + treeSet.headSet("Sam", true));
+        System.out.println("Initial set" + treeSet.tailSet("Moses", false));
+        System.out.println("Initial set" + treeSet.tailSet("Moses", true));
+
+    }
 }
