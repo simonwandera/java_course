@@ -34,7 +34,8 @@ public class run {
 
 
         LinkedHashSetPractise linkedHashSetPractise = new LinkedHashSetPractise();
-        linkedHashSetPractise.removeItemsInHashSet();
+//        linkedHashSetPractise.removeItemsInHashSet();
+        linkedHashSetPractise.iterateCustomClassItems();
 
     }
 }
