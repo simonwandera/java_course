@@ -10,10 +10,10 @@ public class convertArrayToList {
         String[] motorbike={"Bajaj","Boxer","Honda","Yamaha", "Dukati"};
         System.out.println("printing Array: " + Arrays.toString(motorbike));
 
-        List<String> list = new ArrayList<>();
-        for (String bike: motorbike){
-            list.add(bike);
-        }
+        List<String> list = new ArrayList<>(Arrays.asList(motorbike));
+//        for (String bike: motorbike){
+//            list.add(bike);
+//        }
 
         list.set(2, "Kawasaki");
         System.out.println("Printing Arraylist: " + list);

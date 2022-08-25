@@ -26,11 +26,12 @@ public class run {
 //        linkedListPractise.reverseIterator();
 //        linkedListPractise.getBicycleItems();
 
-        convertArrayToList convertArrayToList = new convertArrayToList();
+//        convertArrayToList convertArrayToList = new convertArrayToList();
 //        convertArrayToList.convert();
 
         HashSetPractise hashSetPractise = new HashSetPractise();
-        hashSetPractise.iterratingElements();
+        hashSetPractise.getBookHashset();
+
 
     }
 }

@@ -19,10 +19,6 @@ public class run {
         InputStreamReader inputStreamReader = new InputStreamReader(System.in);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
-       
-
-
-
 
         String names = "Bonnie, James, Mercy, George, Simon";
 

@@ -56,8 +56,6 @@ public class ArrayListPractise {
         this.csSoftwareEng.add("Mateo");
         this.csSoftwareEng.add("Msembi");
 
-
-
         myCars.add(c1);
         myCars.add(c2);
         myCars.add(c3);
