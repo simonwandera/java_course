@@ -9,6 +9,11 @@ public class Soldier {
         this.alive = true;
     }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
     public boolean isAlive() {
         return alive;
     }

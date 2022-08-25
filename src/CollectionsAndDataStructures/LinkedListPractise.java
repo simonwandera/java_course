@@ -79,12 +79,12 @@ public class LinkedListPractise {
     }
 
     public void getBicycleItems(){
+        System.out.println("Using enhanced for");
         for (Bike b: bicycles){
             System.out.println(b.bikeNumber + " " + b.type + " " + b.color);
         }
 
 //        Using forEach method
-
         System.out.println("Using foreach() method");
 
         bicycles.forEach( item ->{
@@ -99,7 +99,5 @@ public class LinkedListPractise {
             Bike bike = (Bike) iterator.next();
             System.out.println(bike.bikeNumber + " " + bike.type + " " + bike.color);
         }
-
-
     }
 }

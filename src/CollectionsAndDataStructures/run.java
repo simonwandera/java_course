@@ -24,7 +24,10 @@ public class run {
 //        linkedListPractise.displayListItems();
 //        linkedListPractise.removeListItems();
 //        linkedListPractise.reverseIterator();
-        linkedListPractise.getBicycleItems();
+//        linkedListPractise.getBicycleItems();
+
+        convertArrayToList convertArrayToList = new convertArrayToList();
+        convertArrayToList.convert();
 
     }
 }
