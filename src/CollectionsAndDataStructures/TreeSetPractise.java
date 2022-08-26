@@ -51,6 +51,11 @@ public class TreeSetPractise {
         System.out.println("Higher than Nancy: " + treeSet.higher("Nancy"));
         System.out.println(treeSet.stream().count());
         System.out.println(treeSet.size());
+
+//        Retrieves and removes the least(first) element
+        System.out.println(treeSet.pollFirst());
+//        Retrieves and removes the last elements
+        System.out.println(treeSet.pollLast());
 //        System.out.println(treeSet.);
     }
 }
