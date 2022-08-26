@@ -45,7 +45,7 @@ public class run {
 
         PriorityQueuePractise priorityQueuePractise = new PriorityQueuePractise();
 //        priorityQueuePractise.priorityQueueOperations();
-        priorityQueuePractise.IteratingPriorityQueues();
+        priorityQueuePractise.removingElementsFromPriorityQueues();
 
     }
 }
