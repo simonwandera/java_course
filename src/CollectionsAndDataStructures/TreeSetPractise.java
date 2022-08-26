@@ -6,9 +6,9 @@ import java.util.TreeSet;
 public class TreeSetPractise {
     private TreeSet<String> treeSet = new TreeSet<>();
     public TreeSetPractise() {
-        treeSet.add("Moses");
         treeSet.add("John");
         treeSet.add("Sam");
+        treeSet.add("Moses");
         treeSet.add("Duncodi");
         treeSet.add("Nancy");
         treeSet.add("Rose Ann");
@@ -39,5 +39,17 @@ public class TreeSetPractise {
         System.out.println("Head set" + treeSet.headSet("Nancy", false));
         System.out.println("Initial set" + treeSet.tailSet("Moses", false));
         System.out.println("Initial set" + treeSet.tailSet("Moses", true));
+        System.out.println(treeSet.ceiling("Moses"));
+        System.out.println(treeSet.floor("Moses"));
+        System.out.println("Last element using pollLast: " + treeSet.pollLast());
+        System.out.println("Last element using last: " + treeSet.last());
+
+        System.out.println("\nFirst element using pollFirst: " + treeSet.pollFirst());
+        System.out.println("First element using first: " + treeSet.first());
+        System.out.println(treeSet.toString().toLowerCase());
+        System.out.println(treeSet.lower("Moses"));
+        System.out.println(treeSet.stream().count());
+        System.out.println(treeSet.size());
+//        System.out.println(treeSet.);
     }
 }

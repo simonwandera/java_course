@@ -149,4 +149,14 @@ public class ArrayListPractise {
         arrayList.clear();
         System.out.println("Check if ArrayList is empty after clear: " + arrayList.isEmpty());
     }
+
+    public void displayCars(){
+
+        myCars.forEach( item ->{
+            Car car = (Car) item;
+
+            System.out.println(car.manufacturer + " " + car.model);
+        });
+
+    }
 }

@@ -15,6 +15,8 @@ public class run {
 //        arrayListPractise.retainAll();
 //        arrayListPractise.isEmpty();
 
+//        arrayListPractise.displayCars();
+
         LinkedListPractise linkedListPractise = new LinkedListPractise();
 
 //        linkedListPractise.displayListItems();

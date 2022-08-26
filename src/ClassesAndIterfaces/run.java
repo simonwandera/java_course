@@ -1,12 +1,23 @@
 package ClassesAndIterfaces;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
 public class run {
 
-    public static void main(String[] args) {
+    class Car{
+        String carName;
+        String CarNumber;
+
+        public Car(String carName, String carNumber) {
+            this.carName = carName;
+            CarNumber = carNumber;
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
         Alien alien = new Alien("al23", "James");
 
         IAlien iAlien = new Alien("al23", "James");
@@ -20,11 +31,19 @@ public class run {
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
 
-        String names = "Bonnie, James, Mercy, George, Simon";
+//        System.out.println(bufferedReader.readLine());
 
-        List<String> linkedlist = new LinkedList<>(Arrays.asList(names.split(",")));
+        System.out.println((char) inputStreamReader.read());
 
-        System.out.println(linkedlist);
+        List<Car> cars = new LinkedList<>();
+
+
+
+//        String names = "Bonnie, James, Mercy, George, Simon";
+
+//        List<String> linkedlist = new LinkedList<>(Arrays.asList(names.split(",")));
+
+//        System.out.println(linkedlist);
 
      }
 }
