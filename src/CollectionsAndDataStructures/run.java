@@ -41,7 +41,8 @@ public class run {
 
 //        treeSetPractise.retrieveHighestAndLowest();
 //        treeSetPractise.treeSetOperations();
-        treeSetPractise.generateClassElements();
+//        treeSetPractise.generateClassElements();
+        treeSetPractise.soutClassElements();
 
     }
 }

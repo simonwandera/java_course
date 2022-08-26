@@ -85,4 +85,10 @@ public class TreeSetPractise {
             System.out.println(car.carId + "\t" +car.model+ "\t" + car.odometer + "\t" + car.manufacturer);
         });
     }
+
+    public void soutClassElements(){
+       for (Car car:cars){
+           System.out.println(car.model);
+       }
+    }
 }
