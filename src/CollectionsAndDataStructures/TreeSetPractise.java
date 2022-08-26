@@ -53,9 +53,14 @@ public class TreeSetPractise {
         System.out.println(treeSet.size());
 
 //        Retrieves and removes the least(first) element
-        System.out.println(treeSet.pollFirst());
+//        System.out.println(treeSet.pollFirst());
 //        Retrieves and removes the last elements
-        System.out.println(treeSet.pollLast());
-//        System.out.println(treeSet.);
+//        System.out.println(treeSet.pollLast());
+        System.out.println("Subset: "+treeSet.subSet("Nancy", "Sam"));
+    }
+
+    public void treeSubSets(){
+        System.out.println("Inintial set: " + treeSet);
+
     }
 }
