@@ -23,7 +23,6 @@ public class run {
 //        linkedListPractise.removeListItems();
 //        linkedListPractise.reverseIterator();
 //        linkedListPractise.getBicycleItems();
-
 //        convertArrayToList convertArrayToList = new convertArrayToList();
 //        convertArrayToList.convert();
 
@@ -42,7 +41,10 @@ public class run {
 //        treeSetPractise.retrieveHighestAndLowest();
 //        treeSetPractise.treeSetOperations();
 //        treeSetPractise.generateClassElements();
-        treeSetPractise.soutClassElements();
+//        treeSetPractise.soutClassElements();
+
+        PriorityQueuePractise priorityQueuePractise = new PriorityQueuePractise();
+        priorityQueuePractise.priorityQueueOperations();
 
     }
 }
