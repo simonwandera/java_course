@@ -33,10 +33,12 @@ public class LinkedListPractise {
         Bike bike1 = new Bike("Black Mamba", "Black", 101);
         Bike bike2 = new Bike("Mountain bike", "Yellow", 102);
         Bike bike3 = new Bike("Sports bike", "Green", 103);
+        Bike bike4 = new Bike("Motor bike", "Magenta", 104);
 
         bicycles.add(bike1);
         bicycles.add(bike2);
         bicycles.add(bike3);
+        bicycles.add(bike4);
 
     }
 
