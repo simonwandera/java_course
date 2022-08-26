@@ -27,6 +27,7 @@ class Car implements Comparable<Car>{
             return 0;
         }
     }
+
 }
 
 public class ArrayListPractise {
@@ -164,10 +165,8 @@ public class ArrayListPractise {
     }
 
     public void displayCars(){
-
         myCars.forEach( item ->{
             Car car = (Car) item;
-
             System.out.println(car.manufacturer + " " + car.model);
         });
 
