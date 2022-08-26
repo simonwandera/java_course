@@ -47,7 +47,8 @@ public class TreeSetPractise {
         System.out.println("\nFirst element using pollFirst: " + treeSet.pollFirst());
         System.out.println("First element using first: " + treeSet.first());
         System.out.println(treeSet.toString().toLowerCase());
-        System.out.println(treeSet.lower("Moses"));
+        System.out.println("Lower than Rose Sam: "+ treeSet.lower("Rose Sam"));
+        System.out.println("Higher than Nancy: " + treeSet.higher("Nancy"));
         System.out.println(treeSet.stream().count());
         System.out.println(treeSet.size());
 //        System.out.println(treeSet.);
