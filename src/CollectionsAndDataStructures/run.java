@@ -40,7 +40,8 @@ public class run {
 //        treeSetPractise.iteratingItemsInATreeSet();
 
 //        treeSetPractise.retrieveHighestAndLowest();
-        treeSetPractise.treeSetOperations();
+//        treeSetPractise.treeSetOperations();
+        treeSetPractise.generateClassElements();
 
     }
 }

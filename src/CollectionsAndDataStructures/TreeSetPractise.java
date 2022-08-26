@@ -5,6 +5,7 @@ import java.util.TreeSet;
 
 public class TreeSetPractise {
     private TreeSet<String> treeSet = new TreeSet<>();
+    private TreeSet<Car> cars = new TreeSet<>();
     public TreeSetPractise() {
         treeSet.add("John");
         treeSet.add("Sam");
@@ -12,6 +13,25 @@ public class TreeSetPractise {
         treeSet.add("Duncodi");
         treeSet.add("Nancy");
         treeSet.add("Rose Ann");
+
+        Car car1 = new Car(1,"Toyota", "Toyota Kenya", 12);
+        Car car2 = new Car(2,"Oppa", "Nissan sunny", 12);
+        Car car3 = new Car(3,"Ford", "American cars", 12);
+        Car car4 = new Car(4, "Tesla", "Tesla", 12);
+        Car car5 = new Car(5,"Lamboghini", "BMW", 12);
+        Car car6 = new Car(6,"Lexus", "V8", 12);
+        Car car7 = new Car(7,"Range Rover", "Nissan", 12);
+
+        cars.add(car1);
+        cars.add(car2);
+        cars.add(car3);
+        cars.add(car4);
+        cars.add(car5);
+        cars.add(car6);
+        cars.add(car7);
+
+
+
     }
 
     public void iteratingItemsInATreeSet(){
@@ -59,8 +79,10 @@ public class TreeSetPractise {
         System.out.println("Subset: "+treeSet.subSet("Nancy", "Sam"));
     }
 
-    public void treeSubSets(){
-        System.out.println("Inintial set: " + treeSet);
-
+    public void generateClassElements(){
+        cars.forEach(item ->{
+            Car car = (Car) item;
+            System.out.println(car.carId + "\t" +car.model+ "\t" + car.odometer + "\t" + car.manufacturer);
+        });
     }
 }

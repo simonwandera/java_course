@@ -4,15 +4,28 @@ import java.awt.*;
 import java.util.*;
 import java.util.List;
 
-class Car{
+class Car implements Comparable<Car>{
+    int carId;
     String model;
     String manufacturer;
-    int odemeter;
+    int odometer;
 
-    public Car(String model, String manufacturer, int odemeter) {
+    public Car(int carId, String model, String manufacturer, int odometer) {
+        this.carId = carId;
         this.model = model;
         this.manufacturer = manufacturer;
-        this.odemeter = odemeter;
+        this.odometer = odometer;
+    }
+
+    @Override
+    public int compareTo(Car car) {
+        if(carId>car.carId){
+            return 1;
+        } else if (carId < car.carId) {
+            return -1;
+        }else {
+            return 0;
+        }
     }
 }
 
@@ -23,10 +36,10 @@ public class ArrayListPractise {
     List<String> csClass = new ArrayList<>();
     List<String> csSoftwareEng = new ArrayList<>();
 
-    Car c1 = new Car("V8", "Ford", 180);
-    Car c2 = new Car("RandeRover", "Toyota", 100);
-    Car c3 = new Car("Lexus", "Nissan", 210);
-    Car c4 = new Car("Oppa","Totoya", 190);
+    Car c1 = new Car(1,"V8", "Ford", 180);
+    Car c2 = new Car(2,"RandeRover", "Toyota", 100);
+    Car c3 = new Car(3,"Lexus", "Nissan", 210);
+    Car c4 = new Car(4,"Oppa","Totoya", 190);
 
 
 
@@ -122,7 +135,7 @@ public class ArrayListPractise {
 
         myCars.forEach( item ->{
             Car car = (Car) item;
-            System.out.println(car.manufacturer + " " + car.model + " "+ car.odemeter);
+            System.out.println(car.manufacturer + " " + car.model + " "+ car.odometer);
         });
     }
 
