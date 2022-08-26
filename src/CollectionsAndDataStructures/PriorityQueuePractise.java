@@ -1,6 +1,5 @@
 package CollectionsAndDataStructures;
 
-import java.util.Iterator;
 import java.util.PriorityQueue;
 
 public class PriorityQueuePractise {
@@ -44,6 +43,7 @@ public class PriorityQueuePractise {
         System.out.println("Head: " + priorityQueue.peek());
 
     }
+<<<<<<< HEAD
     public void IteratingPriorityQueues(){
         Iterator iterator = priorityQueue.iterator();
         while (iterator.hasNext()){
@@ -63,4 +63,6 @@ public class PriorityQueuePractise {
             System.out.println(car.model+ "\t" + car.carId + "\t" + car.manufacturer);
         });
     }
+=======
+>>>>>>> parent of 27a1a8b (Iterating priority queus)
 }

@@ -44,11 +44,15 @@ public class run {
 //        treeSetPractise.soutClassElements();
 
         PriorityQueuePractise priorityQueuePractise = new PriorityQueuePractise();
+<<<<<<< HEAD
 //        priorityQueuePractise.priorityQueueOperations();
 //        priorityQueuePractise.removingElementsFromPriorityQueues();
 //        priorityQueuePractise.IteratingPriorityQueues();
 
         priorityQueuePractise.iteratingClassElements();
+=======
+        priorityQueuePractise.priorityQueueOperations();
+>>>>>>> parent of 27a1a8b (Iterating priority queus)
 
     }
 }
