@@ -1,5 +1,6 @@
 package CollectionsAndDataStructures;
 
+import java.util.Iterator;
 import java.util.PriorityQueue;
 
 public class PriorityQueuePractise {
@@ -23,5 +24,11 @@ public class PriorityQueuePractise {
         System.out.println("Head: " + priorityQueue.element());
         System.out.println("Head: " + priorityQueue.peek());
 
+    }
+    public void IteratingPriorityQueues(){
+        Iterator iterator = priorityQueue.iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
     }
 }

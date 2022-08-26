@@ -44,7 +44,8 @@ public class run {
 //        treeSetPractise.soutClassElements();
 
         PriorityQueuePractise priorityQueuePractise = new PriorityQueuePractise();
-        priorityQueuePractise.priorityQueueOperations();
+//        priorityQueuePractise.priorityQueueOperations();
+        priorityQueuePractise.IteratingPriorityQueues();
 
     }
 }
