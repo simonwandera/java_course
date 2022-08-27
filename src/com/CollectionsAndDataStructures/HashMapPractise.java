@@ -19,4 +19,9 @@ public class HashMapPractise {
             System.out.println(entry.getKey()+ "\t" + entry.getValue());
         }
     }
+    public void iteratingUsingForeach(){
+        hashMap.forEach((key,value) ->{
+            System.out.println(key + "\t\t" + value);
+        });
+    }
 }
