@@ -53,7 +53,8 @@ public class run {
 
         ArrayDequeuePractise arrayDequeuePractise = new ArrayDequeuePractise();
 //        arrayDequeuePractise.iteratingElements();
-        arrayDequeuePractise.arrayDequeueOperations();
+//        arrayDequeuePractise.arrayDequeueOperations();
+        arrayDequeuePractise.iteratingClassElements();
 
     }
 }
