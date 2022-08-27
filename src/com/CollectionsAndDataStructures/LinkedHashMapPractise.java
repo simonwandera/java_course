@@ -15,9 +15,15 @@ public class LinkedHashMapPractise {
         linkedHashMap.put("size","100+ ha");
 
     }
-    public void traversingALinkedSet(){
+    public void traversingALinkedMap(){
         for (Map.Entry entry: linkedHashMap.entrySet()){
             System.out.println(entry.getKey() + "\t\t" + entry.getValue());
         }
+    }
+
+    public void linkedHashMapOperations(){
+        System.out.println("Keys: "+linkedHashMap.keySet());
+        System.out.println("Values: " + linkedHashMap.values());
+        System.out.println("Key Value pairs: " + linkedHashMap.entrySet());
     }
 }
