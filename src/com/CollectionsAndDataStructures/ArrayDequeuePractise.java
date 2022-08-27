@@ -24,4 +24,17 @@ public class ArrayDequeuePractise {
             System.out.println(iterator.next());
         }
     }
+
+    public void arrayDequeueOperations(){
+        System.out.println("ArrayDequeue: " + arrayDeque);
+        System.out.println("Element: " + arrayDeque.element());
+        System.out.println("Peek: "+arrayDeque.peek());
+        System.out.println("Size: "+ arrayDeque.size());
+        System.out.println("getFirst: "+arrayDeque.getFirst());
+        System.out.println("getLast: "+arrayDeque.getLast());
+        System.out.println("peekFirst: "+arrayDeque.peekFirst());
+        System.out.println("Poll: "+arrayDeque.poll());
+        System.out.println("pollFirst: "+arrayDeque.pollFirst());
+        System.out.println("Remove: " +arrayDeque.remove());
+    }
 }

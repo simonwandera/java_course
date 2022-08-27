@@ -52,7 +52,8 @@ public class run {
 //        priorityQueuePractise.priorityQueueOperations();
 
         ArrayDequeuePractise arrayDequeuePractise = new ArrayDequeuePractise();
-        arrayDequeuePractise.iteratingElements();
+//        arrayDequeuePractise.iteratingElements();
+        arrayDequeuePractise.arrayDequeueOperations();
 
     }
 }
