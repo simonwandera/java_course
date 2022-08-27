@@ -65,7 +65,8 @@ public class run {
         HashMapPractise hashMapPractise = new HashMapPractise();
 //        hashMapPractise.iteratingAHashMap();
 //        hashMapPractise.iteratingUsingForeach();
-        hashMapPractise.usingAddOperations();
+//        hashMapPractise.usingAddOperations();
+        hashMapPractise.usingReplaceOperations();
     }
 
 }

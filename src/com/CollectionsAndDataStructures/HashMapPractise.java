@@ -44,9 +44,18 @@ public class HashMapPractise {
         newColors.put(12,"Golden");
         newColors.put(13,"Colorless");
 
-
         hashMap.putAll(newColors);
         System.out.println(hashMap);
 
+    }
+
+    public void usingReplaceOperations(){
+        System.out.println(hashMap);
+        hashMap.replace(3,"Purple");
+        hashMap.replace(4, "Orange","Blue");
+        System.out.println(hashMap);
+
+        hashMap.replaceAll((key, value) -> "Shiny");
+        System.out.println(hashMap);
     }
 }
