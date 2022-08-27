@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class LinkedHashMapPractise {
     private LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<>();
+    protected LinkedHashMap<Integer, Song> mySongs = new LinkedHashMap<>();
     public LinkedHashMapPractise() {
 
         linkedHashMap.put("name","Maseno");
@@ -29,5 +30,24 @@ public class LinkedHashMapPractise {
         System.out.println("Removing elements from liked hash map");
         linkedHashMap.remove("class");
         System.out.println(linkedHashMap);
+    }
+
+    public void LinkedHashMapWithCustomClass(){
+
+        Song song1 = new Song(1, "Circles", "Post Malone");
+        Song song2 = new Song(2, "Nakupenda", "Joy Melody");
+        Song song3 = new Song(3, "For My Hand", "Burna Boy");
+        Song song4 = new Song(4, "GirlFriend", "Chakka Da'Soul");
+        Song song5 = new Song(5, "Mirracle", "Wilson Bugembe");
+        Song song6 = new Song(6, "Cocaine", "Dai verse");
+
+        mySongs.put(1, song1);
+        mySongs.put(2, song2);
+        mySongs.put(3, song3);
+        mySongs.put(4, song4);
+        mySongs.put(5, song5);
+        mySongs.put(6, song6);
+
+
     }
 }
