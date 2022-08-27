@@ -67,7 +67,10 @@ public class run {
 //        hashMapPractise.iteratingUsingForeach();
 //        hashMapPractise.usingAddOperations();
 //        hashMapPractise.usingReplaceOperations();
-        hashMapPractise.traversingHashMapWithCustomClass();
+//        hashMapPractise.traversingHashMapWithCustomClass();
+
+        LinkedHashMapPractise linkedHashMapPractise = new LinkedHashMapPractise();
+//        linkedHashMapPractise.traversingALinkedSet();
     }
 
 }

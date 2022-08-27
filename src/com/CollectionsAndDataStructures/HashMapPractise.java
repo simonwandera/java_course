@@ -35,12 +35,14 @@ public class HashMapPractise {
         Song song5 = new Song(5, "Fantasy", "Blask Box");
         Song song6 = new Song(6, "Congratulations", "Post Malone");
 
+
+        songs.put(5, song5);
+        songs.put(6, song6);
         songs.put(1,song1);
         songs.put(2, song2);
         songs.put(3, song3);
         songs.put(4, song4);
-        songs.put(5, song5);
-        songs.put(6, song6);
+
 
 
     }
