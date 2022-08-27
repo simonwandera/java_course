@@ -36,5 +36,7 @@ public class ArrayDequeuePractise {
         System.out.println("Poll: "+arrayDeque.poll());
         System.out.println("pollFirst: "+arrayDeque.pollFirst());
         System.out.println("Remove: " +arrayDeque.remove());
+        System.out.println("RemoveFirst: " + arrayDeque.removeFirst());
+        System.out.println("removeLast: "+ arrayDeque.removeLast());
     }
 }
