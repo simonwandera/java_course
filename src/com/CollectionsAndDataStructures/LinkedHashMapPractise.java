@@ -25,5 +25,9 @@ public class LinkedHashMapPractise {
         System.out.println("Keys: "+linkedHashMap.keySet());
         System.out.println("Values: " + linkedHashMap.values());
         System.out.println("Key Value pairs: " + linkedHashMap.entrySet());
+
+        System.out.println("Removing elements from liked hash map");
+        linkedHashMap.remove("class");
+        System.out.println(linkedHashMap);
     }
 }

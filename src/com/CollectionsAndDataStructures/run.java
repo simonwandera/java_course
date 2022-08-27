@@ -70,7 +70,7 @@ public class run {
 //        hashMapPractise.traversingHashMapWithCustomClass();
 
         LinkedHashMapPractise linkedHashMapPractise = new LinkedHashMapPractise();
-        linkedHashMapPractise.traversingALinkedSet();
+       linkedHashMapPractise.linkedHashMapOperations();
     }
 
 }
