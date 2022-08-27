@@ -12,6 +12,7 @@ public class HashMapPractise {
         hashMap.put(4, "Orange");
         hashMap.put(5, "Magenta");
         hashMap.put(6, "Pink");
+        hashMap.put(2, "Grey");
     }
 
     public void iteratingAHashMap(){
