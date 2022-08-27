@@ -20,6 +20,9 @@ public class MapPractise {
 
     public void mapOperations(){
         System.out.println(hashMap.entrySet());
-        
+        System.out.println("\ncomparing by Key");
+        hashMap.entrySet().stream().sorted(Map.Entry.comparingByKey()).forEach(System.out::println);
+        System.out.println("\nComparing by value");
+        hashMap.entrySet().stream().sorted(Map.Entry.comparingByValue()).forEach(System.out::println);
     }
 }
