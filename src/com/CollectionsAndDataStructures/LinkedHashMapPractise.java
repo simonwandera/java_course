@@ -51,7 +51,8 @@ public class LinkedHashMapPractise {
 //        travering
 
         mySongs.forEach((key, value) -> {
-            System.out.println(key + "\t\t" + );
+            Song song = (Song)value;
+            System.out.println(key + "\t\t" + value.singId + "\t\t" + value.title+ "\t\t" + value.artist);
 
         } );
 
