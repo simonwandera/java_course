@@ -50,11 +50,15 @@ public class LinkedHashMapPractise {
 
 //        travering
 
-        mySongs.forEach((key, value) -> {
-            Song song = (Song)value;
-            System.out.println(key + "\t\t" + value.singId + "\t\t" + value.title+ "\t\t" + value.artist);
+//        mySongs.forEach((key, value) -> {
+//            Song song = (Song)value;
+//            System.out.println(key + "\t\t" + value.singId + "\t\t" + value.title+ "\t\t" + value.artist);
+//        });
 
-        } );
+        for (Map.Entry entry: mySongs.entrySet()){
+            Song song = (Song) entry.getValue();
+            System.out.println(entry.getKey() + "\t\t" + song.artist);
+        }
 
 
     }
