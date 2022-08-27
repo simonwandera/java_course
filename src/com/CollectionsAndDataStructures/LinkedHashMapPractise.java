@@ -48,6 +48,13 @@ public class LinkedHashMapPractise {
         mySongs.put(5, song5);
         mySongs.put(6, song6);
 
+//        travering
+
+        mySongs.forEach((key, value) -> {
+            System.out.println(key + "\t\t" + );
+
+        } );
+
 
     }
 }
