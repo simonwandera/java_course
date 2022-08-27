@@ -1,5 +1,7 @@
 package com.CollectionsAndDataStructures;
 
+import java.util.HashMap;
+
 public class run {
     public static void main(String[] args) {
         ArrayListPractise arrayListPractise = new ArrayListPractise();
@@ -58,7 +60,10 @@ public class run {
 
         MapPractise mapPractise = new MapPractise();
 //        mapPractise.traversingElements();
-        mapPractise.mapOperations();
+//        mapPractise.mapOperations();
+
+        HashMapPractise hashMapPractise = new HashMapPractise();
+        hashMapPractise.iteratingAHashMap();
     }
 
 }
