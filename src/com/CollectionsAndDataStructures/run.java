@@ -48,8 +48,11 @@ public class run {
 //        priorityQueuePractise.removingElementsFromPriorityQueues();
 //        priorityQueuePractise.IteratingPriorityQueues();
 
-        priorityQueuePractise.iteratingClassElements();
-        priorityQueuePractise.priorityQueueOperations();
+//        priorityQueuePractise.iteratingClassElements();
+//        priorityQueuePractise.priorityQueueOperations();
+
+        ArrayDequeuePractise arrayDequeuePractise = new ArrayDequeuePractise();
+        arrayDequeuePractise.iteratingElements();
 
     }
 }

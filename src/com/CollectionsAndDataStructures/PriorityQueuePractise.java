@@ -35,6 +35,7 @@ public class PriorityQueuePractise {
         bikeQueue.add(car6);
         bikeQueue.add(car7);
 
+
     }
     public void priorityQueueOperations(){
 
