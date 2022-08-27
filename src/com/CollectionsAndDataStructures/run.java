@@ -57,7 +57,8 @@ public class run {
 //        arrayDequeuePractise.iteratingClassElements();
 
         MapPractise mapPractise = new MapPractise();
-        mapPractise.traversingElements();
+//        mapPractise.traversingElements();
+        mapPractise.mapOperations();
     }
 
 }

@@ -17,4 +17,9 @@ public class MapPractise {
             System.out.println(m.getKey()+ "\t" + m.getValue());
         }
     }
+
+    public void mapOperations(){
+        System.out.println(hashMap.entrySet());
+        
+    }
 }
