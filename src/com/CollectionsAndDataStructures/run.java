@@ -73,7 +73,8 @@ public class run {
 //       linkedHashMapPractise.linkedHashMapOperations();
 //        linkedHashMapPractise.LinkedHashMapWithCustomClass();
         TreeMapPractise treeMapPractise = new TreeMapPractise();
-        treeMapPractise.iteratingTreeMap();
+//        treeMapPractise.iteratingTreeMap();
+        treeMapPractise.removeOperations();
     }
 
 }

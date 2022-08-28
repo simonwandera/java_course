@@ -21,6 +21,13 @@ public class TreeMapPractise {
         for (Map.Entry entries: treeMap.entrySet()){
             System.out.println(entries.getKey() + "\t" + entries.getValue());
         }
+    }
 
+    public void removeOperations(){
+        System.out.println("Before invoking remove() method");
+        System.out.println(treeMap);
+        treeMap.remove(1);
+        System.out.println("After invoking the remove method");
+        System.out.println(treeMap);
     }
 }
