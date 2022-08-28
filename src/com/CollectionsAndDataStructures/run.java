@@ -76,7 +76,9 @@ public class run {
 //        treeMapPractise.iteratingTreeMap();
 //        treeMapPractise.removeOperations();
         NavigableMapPractise navigableMapPractise = new NavigableMapPractise();
-        navigableMapPractise.NavigableMapOperations();
+//        navigableMapPractise.NavigableMapOperations();
+//        treeMapPractise.sortedTreeMap();
+        treeMapPractise.traversingClassElements();
     }
 
 }
