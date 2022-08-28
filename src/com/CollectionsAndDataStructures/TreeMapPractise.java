@@ -1,8 +1,24 @@
 package com.CollectionsAndDataStructures;
 
 import java.util.Map;
+import java.util.NavigableMap;
 import java.util.TreeMap;
 
+
+class NavigableMapPractise{
+
+    private NavigableMap<Integer, String> navigableMap = new TreeMap<>();
+    public NavigableMapPractise() {
+        navigableMap.put(100,"Amit");
+        navigableMap.put(102,"Ravi");
+        navigableMap.put(101,"Vijay");
+        navigableMap.put(103,"Rahul");
+    }
+
+    public void NavigableMapOperations(){
+
+    }
+}
 public class TreeMapPractise {
     private TreeMap<Integer, String> treeMap = new TreeMap<>();
 
@@ -29,5 +45,6 @@ public class TreeMapPractise {
         treeMap.remove(1);
         System.out.println("After invoking the remove method");
         System.out.println(treeMap);
+
     }
 }
