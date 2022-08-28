@@ -78,9 +78,14 @@ public class TreeMapPractise {
     }
 
     public void traversingClassElements(){
-        for (Map.Entry entry: playlist.entrySet()){
-            Song song = (Song)entry.getValue();
-            System.out.println(entry.getKey() + "\t" + song.title);
-        }
+//        for (Map.Entry entry: playlist.entrySet()){
+//            Song song = (Song)entry.getValue();
+//            System.out.println(entry.getKey() + "\t" + song.title);
+//        }
+
+//        Using foreach
+        playlist.forEach((key, value) ->{
+            System.out.println(key + "\t\t" + value.artist + "\t\t" + value.title);
+        });
     }
 }
