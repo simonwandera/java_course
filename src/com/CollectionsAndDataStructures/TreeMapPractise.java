@@ -1,5 +1,6 @@
 package com.CollectionsAndDataStructures;
 
+import java.util.Map;
 import java.util.TreeMap;
 
 public class TreeMapPractise {
@@ -7,11 +8,19 @@ public class TreeMapPractise {
 
     public TreeMapPractise() {
         treeMap.put(1, "Pig");
-        treeMap.put(2, "Pig");
-        treeMap.put(3, "Pig");
-        treeMap.put(4, "Pig");
-        treeMap.put(5, "Pig");
-        treeMap.put(6, "Pig");
-        treeMap.put(7, "Pig");
+        treeMap.put(2, "Goat");
+        treeMap.put(5, "Horse");
+        treeMap.put(6, "Rabbit");
+        treeMap.put(7, "Sheep");
+        treeMap.put(3, "Cow");
+        treeMap.put(4, "Donkey");
+
+    }
+
+    public void iteratingTreeMap(){
+        for (Map.Entry entries: treeMap.entrySet()){
+            System.out.println(entries.getKey() + "\t" + entries.getValue());
+        }
+
     }
 }
