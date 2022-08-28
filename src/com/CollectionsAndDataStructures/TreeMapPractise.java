@@ -16,6 +16,11 @@ class NavigableMapPractise{
     }
 
     public void NavigableMapOperations(){
+        System.out.println("Navigable Map: "+ navigableMap);
+        System.out.println("Descending map: "+ navigableMap.descendingMap());
+        System.out.println("HeadMap" + navigableMap.headMap(102, true));
+        System.out.println("tailMap: "+navigableMap.tailMap(102,true));
+        System.out.println("subMap: "+navigableMap.subMap(100, false, 102, true));
 
     }
 }
