@@ -1,9 +1,6 @@
 package com.CollectionsAndDataStructures;
 
-import java.util.Map;
-import java.util.NavigableMap;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.*;
 
 
 class NavigableMapPractise{
@@ -30,6 +27,10 @@ public class TreeMapPractise {
     private SortedMap<Integer, String> sortedMap = new TreeMap<>();
 
     private TreeMap<Integer, Song> playlist = new TreeMap<>();
+
+    public enum days{
+        Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+    }
 
     public TreeMapPractise() {
         treeMap.put(1, "Pig");
@@ -62,6 +63,8 @@ public class TreeMapPractise {
         for (Map.Entry entries: treeMap.entrySet()){
             System.out.println(entries.getKey() + "\t" + entries.getValue());
         }
+
+
     }
 
     public void removeOperations(){
@@ -87,5 +90,10 @@ public class TreeMapPractise {
         playlist.forEach((key, value) ->{
             System.out.println(key + "\t\t" + value.artist + "\t\t" + value.title);
         });
+
+        
+
+
+
     }
 }
