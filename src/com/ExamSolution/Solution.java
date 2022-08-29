@@ -56,7 +56,6 @@ public class Solution {
     }
 
     public void shuffleElementsInAList(){
-
         List<String> playlist = new ArrayList<>();
 
         playlist.add("Dior");
@@ -69,8 +68,20 @@ public class Solution {
         playlist.add("Cooped up");
 
 //        Shuffling elements using collection.shuffle
-
         Collections.shuffle(playlist);
         System.out.println(playlist);
+    }
+
+    public void findMaximumAndMinimum(){
+        List<Integer> marks = new ArrayList<>();
+        marks.add(155);
+        marks.add(101);
+        marks.add(121);
+        marks.add(143);
+        marks.add(138);
+        marks.add(156);
+
+        System.out.println("Maximum value is: "+ Collections.max(marks));
+        System.out.println("Minimum value is: "+ Collections.min(marks));
     }
 }

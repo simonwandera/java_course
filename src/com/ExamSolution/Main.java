@@ -7,6 +7,7 @@ public class Main {
 //        solution.missingNumberInIntegerArray();
 //        solution.traverseAList();
 //        solution.convertAListToArray();
-        solution.shuffleElementsInAList();
+//        solution.shuffleElementsInAList();
+        solution.findMaximumAndMinimum();
     }
 }
