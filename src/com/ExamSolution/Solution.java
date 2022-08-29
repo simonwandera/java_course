@@ -161,6 +161,7 @@ public class Solution {
         arrayList.add(132);
         arrayList.add(142);
         arrayList.add(172);
+        arrayList.add(102);
 
         Solution solution = new Solution();
         solution.missingNumberInIntegerArray();
