@@ -30,8 +30,6 @@ public class TreeSetPractise {
         cars.add(car6);
         cars.add(car7);
 
-
-
     }
 
     public void iteratingItemsInATreeSet(){
