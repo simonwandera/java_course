@@ -5,18 +5,23 @@ import java.util.*;
 public class Solution {
 
     public void missingNumberInIntegerArray(){
-        int [] integerArray = new int[100];
+        Integer [] integerArray = new Integer[100];
 
         for(int i=0; i<= integerArray.length -1 ; i++ ){
             int newNumber = new Random().nextInt(1, 101);
             integerArray[i] = newNumber;
-//            System.out.println(i);
         }
 
-        for(int i=0; i< integerArray.length; i++){
-            System.out.println(integerArray[i]);
-        }
+        List<Integer> integerList = Arrays.asList(integerArray);
+        String missingDigits = "";
 
+        for(int i=1; i< integerList.size(); i++){
+           if(integerList.contains(i)){
+               continue;
+           }else{
+               System.out.println(i + " Is missing");
+           }
+        }
     }
 
     public void traverseAList(){
@@ -119,10 +124,10 @@ public class Solution {
     }
 
     public void findOccurrenceOfAllAlphabets(String str){
-        
+
         int letterCount = 0;
         for (int i=0; i< str.length(); i++){
-            if(Character.isLetter(str.charAt(i))){
+            if(Character.isAlphabetic(str.charAt(i))){
                 letterCount++;
             }
         }

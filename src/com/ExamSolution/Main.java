@@ -20,13 +20,13 @@ public class Main {
         arrayList.add(172);
 
         Solution solution = new Solution();
-//        solution.missingNumberInIntegerArray();
+        solution.missingNumberInIntegerArray();
 //        solution.traverseAList();
 //        solution.convertAListToArray();
 //        solution.shuffleElementsInAList();
 //        solution.findMaximumAndMinimum(arrayList);
 //        solution.sortArrayOfIntegers(integerArray);
 //        solution.findVowelsConsonantsDigitsAndWhiteSpaces(str);
-        solution.findOccurrenceOfAllAlphabets(str);
+//        solution.findOccurrenceOfAllAlphabets(str);
     }
 }
