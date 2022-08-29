@@ -24,6 +24,20 @@ public class Solution {
         }
     }
 
+    public void findDuplicateNumber(){
+
+        int [] integerArray = new int[]{1,3,4,2,4,5,6,76,11,4,6};
+
+        for (int i = 0; i < integerArray.length; i++) {
+            for (int j = i + 1 ; j < integerArray.length; j++) {
+                if (integerArray[i] == integerArray[j]) {
+                    System.out.println("Duplicate: "+integerArray[j]);
+                }
+            }
+        }
+
+    }
+
     public void traverseAList(){
         List<String> cars = new ArrayList<>();
         cars.add("Bughati");
@@ -132,5 +146,31 @@ public class Solution {
             }
         }
         System.out.println(letterCount);
+    }
+
+    public static void main(String[] args) {
+
+        Integer[] integerArray = {2,5,8,9,20,5,7,18,4,9,2,7,12};
+
+        String str = "Conquering CSS5 designs in 21 days";
+
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        arrayList.add(182);
+        arrayList.add(112);
+        arrayList.add(142);
+        arrayList.add(132);
+        arrayList.add(142);
+        arrayList.add(172);
+
+        Solution solution = new Solution();
+        solution.missingNumberInIntegerArray();
+        solution.findDuplicateNumber();
+        solution.traverseAList();
+        solution.convertAListToArray();
+        solution.shuffleElementsInAList();
+        solution.findMaximumAndMinimum(arrayList);
+        solution.sortArrayOfIntegers(integerArray);
+        solution.findVowelsConsonantsDigitsAndWhiteSpaces(str);
+        solution.findOccurrenceOfAllAlphabets(str);
     }
 }
