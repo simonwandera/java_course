@@ -72,16 +72,18 @@ public class Solution {
         System.out.println(playlist);
     }
 
-    public void findMaximumAndMinimum(){
-        List<Integer> marks = new ArrayList<>();
-        marks.add(155);
-        marks.add(101);
-        marks.add(121);
-        marks.add(143);
-        marks.add(138);
-        marks.add(156);
+    public void findMaximumAndMinimum(ArrayList<Integer> list){
 
-        System.out.println("Maximum value is: "+ Collections.max(marks));
-        System.out.println("Minimum value is: "+ Collections.min(marks));
+        System.out.println("Maximum value is: "+ Collections.max(list));
+        System.out.println("Minimum value is: "+ Collections.min(list));
+    }
+
+    public void sortArrayOfIntegers(Integer[] myArray){
+//Sorting in ascending order
+        Arrays.sort(myArray);
+        System.out.println(Arrays.toString(myArray));
+//Sorting in reverse order
+        Arrays.sort(myArray, Collections.reverseOrder());
+        System.out.println(Arrays.toString(myArray));
     }
 }
