@@ -86,4 +86,35 @@ public class Solution {
         Arrays.sort(myArray, Collections.reverseOrder());
         System.out.println(Arrays.toString(myArray));
     }
+
+    public void findVowelsConsonantsDigitsAndWhiteSpaces(String str){
+        int vowels = 0;
+        int consonants = 0;
+        int digits = 0;
+        int whiteSpaces = 0;
+
+        str = str.toLowerCase();
+        for (int i=0; i<str.length(); i++){
+
+            if(str.charAt(i) == 'a' || str.charAt(i) == 'e' || str.charAt(i) == 'i' || str.charAt(i) == 'o' || str.charAt(i) == 'u') {
+                //Increments the vowel counter
+                vowels++;
+            } else if(str.charAt(i) == '1' || str.charAt(i) == '2' || str.charAt(i) == '3' || str.charAt(i) == '4' || str.charAt(i) == '5' || str.charAt(i) == '6' || str.charAt(i) == '7' || str.charAt(i) == '8' || str.charAt(i) == '9' || str.charAt(i) == '0'){
+                //Increments the digits counter
+                digits++;
+            } else if (str.charAt(i) == ' '){
+                //Increments the whitespace counter
+                whiteSpaces++;
+            }else {
+                //Increments the consonants counter
+                consonants++;
+            }
+        }
+
+        System.out.println("whiteSpaces = " + whiteSpaces);
+        System.out.println("consonants = " + consonants);
+        System.out.println("digits = " + digits);
+        System.out.println("vowels = " + vowels);
+
+    }
 }
