@@ -6,6 +6,7 @@ public class Main {
         Solution solution = new Solution();
 //        solution.missingNumberInIntegerArray();
 //        solution.traverseAList();
-        solution.convertAListToArray();
+//        solution.convertAListToArray();
+        solution.shuffleElementsInAList();
     }
 }

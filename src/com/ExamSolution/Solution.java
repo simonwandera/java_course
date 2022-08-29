@@ -1,9 +1,6 @@
 package com.ExamSolution;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Solution {
 
@@ -56,6 +53,24 @@ public class Solution {
         for (String color: colorsArray){
             System.out.println("color: " + color);
         }
+    }
 
+    public void shuffleElementsInAList(){
+
+        List<String> playlist = new ArrayList<>();
+
+        playlist.add("Dior");
+        playlist.add("Goodbyes");
+        playlist.add("Rockstar");
+        playlist.add("Congratulations");
+        playlist.add("Better now");
+        playlist.add("Circles");
+        playlist.add("Hollywood's bleeding");
+        playlist.add("Cooped up");
+
+//        Shuffling elements using collection.shuffle
+
+        Collections.shuffle(playlist);
+        System.out.println(playlist);
     }
 }
