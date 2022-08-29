@@ -35,7 +35,27 @@ public class Solution {
         cars.forEach(element ->{
             System.out.println(element);
         });
-
     }
 
+    public void convertAListToArray(){
+        List<String> colorsList = new ArrayList<>();
+
+        colorsList.add("Green");
+        colorsList.add("Yellow");
+        colorsList.add("Magenta");
+        colorsList.add("Cian");
+        colorsList.add("Pink");
+        colorsList.add("Purple");
+        colorsList.add("White");
+        colorsList.add("Red");
+
+//convert list to array using toArray method
+        String[] colorsArray = colorsList.toArray(new String[0]);
+
+//traversing the array
+        for (String color: colorsArray){
+            System.out.println("color: " + color);
+        }
+
+    }
 }
