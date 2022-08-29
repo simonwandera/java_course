@@ -99,10 +99,10 @@ public class Solution {
             if(str.charAt(i) == 'a' || str.charAt(i) == 'e' || str.charAt(i) == 'i' || str.charAt(i) == 'o' || str.charAt(i) == 'u') {
                 //Increments the vowel counter
                 vowels++;
-            } else if(str.charAt(i) == '1' || str.charAt(i) == '2' || str.charAt(i) == '3' || str.charAt(i) == '4' || str.charAt(i) == '5' || str.charAt(i) == '6' || str.charAt(i) == '7' || str.charAt(i) == '8' || str.charAt(i) == '9' || str.charAt(i) == '0'){
+            } else if(Character.isDigit(str.charAt(i))){
                 //Increments the digits counter
                 digits++;
-            } else if (str.charAt(i) == ' '){
+            } else if (Character.isWhitespace(str.charAt(i))){
                 //Increments the whitespace counter
                 whiteSpaces++;
             }else {
@@ -116,5 +116,16 @@ public class Solution {
         System.out.println("digits = " + digits);
         System.out.println("vowels = " + vowels);
 
+    }
+
+    public void findOccurrenceOfAllAlphabets(String str){
+        
+        int letterCount = 0;
+        for (int i=0; i< str.length(); i++){
+            if(Character.isLetter(str.charAt(i))){
+                letterCount++;
+            }
+        }
+        System.out.println(letterCount);
     }
 }

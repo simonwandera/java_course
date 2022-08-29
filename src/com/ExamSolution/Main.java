@@ -9,7 +9,7 @@ public class Main {
 
         Integer[] integerArray = {2,5,8,9,20,5,7,18,4,9,2,7,12};
 
-        String str = "Conquering CSS designs in 21 days";
+        String str = "Conquering CSS5 designs in 21 days";
 
         ArrayList<Integer> arrayList = new ArrayList<>();
         arrayList.add(182);
@@ -26,6 +26,7 @@ public class Main {
 //        solution.shuffleElementsInAList();
 //        solution.findMaximumAndMinimum(arrayList);
 //        solution.sortArrayOfIntegers(integerArray);
-        solution.findVowelsConsonantsDigitsAndWhiteSpaces(str);
+//        solution.findVowelsConsonantsDigitsAndWhiteSpaces(str);
+        solution.findOccurrenceOfAllAlphabets(str);
     }
 }
