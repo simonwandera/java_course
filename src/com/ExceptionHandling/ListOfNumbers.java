@@ -32,6 +32,10 @@ public class ListOfNumbers {
                 // The get(int) method throws IndexOutOfBoundsException, which must be caught.
                 out.println("Value at: " + i + " = " + list.get(i));
             }
+        }catch (IndexOutOfBoundsException e){
+            System.err.println("IndexOutOfBoundsException: " + e.getMessage());
+        }catch (IOException e){
+            System.err.println("Caught IOException: " + e.getMessage());
         }
 
         out.close();
