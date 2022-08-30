@@ -28,16 +28,20 @@ public class ListOfNumbers {
             System.out.println("Entered try statement");
             FileWriter f = new FileWriter("OutFile.txt");
             out = new PrintWriter(f);
-            for (int i = 0; i < SIZE; i++) {
+            for (int i = 0; i < SIZE + 2; i++) {
                 // The get(int) method throws IndexOutOfBoundsException, which must be caught.
                 out.println("Value at: " + i + " = " + list.get(i));
             }
-        }catch (IndexOutOfBoundsException e){
-            System.err.println("IndexOutOfBoundsException: " + e.getMessage());
-        }catch (IOException e){
-            System.err.println("Caught IOException: " + e.getMessage());
+        }catch (IndexOutOfBoundsException | IOException ex){
+            System.err.println("IndexOutOfBoundsException: " + ex.getMessage());
+            System.err.println("Caught IOException: " + ex.getMessage());
         }
 
         out.close();
+    }
+
+    public static void main(String[] args) {
+        ListOfNumbers listOfNumbers = new ListOfNumbers();
+        listOfNumbers.writeList();
     }
 }
