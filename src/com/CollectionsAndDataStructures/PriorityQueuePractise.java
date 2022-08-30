@@ -44,10 +44,19 @@ public class PriorityQueuePractise {
 
     }
     public void IteratingPriorityQueues(){
-        Iterator iterator = priorityQueue.iterator();
-        while (iterator.hasNext()){
-            System.out.println(iterator.next());
+        System.out.println("8888888888");
+
+//        Iterator iterator = priorityQueue.iterator();
+//        while (iterator.hasNext()){
+//            System.out.println(iterator.next());
+//        }
+
+        for(int i = 0; i < 9; i++){
+            System.out.println(priorityQueue.poll());
         }
+
+
+        System.out.println("888******************");
     }
 
     public void removingElementsFromPriorityQueues(){

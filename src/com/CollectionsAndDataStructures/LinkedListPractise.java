@@ -72,9 +72,14 @@ public class LinkedListPractise {
     }
 
     public void reverseIterator(){
-        Iterator iterator = linkedList.descendingIterator();
-        while (iterator.hasNext()){
-            System.out.println(iterator.next());
+//        Iterator iterator = linkedList.listIterator();
+        ListIterator listIterator = linkedList.listIterator(linkedList.size());
+//        while (iterator.hasNext()){
+//            System.out.println(iterator.next());
+//        }
+
+        while (listIterator.hasPrevious()){
+            System.out.println(listIterator.previous());
         }
     }
 

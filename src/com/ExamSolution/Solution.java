@@ -2,6 +2,12 @@ package com.ExamSolution;
 
 import java.util.*;
 
+/*
+
+Author: Simon wandera
+Email: wanderasimoh@gmail.com
+ */
+
 public class Solution {
 
     public void missingNumberInIntegerArray(){

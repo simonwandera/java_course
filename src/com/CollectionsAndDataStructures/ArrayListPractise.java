@@ -33,7 +33,6 @@ class Car implements Comparable<Car>{
 public class ArrayListPractise {
     List<String> arrayList = new ArrayList();
     ArrayList<Car> myCars = new ArrayList<>();
-
     List<String> csClass = new ArrayList<>();
     List<String> csSoftwareEng = new ArrayList<>();
 
