@@ -24,20 +24,31 @@ public class ListOfNumbers {
     public void writeList() {
 
         PrintWriter out = null;
+        FileWriter f = null;
         try {
             System.out.println("Entered try statement");
-            FileWriter f = new FileWriter("OutFile.txt");
+            f = new FileWriter("OutFile.txt");
             out = new PrintWriter(f);
             for (int i = 0; i < SIZE + 2; i++) {
                 // The get(int) method throws IndexOutOfBoundsException, which must be caught.
                 out.println("Value at: " + i + " = " + list.get(i));
             }
-        }catch (IndexOutOfBoundsException | IOException ex){
+        } catch (IndexOutOfBoundsException ex){
             System.err.println("IndexOutOfBoundsException: " + ex.getMessage());
-            System.err.println("Caught IOException: " + ex.getMessage());
+        } catch (IOException e){
+            System.err.println("Caught IOException: " + e.getMessage());
+        } finally {
+            if (out != null) {
+                System.out.println("Closing PrintWriter");
+                out.close();
+            } else {
+                System.out.println("PrintWriter not open");
+            }
+            if (f != null) {
+                System.out.println("Closing FileWriter");
+//                f.close();
+            }
         }
-
-        out.close();
     }
 
     public static void main(String[] args) {
