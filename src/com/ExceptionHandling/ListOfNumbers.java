@@ -4,6 +4,13 @@ import java.io.*;
 import java.util.List;
 import java.util.ArrayList;
 
+/*
+* The following example defines and implements a class named ListOfNumbers. When constructed, ListOfNumbers
+* creates an ArrayList that contains 10 Integer elements with sequential values 0 through 9. The
+* ListOfNumbers class also defines a method named writeList, which writes the list of numbers
+* into a text file called OutFile.txt. This example uses output classes defined in java.io, which are covered in Basic I/O.
+* */
+
 public class ListOfNumbers {
     private List<Integer> list;
     private static final int SIZE = 10;
