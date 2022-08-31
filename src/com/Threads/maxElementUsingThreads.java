@@ -42,10 +42,10 @@ public class maxElementUsingThreads {
         int endOfChunkFour = chunkSize + chunkSize + chunkSize + chunkSize -1;
 
 
-        System.out.println("Chank 1: " + startOfChunkOne + " " + endOfChunkOne);
-        System.out.println("Chank 2: " + startOfChunkTwo + " " + endOfChunkTwo);
-        System.out.println("Chank 3: " + StartOfChunkThree + " " + endOfChunkThree);
-        System.out.println("Chank 4: " + startOfChunkFour + " " + endOfChunkFour);
+        System.out.println("Chunk 1: " + startOfChunkOne + " " + endOfChunkOne);
+        System.out.println("Chunk 2: " + startOfChunkTwo + " " + endOfChunkTwo);
+        System.out.println("Chunk 3: " + StartOfChunkThree + " " + endOfChunkThree);
+        System.out.println("Chunk 4: " + startOfChunkFour + " " + endOfChunkFour);
 
     }
 
