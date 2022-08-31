@@ -1,20 +1,24 @@
 package com.Threads;
 
+import java.util.Map;
 import java.util.Random;
 
 class WorkerThread extends Thread {
 
     private int startIndex;
     private int endIndex;
-    private int SIZE;
-    private int[] array = null;
+    private int[] array;
 
+    private static int maximum;
 
     public WorkerThread(int startIndex, int endIndex, int[] array) {
         this.startIndex = startIndex;
         this.endIndex = endIndex;
-//        this.SIZE = SIZE;
         this.array = array;
+    }
+
+    public  int getMaximum() {
+        return maximum;
     }
 
     @Override
@@ -27,21 +31,22 @@ class WorkerThread extends Thread {
                 max = array[k];
         }
 
-        System.out.println("Maximum at thread " + Thread.currentThread().getId() + " is "+ max);
+        if(max > maximum)
+            maximum = max;
+        System.out.println("Maximum at thread " + Thread.currentThread().getName() + " is "+ max);
     }
 }
 
 
 public class maxElementUsingThreads {
 
-    private static int maximum;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
-        int SIZE = 16;
+        int SIZE = 20;
 
         int values[] = new int[SIZE];
         for (int i = 0; i < SIZE; i++) {
-            values[i] = new Random().nextInt(20);
+            values[i] = new Random().nextInt(200);
         }
 
         for (int i = 0; i < SIZE; i++) {
@@ -65,12 +70,18 @@ public class maxElementUsingThreads {
 
         WorkerThread t1 = new WorkerThread(startOfChunkOne, endOfChunkOne, values);
         t1.start();
+        t1.join();
         WorkerThread t2 = new WorkerThread(startOfChunkTwo, endOfChunkTwo, values);
         t2.start();
+        t2.join();
         WorkerThread t3 = new WorkerThread(startOfChunkThree, endOfChunkThree, values);
         t3.start();
+        t3.join();
         WorkerThread t4 = new WorkerThread(startOfChunkFour, endOfChunkFour, values);
         t4.start();
+        t4.join();
+
+        System.out.println("\tMaximum on the array is: "+ t4.getMaximum());
 
     }
 }
