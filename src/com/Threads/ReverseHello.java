@@ -1,7 +1,7 @@
 package com.Threads;
 class ReverseWorkerThread extends Thread{
     public ReverseWorkerThread() {
-        super();
+//        super();
     }
     @Override
     public void run() {
