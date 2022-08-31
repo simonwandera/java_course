@@ -51,8 +51,19 @@ public class ListOfNumbers {
         }
     }
 
-    public static void main(String[] args) {
+    public void writeListWithResource() throws IOException{
+        try (FileWriter f = new FileWriter("file.txt");
+             PrintWriter out = new PrintWriter(f)) {
+            for (int i = 0; i < SIZE; i++) {
+                out.println("Value at: " + i + " = " + list.get(i));
+            }
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
         ListOfNumbers listOfNumbers = new ListOfNumbers();
         listOfNumbers.writeList();
+        listOfNumbers.writeListWithResource();
+
     }
 }
