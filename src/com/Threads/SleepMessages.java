@@ -18,7 +18,7 @@ public class SleepMessages {
         for (int i = 0; i < importantInfo.length; i++) {
             //Pause for 4 seconds
             try{
-                Thread.sleep(400);
+                Thread.sleep(1000);
             } catch (InterruptedException e){
 //                We've been interrupted, no more messages
                 return;
@@ -27,6 +27,16 @@ public class SleepMessages {
             System.out.println(importantInfo[i]);
 
         }
+
+        //Another way to handle threads
+        for (int i=0; i<importantInfo.length; i++){
+            System.out.println(importantInfo[i]);
+            if(Thread.interrupted())
+                //We have inturrupted, mo messages
+                return;
+        }
+
+
         threadMessage("This is a thread message");
     }
 
