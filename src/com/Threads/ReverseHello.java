@@ -13,9 +13,9 @@ public class ReverseHello {
     public static void main(String[] args) throws InterruptedException {
         for (int i = 0; i<50; i++){
             ReverseWorkerThread reverseWorkerThread = new ReverseWorkerThread();
-
-            reverseWorkerThread.join();
             reverseWorkerThread.start();
+            reverseWorkerThread.join();
+
 
         }
     }
