@@ -1,30 +1,35 @@
 package com.Threads;
 
-class SharedCounterThread extends Thread {
-
-    private int count;
+class SharedCounterThread implements Runnable {
     static int counter;
-    public SharedCounterThread(int count) {
-        this.count = count;
-    }
+
     public synchronized void increment() {
-        counter = count;
         for(int i = 1; i<=10; i++) {
             counter++;
         }
     }
 
+    public int getCounter() {
+        return counter;
+    }
+
     public void run(){
         increment();
+        System.out.println("Value of counter in thread " + Thread.currentThread().getName() +" is " + counter);
     }
 }
 
 public class SharedCounter{
-    static int counter = 0;
     public static void main(String[] args) throws InterruptedException {
-        SharedCounterThread sharedCounterThread = new SharedCounterThread(counter);
 
-        sharedCounterThread.start();
-        sharedCounterThread.join();
+        for (int i = 0; i<10; i++){
+            Thread thread = new Thread(new SharedCounterThread());
+            thread.start();
+            thread.join();
+        }
+        SharedCounterThread sharedCounterThread = new SharedCounterThread();
+        System.out.println(sharedCounterThread.getCounter());
+
+
     }
 }
