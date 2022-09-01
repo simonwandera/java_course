@@ -3,11 +3,10 @@ package com.Threads;
 class SharedCounterThread implements Runnable {
     private static int counter;
     public void increment() {
-        synchronized(this) {
-            for (int i = 1; i <= 10; i++) {
-                counter++;
-            }
+        for (int i = 1; i <= 10; i++) {
+            counter++;
         }
+
     }
 
     public int getCounter() {
@@ -15,8 +14,8 @@ class SharedCounterThread implements Runnable {
     }
 
     public void run(){
-        increment();
-        System.out.println("Value of counter in thread " + Thread.currentThread().getName() +" is " + counter);
+            increment();
+            System.out.println("Value of counter in thread " + Thread.currentThread().getName() + " is " + counter);
     }
 }
 
@@ -30,7 +29,6 @@ public class SharedCounter{
 
         }
         SharedCounterThread sharedCounterThread = new SharedCounterThread();
-
         System.out.println("\nFinal counter = " + sharedCounterThread.getCounter());
 
     }
