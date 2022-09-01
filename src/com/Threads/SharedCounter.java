@@ -28,8 +28,8 @@ public class SharedCounter{
             thread.join();
         }
         SharedCounterThread sharedCounterThread = new SharedCounterThread();
-        System.out.println(sharedCounterThread.getCounter());
 
+        System.out.println("\nFinal counter = " + sharedCounterThread.getCounter());
 
     }
 }
