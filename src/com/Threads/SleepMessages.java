@@ -31,9 +31,16 @@ public class SleepMessages {
         //Another way to handle threads
         for (int i=0; i<importantInfo.length; i++){
             System.out.println(importantInfo[i]);
+            Thread.sleep(900);
             if(Thread.interrupted())
-                //We have inturrupted, mo messages
+                //We have interrupted, mo messages
                 return;
+        }
+
+        //more simple interruption for complex applications
+
+        if(Thread.interrupted()){
+            throw new InterruptedException();
         }
 
 
