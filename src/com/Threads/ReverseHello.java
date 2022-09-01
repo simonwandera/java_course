@@ -23,7 +23,7 @@ public class ReverseHello {
 
     public static void main(String[] args) throws InterruptedException {
         LinkedList<ReverseWorkerThread> threadsList = new LinkedList<>();
-        for (int i = 0; i<50; i++){
+        for (int i = 1; i<=50; i++){
             ReverseWorkerThread reverseWorkerThread = new ReverseWorkerThread();
             reverseWorkerThread.setName(String.valueOf(i));
             threadsList.add(reverseWorkerThread);
