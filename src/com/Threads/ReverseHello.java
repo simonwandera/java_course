@@ -7,10 +7,6 @@ import java.util.LinkedList;
 class ReverseWorkerThread extends Thread{
 
     private static ArrayList<Integer> threadId;
-    public ReverseWorkerThread() {
-//        super();
-    }
-
 
     @Override
     public void run() {

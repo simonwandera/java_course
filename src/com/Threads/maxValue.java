@@ -1,6 +1,5 @@
 package com.Threads;
 
-import java.util.Map;
 import java.util.Random;
 
 class WorkerThread extends Thread {
@@ -38,7 +37,7 @@ class WorkerThread extends Thread {
 }
 
 
-public class maxElementUsingThreads {
+public class maxValue {
 
     public static void main(String[] args) throws InterruptedException {
 
