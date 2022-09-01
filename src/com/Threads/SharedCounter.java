@@ -1,11 +1,12 @@
 package com.Threads;
 
 class SharedCounterThread implements Runnable {
-    static int counter;
-
-    public synchronized void increment() {
-        for(int i = 1; i<=10; i++) {
-            counter++;
+    private static int counter;
+    public void increment() {
+        synchronized(this) {
+            for (int i = 1; i <= 10; i++) {
+                counter++;
+            }
         }
     }
 
@@ -26,6 +27,7 @@ public class SharedCounter{
             Thread thread = new Thread(new SharedCounterThread());
             thread.start();
             thread.join();
+
         }
         SharedCounterThread sharedCounterThread = new SharedCounterThread();
 
