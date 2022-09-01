@@ -14,7 +14,7 @@ class ReverseWorkerThread extends Thread{
 
     @Override
     public void run() {
-        String message = "Hello from thread "+ Thread.currentThread().getId();
+        String message = "Hello from thread "+ Thread.currentThread().getName();
         System.out.println(message);
 
     }
@@ -25,6 +25,7 @@ public class ReverseHello {
         LinkedList<ReverseWorkerThread> threadsList = new LinkedList<>();
         for (int i = 0; i<50; i++){
             ReverseWorkerThread reverseWorkerThread = new ReverseWorkerThread();
+            reverseWorkerThread.setName(String.valueOf(i));
             threadsList.add(reverseWorkerThread);
         }
 
