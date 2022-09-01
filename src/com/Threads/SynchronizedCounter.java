@@ -1,17 +1,17 @@
 package com.Threads;
 
 public class SynchronizedCounter {
-    private int c = 0;
+    private int counter = 0;
 
     public synchronized void increment() {
-        c++;
+        counter++;
     }
 
     public synchronized void decrement() {
-        c--;
+        counter--;
     }
 
     public synchronized int value() {
-        return c;
+        return counter;
     }
 }
