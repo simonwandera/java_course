@@ -15,8 +15,6 @@ class SharedCounterThread implements Runnable {
     public void run(){
             increment();
             System.out.println("Value of counter in thread " + Thread.currentThread().getName() + " is " + counter);
-
-
     }
 }
 

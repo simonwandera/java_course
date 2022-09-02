@@ -6,14 +6,12 @@ class WorkerThread extends Thread {
 
     private int startIndex;
     private int endIndex;
-    private int[] array;
 
     private static int maximum;
 
-    public WorkerThread(int startIndex, int endIndex, int[] array) {
+    public WorkerThread(int startIndex, int endIndex) {
         this.startIndex = startIndex;
         this.endIndex = endIndex;
-        this.array = array;
     }
 
     public  int getMaximum() {
@@ -23,11 +21,11 @@ class WorkerThread extends Thread {
     @Override
     public void run() {
 
-        int max = array[startIndex];
+        int max = maxValue.values[startIndex];
 
         for (int k = startIndex; k < endIndex +1 ; k++) {
-            if (array[k] > max)
-                max = array[k];
+            if (maxValue.values[k] > max)
+                max = maxValue.values[k];
         }
 
         if(max > maximum)
@@ -35,15 +33,13 @@ class WorkerThread extends Thread {
         System.out.println("Maximum at thread " + Thread.currentThread().getName() + " is "+ max);
     }
 }
-
-
 public class maxValue {
+
+    static int SIZE = 20;
+    static int values[] = new int[SIZE];
 
     public static void main(String[] args) throws InterruptedException {
 
-        int SIZE = 20;
-
-        int values[] = new int[SIZE];
         for (int i = 0; i < SIZE; i++) {
             values[i] = new Random().nextInt(200);
         }
@@ -67,16 +63,16 @@ public class maxValue {
         int startOfChunkFour = chunkSize + chunkSize + chunkSize;
         int endOfChunkFour = chunkSize + chunkSize + chunkSize + chunkSize -1;
 
-        WorkerThread t1 = new WorkerThread(startOfChunkOne, endOfChunkOne, values);
+        WorkerThread t1 = new WorkerThread(startOfChunkOne, endOfChunkOne);
         t1.start();
         t1.join();
-        WorkerThread t2 = new WorkerThread(startOfChunkTwo, endOfChunkTwo, values);
+        WorkerThread t2 = new WorkerThread(startOfChunkTwo, endOfChunkTwo);
         t2.start();
         t2.join();
-        WorkerThread t3 = new WorkerThread(startOfChunkThree, endOfChunkThree, values);
+        WorkerThread t3 = new WorkerThread(startOfChunkThree, endOfChunkThree);
         t3.start();
         t3.join();
-        WorkerThread t4 = new WorkerThread(startOfChunkFour, endOfChunkFour, values);
+        WorkerThread t4 = new WorkerThread(startOfChunkFour, endOfChunkFour);
         t4.start();
         t4.join();
 

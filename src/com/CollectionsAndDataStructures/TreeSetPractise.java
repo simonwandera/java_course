@@ -80,7 +80,7 @@ public class TreeSetPractise {
     public void generateClassElements(){
         cars.forEach(item ->{
             Car car = (Car) item;
-            System.out.println(car.carId + "\t" +car.model+ "\t" + car.odometer + "\t" + car.manufacturer);
+            System.out.println(item.carId + "\t" +item.model+ "\t" + item.odometer + "\t" + item.manufacturer);
         });
     }
 
