@@ -3,7 +3,7 @@ package com.Threads;
 class Printer implements Runnable{
     static int counter = 1;
     int reminder;
-    Object lock = new Object();
+    static Object lock = new Object();
 
     public Printer(int reminder) {
         this.reminder = reminder;
@@ -16,15 +16,17 @@ class Printer implements Runnable{
     @Override
     public void run() {
        for(int i = 1; i<=10;i++){
-           while (counter%2 != reminder ) {
-               try {
-                   lock.wait();
-               } catch (InterruptedException e) {
-                   throw new RuntimeException(e);
+           synchronized (lock) {
+               while (counter % 2 != reminder) {
+                   try {
+                       lock.wait();
+                   } catch (InterruptedException e) {
+                       throw new RuntimeException(e);
+                   }
                }
+               printer();
+               lock.notifyAll();
            }
-            printer();
-           lock.notifyAll();
         }
     }
 }
