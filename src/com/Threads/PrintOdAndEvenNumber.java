@@ -4,11 +4,9 @@ class Printer implements Runnable{
     static int counter = 1;
     int reminder;
     static Object lock = new Object();
-
     public Printer(int reminder) {
         this.reminder = reminder;
     }
-
     public void printer(){
         System.out.println(Thread.currentThread().getName() + " " + counter++);
     }
