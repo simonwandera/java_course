@@ -23,17 +23,20 @@ class MyThread implements Runnable{
                     try {
                         lock.wait();
                     } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
+                        System.out.println(e);
                     }
                 }
         count();
-        lock.notifyAll();
+        lock.notify();
+
             }
         }
     }
 }
 
 public class MoreThreadPractise {
+
+    static int counter = 0;
     public static void main(String[] args) throws InterruptedException {
         Thread oddPrinter = new Thread(new MyThread(1), "Odd printer");
         Thread evenPrinter = new Thread(new MyThread(0), "Even printer");
