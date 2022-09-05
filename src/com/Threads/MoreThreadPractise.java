@@ -1,29 +1,46 @@
 package com.Threads;
 
-public class MoreThreadPractise {
-    public static void main(String[] args) throws InterruptedException {
-        Thread t1 = new Thread(new MyThread());
-
-        Thread t2 = new Thread(new MyThread());
-
-        t1.start();
-        t2.start();
-
-    }
-}
 
 
 class MyThread implements Runnable{
     static int counter = 1;
+    int remainder;
+    static Object lock = new Object();
+
+    public MyThread(int remainder) {
+        this.remainder = remainder;
+    }
 
     public void count(){
-//        System.out.println(counter++);
-        System.out.println(counter++);
+        System.out.println(counter++ + " From " + Thread.currentThread().getName());
     }
 
     @Override
     public void run() {
-        for (int i = 0; i<10; i++)
-            count();
+        for (int i = 1; i<=20; i++){
+            synchronized (lock){
+                while (counter % 2 != remainder) {
+                    try {
+                        lock.wait();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+        count();
+        lock.notifyAll();
+            }
+        }
     }
 }
+
+public class MoreThreadPractise {
+    public static void main(String[] args) throws InterruptedException {
+        Thread oddPrinter = new Thread(new MyThread(1), "Odd printer");
+        Thread evenPrinter = new Thread(new MyThread(0), "Even printer");
+
+        oddPrinter.start();
+        evenPrinter.start();
+
+    }
+}
+
