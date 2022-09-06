@@ -18,6 +18,7 @@ class MyThread implements Runnable{
     @Override
     public void run() {
         for (int i = 1; i<=20; i++){
+
             synchronized (lock){
                 while (counter % 2 != remainder) {
                     try {
@@ -26,6 +27,7 @@ class MyThread implements Runnable{
                         System.out.println(e);
                     }
                 }
+                MoreThreadPractise.check++;
         count();
         lock.notify();
 
@@ -36,13 +38,19 @@ class MyThread implements Runnable{
 
 public class MoreThreadPractise {
 
-    static int counter = 0;
+    static int check = 0;
     public static void main(String[] args) throws InterruptedException {
         Thread oddPrinter = new Thread(new MyThread(1), "Odd printer");
         Thread evenPrinter = new Thread(new MyThread(0), "Even printer");
 
         oddPrinter.start();
         evenPrinter.start();
+
+        evenPrinter.join();
+        oddPrinter.join();
+
+
+        System.out.println("check = " + check);
 
     }
 }
