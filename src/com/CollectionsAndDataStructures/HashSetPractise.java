@@ -33,6 +33,8 @@ public class HashSetPractise {
         hashSet.add("James");
         hashSet.add("Whitney");
 
+
+
         Book book1 = new Book(1, "The Alchemist", "Paulo Coelho", "oxford Press");
         Book book2 = new Book(2, "Eleven Minutes", "Paulo Coelho", "oxford Press");
         Book book3 = new Book(3, "Rich dad", "Robert Kiyasaki", "oxford Press");

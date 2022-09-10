@@ -2,7 +2,6 @@ package com.CollectionsAndDataStructures;
 
 import java.util.*;
 
-
 class NavigableMapPractise{
 
     private NavigableMap<Integer, String> navigableMap = new TreeMap<>();
@@ -60,11 +59,7 @@ public class TreeMapPractise {
     }
 
     public void iteratingTreeMap(){
-        for (Map.Entry entries: treeMap.entrySet()){
-            System.out.println(entries.getKey() + "\t" + entries.getValue());
-        }
-
-
+        treeMap.entrySet().stream().sorted(Map.Entry.comparingByValue());
     }
 
     public void removeOperations(){
@@ -75,11 +70,6 @@ public class TreeMapPractise {
         System.out.println(treeMap);
 
     }
-
-    public void sortedTreeMap(){
-        System.out.println(sortedMap);
-    }
-
     public void traversingClassElements(){
 //        for (Map.Entry entry: playlist.entrySet()){
 //            Song song = (Song)entry.getValue();
@@ -91,7 +81,13 @@ public class TreeMapPractise {
             System.out.println(key + "\t\t" + value.artist + "\t\t" + value.title);
         });
 
-        
+    }
+
+    public static void main(String[] args) {
+
+        TreeMapPractise treeMapPractise = new TreeMapPractise();
+
+        treeMapPractise.iteratingTreeMap();
 
 
 

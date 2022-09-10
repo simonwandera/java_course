@@ -1,6 +1,7 @@
 package com.Random;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class RandomClass {
 
@@ -35,6 +36,10 @@ public class RandomClass {
     cars.add(car2);
     cars.add(car3);
     cars.add(car4);
+
+    for(int i=0; i<50; i++){
+        System.out.println(new Random().nextInt(10));
+    }
 
 
     for (int i=0; i<cars.size(); i++){
