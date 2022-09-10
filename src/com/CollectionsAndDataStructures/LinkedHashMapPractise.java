@@ -59,7 +59,5 @@ public class LinkedHashMapPractise {
             Song song = (Song) entry.getValue();
             System.out.println(entry.getKey() + "\t\t" + song.artist);
         }
-
-
     }
 }
