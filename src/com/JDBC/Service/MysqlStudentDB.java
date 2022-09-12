@@ -73,8 +73,10 @@ public class MysqlStudentDB implements IStudentDB{
         try {
             Statement statement = connection.createStatement();
             statement.execute(query);
+            System.out.println("Executed Successfully. ");
             return true;
         }catch (SQLException e){
+            System.out.println("Failed to execute");
             return false;
         }
     }

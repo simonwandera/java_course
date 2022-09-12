@@ -46,11 +46,19 @@ public class StudentUI {
 
         scanner = new Scanner(System.in);
         System.out.print("Enter student Name: ");
-        student.setName(scanner.nextLine());
+        String name = scanner.nextLine();
+        if (name.trim().length() > 0)
+            student.setName(name);
+
         System.out.print("Enter student Gender: ");
-        student.setGender(scanner.nextLine());
-        System.out.print("Enter student ID Number: ");
-        student.setIdNumber(scanner.nextInt());
+        String gender = scanner.nextLine();
+        if (gender.trim().length() > 0)
+            student.setGender(gender);
+
+        System.out.print("Enter student ID Number or 0 to continue: ");
+        int idNumber = scanner.nextInt();
+        if (idNumber > 0)
+            student.setIdNumber(idNumber);
 
         String query = iStudentDB.createUpdateQuery(student);
         iStudentDB.executeQuery(query);
