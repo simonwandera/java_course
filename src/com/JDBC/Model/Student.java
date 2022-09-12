@@ -6,6 +6,14 @@ public class Student {
     int IdNumber;
     String gender;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -32,6 +40,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return "id= " + id + "idNumber= " + IdNumber + "name= " + name + "gender= " + gender;
+        return "id= " + id + "\tidNumber= " + IdNumber + "\tname= " + name + "\tgender= " + gender;
     }
 }

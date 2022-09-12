@@ -3,6 +3,7 @@ package com.JDBC.Service;
 import com.JDBC.Model.Student;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MysqlStudentDB implements IStudentDB{
@@ -28,7 +29,21 @@ public class MysqlStudentDB implements IStudentDB{
 
     @Override
     public List<Student> getStudents() throws SQLException {
-        return null;
+
+        List<Student> studentList = new ArrayList<>();
+        String query = "SELECT * FROM student;";
+        ResultSet resultSet = executeReadQuery(query);
+
+        while (resultSet.next()){
+            Student student = new Student();
+            student.setId(resultSet.getInt("id"));
+            student.setIdNumber(resultSet.getInt("idNumber"));
+            student.setName(resultSet.getString("name"));
+            student.setGender(resultSet.getString("gender"));
+            studentList.add(student);
+        }
+
+        return studentList;
     }
 
     @Override
@@ -48,7 +63,11 @@ public class MysqlStudentDB implements IStudentDB{
     }
 
     @Override
-    public ResultSet executeReadQuery(String query) {
-        return null;
+    public ResultSet executeReadQuery(String query) throws SQLException {
+
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(query);
+        return resultSet;
+
     }
 }

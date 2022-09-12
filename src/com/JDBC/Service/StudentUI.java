@@ -10,10 +10,12 @@ public class StudentUI {
 
     static Scanner scanner;
     static IStudentDB iStudentDB;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         scanner = new Scanner(System.in);
         iStudentDB = new MysqlStudentDB();
+
+        displayStudents();
 
 //        registerStudent();
     }

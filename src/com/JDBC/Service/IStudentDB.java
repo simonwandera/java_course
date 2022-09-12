@@ -12,5 +12,5 @@ public interface IStudentDB {
     List<Student> getStudents() throws SQLException;
     Student getStudent(int id) throws SQLException;
     boolean executeQuery(String query);
-    ResultSet executeReadQuery(String query);
+    ResultSet executeReadQuery(String query) throws SQLException;
 }
