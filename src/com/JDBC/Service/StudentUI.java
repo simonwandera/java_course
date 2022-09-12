@@ -15,7 +15,9 @@ public class StudentUI {
         scanner = new Scanner(System.in);
         iStudentDB = new MysqlStudentDB();
 
-        displayStudents();
+//        displayStudents();
+
+        displayStudent();
 
 //        registerStudent();
     }
@@ -25,6 +27,10 @@ public class StudentUI {
         for (Student student: studentList){
             System.out.println(student);
         }
+    }
+
+    public static void displayStudent() throws SQLException {
+        System.out.println(iStudentDB.getStudent(2));
     }
 
     public static void registerStudent(){

@@ -34,7 +34,7 @@ public class MysqlStudentDB implements IStudentDB{
 
         List<Student> studentList = new ArrayList<>();
         String query = "SELECT * FROM student;";
-        ResultSet resultSet = executeReadQuery(query);
+        resultSet = executeReadQuery(query);
 
         while (resultSet.next()){
             Student student = new Student();
@@ -50,7 +50,19 @@ public class MysqlStudentDB implements IStudentDB{
 
     @Override
     public Student getStudent(int id) throws SQLException {
-        return null;
+        String query = "SELECT * FROM student WHERE id = " + id + ";";
+
+        resultSet = executeReadQuery(query);
+        Student student = new Student();
+
+        while (resultSet.next()) {
+            student.setId(resultSet.getInt("id"));
+            student.setIdNumber(resultSet.getInt("IdNUmber"));
+            student.setGender(resultSet.getString("gender"));
+            student.setName(resultSet.getString("name"));
+        }
+
+        return student;
     }
 
     @Override
@@ -66,7 +78,6 @@ public class MysqlStudentDB implements IStudentDB{
 
     @Override
     public ResultSet executeReadQuery(String query) throws SQLException {
-
         statement = connection.createStatement();
         resultSet = statement.executeQuery(query);
         return resultSet;
