@@ -2,10 +2,7 @@ package com.JDBC.Service;
 
 import com.JDBC.Model.Student;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 
 public class MysqlStudentDB implements IStudentDB{
@@ -17,7 +14,7 @@ public class MysqlStudentDB implements IStudentDB{
 
     private boolean openConnection(){
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/patients", "root", "");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_practise", "root", "");
             return true;
         }catch (SQLException e){
             return false;
@@ -25,7 +22,8 @@ public class MysqlStudentDB implements IStudentDB{
     }
     @Override
     public String createInsertQuery(Student student) {
-        return null;
+
+        return "INSERT INTO student (idNumber, name, gender) VALUES (" + student.getIdNumber() + ", \""+ student.getName() +"\", \""+ student.getGender()+"\");";
     }
 
     @Override
@@ -40,7 +38,13 @@ public class MysqlStudentDB implements IStudentDB{
 
     @Override
     public boolean executeQuery(String query) {
-        return false;
+        try {
+            Statement statement = connection.createStatement();
+            statement.execute(query);
+            return true;
+        }catch (SQLException e){
+            return false;
+        }
     }
 
     @Override

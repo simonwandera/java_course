@@ -29,4 +29,9 @@ public class Student {
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+    @Override
+    public String toString() {
+        return "id= " + id + "idNumber= " + IdNumber + "name= " + name + "gender= " + gender;
+    }
 }
