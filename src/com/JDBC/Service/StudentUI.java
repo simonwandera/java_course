@@ -2,15 +2,27 @@ package com.JDBC.Service;
 
 import com.JDBC.Model.Student;
 
+import java.sql.SQLException;
+import java.util.List;
 import java.util.Scanner;
 
 public class StudentUI {
 
     static Scanner scanner;
+    static IStudentDB iStudentDB;
     public static void main(String[] args) {
 
         scanner = new Scanner(System.in);
-        registerStudent();
+        iStudentDB = new MysqlStudentDB();
+
+//        registerStudent();
+    }
+
+    public static void displayStudents() throws SQLException {
+        List<Student> studentList = iStudentDB.getStudents();
+        for (Student student: studentList){
+            System.out.println(student);
+        }
     }
 
     public static void registerStudent(){
@@ -22,7 +34,6 @@ public class StudentUI {
         System.out.println("Enter student ID Number: ");
         student.setIdNumber(scanner.nextInt());
 
-        IStudentDB iStudentDB = new MysqlStudentDB();
         String query = iStudentDB.createInsertQuery(student);
         iStudentDB.executeQuery(query);
     }
