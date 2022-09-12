@@ -22,7 +22,8 @@ public class StudentUI {
 //        displayStudents();
 //        displayStudent(4);
 //        registerStudent();
-        updateStudent();
+        deleteStudent(6);
+//        updateStudent();
     }
 
     public static void displayStudents() throws SQLException {
@@ -37,7 +38,7 @@ public class StudentUI {
     }
 
     public static void deleteStudent(int id) throws SQLException {
-        System.out.println(iStudentDB.getStudent(id));
+        System.out.println(iStudentDB.deleteStudent(id));
     }
 
     public static void updateStudent() throws SQLException, IOException {

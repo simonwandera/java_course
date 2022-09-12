@@ -82,6 +82,15 @@ public class MysqlStudentDB implements IStudentDB{
     }
 
     @Override
+    public boolean deleteStudent(int id) {
+        String query = "DELETE FROM student WHERE id = " + id;
+        if(executeQuery(query))
+            return true;
+        else
+            return false;
+    }
+
+    @Override
     public ResultSet executeReadQuery(String query) throws SQLException {
         statement = connection.createStatement();
         resultSet = statement.executeQuery(query);
