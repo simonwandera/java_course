@@ -8,6 +8,8 @@ import java.util.List;
 
 public class MysqlStudentDB implements IStudentDB{
     private Connection connection;
+    private ResultSet resultSet;
+    Statement statement;
 
     public MysqlStudentDB() {
         this.openConnection();
@@ -65,8 +67,8 @@ public class MysqlStudentDB implements IStudentDB{
     @Override
     public ResultSet executeReadQuery(String query) throws SQLException {
 
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(query);
+        statement = connection.createStatement();
+        resultSet = statement.executeQuery(query);
         return resultSet;
 
     }
