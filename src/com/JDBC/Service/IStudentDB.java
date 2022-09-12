@@ -9,6 +9,7 @@ import java.util.List;
 public interface IStudentDB {
 
     String createInsertQuery(Student student);
+    String createUpdateQuery(Student student);
     List<Student> getStudents() throws SQLException;
     Student getStudent(int id) throws SQLException;
     boolean executeQuery(String query);

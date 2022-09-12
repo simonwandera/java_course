@@ -29,6 +29,10 @@ public class MysqlStudentDB implements IStudentDB{
         return "INSERT INTO student (idNumber, name, gender) VALUES (" + student.getIdNumber() + ", \""+ student.getName() +"\", \""+ student.getGender()+"\");";
     }
 
+    public String createUpdateQuery(Student student) {
+        return "UPDATE student SET name = \"" + student.getName() + "\", gender = \""+ student.getGender() +"\", idNumber = " + student.getIdNumber()+ " WHERE id = " +student.getId()+ ";";
+    }
+
     @Override
     public List<Student> getStudents() throws SQLException {
 
@@ -61,7 +65,6 @@ public class MysqlStudentDB implements IStudentDB{
             student.setGender(resultSet.getString("gender"));
             student.setName(resultSet.getString("name"));
         }
-
         return student;
     }
 

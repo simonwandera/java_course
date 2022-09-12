@@ -2,6 +2,9 @@ package com.JDBC.Service;
 
 import com.JDBC.Model.Student;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
@@ -10,16 +13,16 @@ public class StudentUI {
 
     static Scanner scanner;
     static IStudentDB iStudentDB;
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, IOException {
 
         scanner = new Scanner(System.in);
+//        scanner = new BufferedReader(inputStreamReader);
         iStudentDB = new MysqlStudentDB();
-
+    
 //        displayStudents();
-
-        displayStudent();
-
+//        displayStudent(4);
 //        registerStudent();
+        updateStudent();
     }
 
     public static void displayStudents() throws SQLException {
@@ -29,8 +32,28 @@ public class StudentUI {
         }
     }
 
-    public static void displayStudent() throws SQLException {
-        System.out.println(iStudentDB.getStudent(2));
+    public static void displayStudent(int id) throws SQLException {
+        System.out.println(iStudentDB.getStudent(id));
+    }
+
+    public static void deleteStudent(int id) throws SQLException {
+        System.out.println(iStudentDB.getStudent(id));
+    }
+
+    public static void updateStudent() throws SQLException, IOException {
+        System.out.print("Enter ID of the student to update: ");
+        Student student = iStudentDB.getStudent(scanner.nextInt());
+
+        scanner = new Scanner(System.in);
+        System.out.print("Enter student Name: ");
+        student.setName(scanner.nextLine());
+        System.out.print("Enter student Gender: ");
+        student.setGender(scanner.nextLine());
+        System.out.print("Enter student ID Number: ");
+        student.setIdNumber(scanner.nextInt());
+
+        String query = iStudentDB.createUpdateQuery(student);
+        iStudentDB.executeQuery(query);
     }
 
     public static void registerStudent(){
