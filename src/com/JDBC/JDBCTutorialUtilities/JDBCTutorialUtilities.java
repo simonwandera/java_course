@@ -1,6 +1,8 @@
 package com.JDBC.JDBCTutorialUtilities;
 
 import java.sql.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 public class JDBCTutorialUtilities {
@@ -187,13 +189,50 @@ public class JDBCTutorialUtilities {
     private static void printBatchUpdateException(BatchUpdateException b) {
     }
 
+    public static void updateCoffeeSales(HashMap<String, Integer> salesForWeek) throws SQLException {
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_docs", "root", "");
+        String updateString = "update COFFEES set SALES = ? where COF_NAME = ?";
+        String updateStatement = "update COFFEES set TOTAL = TOTAL + ? where COF_NAME = ?";
+
+        try (PreparedStatement updateSales = conn.prepareStatement(updateString);
+             PreparedStatement updateTotal = conn.prepareStatement(updateStatement))
+
+        {
+            conn.setAutoCommit(false);
+            for (Map.Entry<String, Integer> e : salesForWeek.entrySet()) {
+                updateSales.setInt(1, e.getValue());
+                updateSales.setString(2, e.getKey());
+                updateSales.executeUpdate();
+
+                updateTotal.setInt(1, e.getValue());
+                updateTotal.setString(2, e.getKey());
+                updateTotal.executeUpdate();
+                conn.commit();
+            }
+        } catch (SQLException e) {
+            JDBCTutorialUtilities.printSQLException(e);
+            if (conn != null) {
+                try {
+                    System.err.print("Transaction is being rolled back");
+                    conn.rollback();
+                } catch (SQLException excep) {
+                    JDBCTutorialUtilities.printSQLException(excep);
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) throws SQLException {
         conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_docs", "root", "");
 //        viewTable(conn);
 //        cursorHoldabilitySupport(conn);
 //        modifyPrices(10);
 //        batchUpdate();
-        insertRow("Nescafe", 101, 20, 200, 4000);
+//        insertRow("Nesacfe", 101, 20, 200, 4000);
+        HashMap<String, Integer> hashMap  = new HashMap<>();
+        hashMap.put("Amaretto", 280);
+
+        updateCoffeeSales(hashMap);
 
     }
 
