@@ -1,9 +1,6 @@
 package com.JDBC.JDBCTutorialUtilities;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Properties;
 
 public class JDBCTutorialUtilities {
@@ -15,8 +12,7 @@ public class JDBCTutorialUtilities {
     private String portNumber;
     static Connection conn;
 
-    public JDBCTutorialUtilities() throws SQLException {
-    }
+    static ResultSet rs;
 
 
     public Connection getConnection() throws SQLException {
@@ -62,6 +58,24 @@ public class JDBCTutorialUtilities {
         return false;
     }
 
+    public static void viewTable(Connection con) throws SQLException {
+        String query = "select COF_NAME, SUP_ID, PRICE, SALES, TOTAL from COFFEES";
+        try (Statement stmt = con.createStatement()) {
+            rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                String coffeeName = rs.getString("COF_NAME");
+                int supplierID = rs.getInt("SUP_ID");
+                float price = rs.getFloat("PRICE");
+                int sales = rs.getInt("SALES");
+                int total = rs.getInt("TOTAL");
+                System.out.println(coffeeName + ", " + supplierID + ", " + price +
+                        ", " + sales + ", " + total);
+            }
+        } catch (SQLException e) {
+            JDBCTutorialUtilities.printSQLException(e);
+        }
+    }
+
 
     public static void createTable() throws SQLException {
         conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_docs", "root", "");
@@ -82,22 +96,24 @@ public class JDBCTutorialUtilities {
     public static void populateTable() throws SQLException {
         conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_docs", "root", "");
         try (Statement stmt = conn.createStatement()) {
-            stmt.executeUpdate("insert into SUPPLIERS " +
-                    "values(49, 'Superior Coffee', '1 Party Place', " +
-                    "'Mendocino', 'CA', '95460')");
-            stmt.executeUpdate("insert into SUPPLIERS " +
-                    "values(101, 'Acme, Inc.', '99 Market Street', " +
-                    "'Groundsville', 'CA', '95199')");
-            stmt.executeUpdate("insert into SUPPLIERS " +
-                    "values(150, 'The High Ground', '100 Coffee Lane', " +
-                    "'Meadows', 'CA', '93966')");
+            stmt.executeUpdate("insert into COFFEES " +
+                    "values('Colombian', 00101, 7.99, 0, 0)");
+            stmt.executeUpdate("insert into COFFEES " +
+                    "values('French_Roast', 00049, 8.99, 0, 0)");
+            stmt.executeUpdate("insert into COFFEES " +
+                    "values('Espresso', 00150, 9.99, 0, 0)");
+            stmt.executeUpdate("insert into COFFEES " +
+                    "values('Colombian_Decaf', 00101, 8.99, 0, 0)");
+            stmt.executeUpdate("insert into COFFEES " +
+                    "values('French_Roast_Decaf', 00049, 9.99, 0, 0)");
         } catch (SQLException e) {
             JDBCTutorialUtilities.printSQLException(e);
         }
     }
 
     public static void main(String[] args) throws SQLException {
-        populateTable();
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_docs", "root", "");
+        viewTable(conn);
     }
 
 }
