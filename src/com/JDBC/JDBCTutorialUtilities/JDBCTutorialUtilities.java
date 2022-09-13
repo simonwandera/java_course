@@ -13,9 +13,14 @@ public class JDBCTutorialUtilities {
     private String dbms = "mysql";
     private String serverName;
     private String portNumber;
-    Connection conn = null;
+    static Connection conn;
+
+    public JDBCTutorialUtilities() throws SQLException {
+    }
+
 
     public Connection getConnection() throws SQLException {
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_docs", "root", "");
 
         Properties connectionProps = new Properties();
         connectionProps.put("user", this.userName);
@@ -59,8 +64,7 @@ public class JDBCTutorialUtilities {
 
 
     public static void createTable() throws SQLException {
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_docs", "root", "");
-
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_docs", "root", "");
         String createString =
                 "create table COFFEES " + "(COF_NAME varchar(32) NOT NULL, " +
                         "SUP_ID int NOT NULL, " + "PRICE numeric(10,2) NOT NULL, " +
@@ -68,15 +72,32 @@ public class JDBCTutorialUtilities {
                         "PRIMARY KEY (COF_NAME), " +
                         "FOREIGN KEY (SUP_ID) REFERENCES SUPPLIERS (SUP_ID))";
 
-        try (Statement stmt = con.createStatement()) {
+        try (Statement stmt = conn.createStatement()) {
             stmt.executeUpdate(createString);
         } catch (SQLException e) {
             JDBCTutorialUtilities.printSQLException(e);
         }
     }
 
+    public static void populateTable() throws SQLException {
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_docs", "root", "");
+        try (Statement stmt = conn.createStatement()) {
+            stmt.executeUpdate("insert into SUPPLIERS " +
+                    "values(49, 'Superior Coffee', '1 Party Place', " +
+                    "'Mendocino', 'CA', '95460')");
+            stmt.executeUpdate("insert into SUPPLIERS " +
+                    "values(101, 'Acme, Inc.', '99 Market Street', " +
+                    "'Groundsville', 'CA', '95199')");
+            stmt.executeUpdate("insert into SUPPLIERS " +
+                    "values(150, 'The High Ground', '100 Coffee Lane', " +
+                    "'Meadows', 'CA', '93966')");
+        } catch (SQLException e) {
+            JDBCTutorialUtilities.printSQLException(e);
+        }
+    }
+
     public static void main(String[] args) throws SQLException {
-        createTable();
+        populateTable();
     }
 
 }
