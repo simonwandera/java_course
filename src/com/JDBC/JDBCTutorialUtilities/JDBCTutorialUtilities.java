@@ -115,27 +115,36 @@ public class JDBCTutorialUtilities {
             throws SQLException {
 
         DatabaseMetaData dbMetaData = conn.getMetaData();
-        System.out.println("ResultSet.HOLD_CURSORS_OVER_COMMIT = " +
-                ResultSet.HOLD_CURSORS_OVER_COMMIT);
+        System.out.println("ResultSet.HOLD_CURSORS_OVER_COMMIT = " + ResultSet.HOLD_CURSORS_OVER_COMMIT);
 
-        System.out.println("ResultSet.CLOSE_CURSORS_AT_COMMIT = " +
-                ResultSet.CLOSE_CURSORS_AT_COMMIT);
+        System.out.println("ResultSet.CLOSE_CURSORS_AT_COMMIT = " + ResultSet.CLOSE_CURSORS_AT_COMMIT);
 
-        System.out.println("Default cursor holdability: " +
-                dbMetaData.getResultSetHoldability());
+        System.out.println("Default cursor holdability: " + dbMetaData.getResultSetHoldability());
 
-        System.out.println("Supports HOLD_CURSORS_OVER_COMMIT? " +
-                dbMetaData.supportsResultSetHoldability(
-                        ResultSet.HOLD_CURSORS_OVER_COMMIT));
+        System.out.println("Supports HOLD_CURSORS_OVER_COMMIT? " + dbMetaData.supportsResultSetHoldability(ResultSet.HOLD_CURSORS_OVER_COMMIT));
 
-        System.out.println("Supports CLOSE_CURSORS_AT_COMMIT? " +
-                dbMetaData.supportsResultSetHoldability(
-                        ResultSet.CLOSE_CURSORS_AT_COMMIT));
+        System.out.println("Supports CLOSE_CURSORS_AT_COMMIT? " + dbMetaData.supportsResultSetHoldability(ResultSet.CLOSE_CURSORS_AT_COMMIT));
+    }
+
+    public static void modifyPrices(float percentage) throws SQLException {
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_docs", "root", "");
+        try (Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE)) {
+            ResultSet ups = stmt.executeQuery("SELECT * FROM COFFEES");
+            while (ups.next()) {
+                float f = ups.getFloat("PRICE");
+                ups.updateFloat("PRICE", f * percentage);
+                ups.updateRow();
+            }
+        } catch (SQLException e) {
+            JDBCTutorialUtilities.printSQLException(e);
+        }
     }
 
     public static void main(String[] args) throws SQLException {
         conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_docs", "root", "");
-        viewTable(conn);
+//        viewTable(conn);
+//        cursorHoldabilitySupport(conn);
+        modifyPrices(10);
     }
 
 }
