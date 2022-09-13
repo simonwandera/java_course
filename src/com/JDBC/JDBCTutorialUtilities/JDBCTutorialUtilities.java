@@ -163,6 +163,27 @@ public class JDBCTutorialUtilities {
         }
     }
 
+    public static void insertRow(String coffeeName, int supplierID, float price, int sales, int total) throws SQLException {
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_docs", "root", "");
+
+        try (Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE))
+        {
+            ResultSet resultSet = stmt.executeQuery("SELECT * FROM COFFEES");
+            resultSet.moveToInsertRow();
+            resultSet.updateString("COF_NAME", coffeeName);
+            resultSet.updateInt("SUP_ID", supplierID);
+            resultSet.updateFloat("PRICE", price);
+            resultSet.updateInt("SALES", sales);
+            resultSet.updateInt("TOTAL", total);
+
+            resultSet.insertRow();
+            resultSet.beforeFirst();
+
+        } catch (SQLException e) {
+            JDBCTutorialUtilities.printSQLException(e);
+        }
+    }
+
     private static void printBatchUpdateException(BatchUpdateException b) {
     }
 
@@ -171,7 +192,8 @@ public class JDBCTutorialUtilities {
 //        viewTable(conn);
 //        cursorHoldabilitySupport(conn);
 //        modifyPrices(10);
-        batchUpdate();
+//        batchUpdate();
+        insertRow("Nescafe", 101, 20, 200, 4000);
 
     }
 
