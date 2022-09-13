@@ -132,6 +132,8 @@ public class JDBCTutorialUtilities {
             ResultSet ups = stmt.executeQuery("SELECT * FROM COFFEES");
             while (ups.next()) {
                 float f = ups.getFloat("PRICE");
+                String name = ups.getString("COF_NAME");
+                ups.updateString("COF_NAME", name.trim().toLowerCase());
                 ups.updateFloat("PRICE", f * percentage);
                 ups.updateRow();
             }
