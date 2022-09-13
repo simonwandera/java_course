@@ -3,6 +3,7 @@ package com.JDBC.JDBCTutorialUtilities;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Properties;
 
 public class JDBCTutorialUtilities {
@@ -12,10 +13,10 @@ public class JDBCTutorialUtilities {
     private String dbms = "mysql";
     private String serverName;
     private String portNumber;
+    Connection conn = null;
 
     public Connection getConnection() throws SQLException {
 
-        Connection conn = null;
         Properties connectionProps = new Properties();
         connectionProps.put("user", this.userName);
         connectionProps.put("password", this.password);
@@ -55,4 +56,27 @@ public class JDBCTutorialUtilities {
     private static boolean ignoreSQLException(String sqlState) {
         return false;
     }
+
+
+    public static void createTable() throws SQLException {
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_docs", "root", "");
+
+        String createString =
+                "create table COFFEES " + "(COF_NAME varchar(32) NOT NULL, " +
+                        "SUP_ID int NOT NULL, " + "PRICE numeric(10,2) NOT NULL, " +
+                        "SALES integer NOT NULL, " + "TOTAL integer NOT NULL, " +
+                        "PRIMARY KEY (COF_NAME), " +
+                        "FOREIGN KEY (SUP_ID) REFERENCES SUPPLIERS (SUP_ID))";
+
+        try (Statement stmt = con.createStatement()) {
+            stmt.executeUpdate(createString);
+        } catch (SQLException e) {
+            JDBCTutorialUtilities.printSQLException(e);
+        }
+    }
+
+    public static void main(String[] args) throws SQLException {
+        createTable();
+    }
+
 }
