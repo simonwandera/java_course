@@ -142,11 +142,37 @@ public class JDBCTutorialUtilities {
         }
     }
 
+    public static void batchUpdate() throws SQLException {
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_docs", "root", "");
+        conn.setAutoCommit(false);
+        try (Statement stmt = conn.createStatement()) {
+
+            stmt.addBatch("INSERT INTO COFFEES VALUES('Amaretto', 49, 9.99, 0, 0)");
+            stmt.addBatch("INSERT INTO COFFEES VALUES('Hazelnut', 49, 9.99, 0, 0)");
+            stmt.addBatch("INSERT INTO COFFEES VALUES('Amaretto_decaf', 49, 10.99, 0, 0)");
+            stmt.addBatch("INSERT INTO COFFEES VALUES('Hazelnut_decaf', 49, 10.99, 0, 0)");
+
+            int[] updateCounts = stmt.executeBatch();
+            conn.commit();
+        } catch (BatchUpdateException b) {
+            JDBCTutorialUtilities.printBatchUpdateException(b);
+        } catch (SQLException ex) {
+            JDBCTutorialUtilities.printSQLException(ex);
+        } finally {
+            conn.setAutoCommit(true);
+        }
+    }
+
+    private static void printBatchUpdateException(BatchUpdateException b) {
+    }
+
     public static void main(String[] args) throws SQLException {
         conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_docs", "root", "");
 //        viewTable(conn);
 //        cursorHoldabilitySupport(conn);
-        modifyPrices(10);
+//        modifyPrices(10);
+        batchUpdate();
+
     }
 
 }
