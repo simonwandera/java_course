@@ -23,7 +23,7 @@ public class OrderedPair<K, V> implements Pair<K, V> {
 
     public static void main(String[] args) {
 //        The following statements create two instantiations of the OrderedPair class:
-        Pair<String, Integer> p1 = new OrderedPair<>("Even", 8);
-        Pair<String, String>  p2 = new OrderedPair<>("hello", "world");
+        Pair<String, Integer> p1 = new OrderedPair<String, Integer>("Even", 8);
+        Pair<String, String>  p2 = new OrderedPair<String, String>("hello", "world");
     }
 }
