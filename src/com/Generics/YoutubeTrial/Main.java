@@ -17,6 +17,6 @@ public class Main {
         printString.print();
         printInteger.print();
         catPrinter.print();
-        listPrinter.print();
+        catPrinter.eat(new Cat("Paka", 22));
     }
 }
