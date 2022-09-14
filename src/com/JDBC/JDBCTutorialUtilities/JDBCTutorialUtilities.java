@@ -231,6 +231,8 @@ public class JDBCTutorialUtilities {
 //        insertRow("Nesacfe", 101, 20, 200, 4000);
         HashMap<String, Integer> hashMap  = new HashMap<>();
         hashMap.put("Amaretto", 280);
+        hashMap.put("Cadbery", 210);
+        hashMap.put("espresso", 100);
 
         updateCoffeeSales(hashMap);
 

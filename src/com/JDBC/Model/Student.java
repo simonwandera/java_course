@@ -1,10 +1,10 @@
 package com.JDBC.Model;
 
 public class Student {
-    int id;
-    String name;
-    int IdNumber;
-    String gender;
+    private int id;
+    private String name;
+    private int IdNumber;
+    private String gender;
 
     public int getId() {
         return id;

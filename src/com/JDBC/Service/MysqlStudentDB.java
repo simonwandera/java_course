@@ -11,16 +11,16 @@ public class MysqlStudentDB implements IStudentDB{
     private ResultSet resultSet;
     Statement statement;
 
-    public MysqlStudentDB() {
+    public MysqlStudentDB() throws SQLException {
         this.openConnection();
     }
 
-    private boolean openConnection(){
+    private boolean openConnection() throws SQLException {
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/JDBC_practise", "root", "");
             return true;
         }catch (SQLException e){
-            return false;
+            throw e;
         }
     }
     @Override

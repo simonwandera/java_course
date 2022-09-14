@@ -19,10 +19,10 @@ public class StudentUI {
 //        scanner = new BufferedReader(inputStreamReader);
         iStudentDB = new MysqlStudentDB();
     
-//        displayStudents();
+        displayStudents();
 //        displayStudent(4);
 //        registerStudent();
-        deleteStudent(6);
+//        deleteStudent(6);
 //        updateStudent();
     }
 
