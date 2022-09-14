@@ -1,9 +1,9 @@
 package com.Generics.YoutubeTrial;
 
-public class Printer {
-    private String somethingToPrint;
+public class Printer<T> {
+    private T somethingToPrint;
 
-    public Printer(String somethingToPrint) {
+    public Printer(T somethingToPrint) {
         this.somethingToPrint = somethingToPrint;
     }
 
