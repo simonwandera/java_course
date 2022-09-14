@@ -14,6 +14,16 @@ public class OrderedPair<K, V> implements Pair<K, V> {
         this.value = value;
     }
 
-    public K getKey()	{ return key; }
-    public V getValue() { return value; }
+    public K getKey(){
+        return key;
+    }
+    public V getValue(){
+        return value;
+    }
+
+    public static void main(String[] args) {
+//        The following statements create two instantiations of the OrderedPair class:
+        Pair<String, Integer> p1 = new OrderedPair<>("Even", 8);
+        Pair<String, String>  p2 = new OrderedPair<>("hello", "world");
+    }
 }
