@@ -12,6 +12,7 @@ public class Main {
         List<String> names = new ArrayList<>();
         names.add("Caleb");
         names.add("Victor");
+        names.add("Pauline");
         Printer<List<String>> listPrinter = new Printer<>(names);
 
         printString.print();
