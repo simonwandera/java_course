@@ -14,7 +14,7 @@ public class GenericsPractise {
 //        When re-written to use generics, the code does not require casting:
         List<String> list1 = new ArrayList<String>();
         list1.add("hello");
-        String string = list1.get(0);   // no cast
+        String string = list1.get(0);   //no cast
         System.out.println(string);
     }
 }
