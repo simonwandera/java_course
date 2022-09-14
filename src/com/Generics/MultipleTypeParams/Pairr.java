@@ -26,7 +26,7 @@ public class Pairr<K, V> {
         Pairr<Integer, String> p1 = new Pairr<>(1, "apple");
         Pairr<Integer, String> p2 = new Pairr<>(2, "pear");
 
-        boolean same = Util.<Integer, String>compare(p1, p2);
+        boolean same = Util.compare(p1, p2);
         System.out.println(same);
     }
 }
