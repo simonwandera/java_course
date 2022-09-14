@@ -23,8 +23,11 @@ public class GenericsPractise {
         List<String> list1 = new ArrayList<String>();
         list1.add("hello");
         String string = list1.get(0);   //no cast
-        System.out.println(string);
+//        System.out.println(string);
+
+        GenericsPractise genericsPractise = new GenericsPractise();
+        genericsPractise.set('c');
+        System.out.println(genericsPractise.get());
     }
-
-
 }
+
