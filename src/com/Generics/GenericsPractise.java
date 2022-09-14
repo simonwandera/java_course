@@ -4,6 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GenericsPractise {
+    private Object object;
+    public void set(Object object) {
+        this.object = object;
+    }
+    public Object get() {
+        return object;
+    }
+
     public static void main(String[] args) {
 //        The following code without generics requires casting
         List list = new ArrayList();
@@ -17,4 +25,6 @@ public class GenericsPractise {
         String string = list1.get(0);   //no cast
         System.out.println(string);
     }
+
+
 }
