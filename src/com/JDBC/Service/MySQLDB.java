@@ -42,7 +42,19 @@ public class MySQLDB<T extends IEntity> implements IMySQLDB<T> {
             stringBuilder.append("`").append(column).append("`");
             isFirstColumn = false;
         }
+        stringBuilder.append(")").append("values").append("(");
+
+        isFirstColumn = true;
+        for (Object object: t.getTargetColumns()){
+            if (!isFirstColumn)
+                stringBuilder.append(",");
+            stringBuilder.append("\"").append(object).append("\"");
+            isFirstColumn = false;
+        }
         stringBuilder.append(")");
+
+        System.out.println(stringBuilder.toString());
+
         return stringBuilder.toString();
     }
 

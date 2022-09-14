@@ -2,23 +2,37 @@ package com.JDBC.Service;
 
 import com.JDBC.Model.Student;
 
+import javax.swing.text.html.parser.Entity;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class StudentUI {
 
     static Scanner scanner;
-    static IMySQLDB iStudentDB;
+    static IMySQLDB<IEntity> iStudentDB;
     public static void main(String[] args) throws SQLException, IOException {
 
         scanner = new Scanner(System.in);
-        iStudentDB = new MySQLDB();
+        iStudentDB = new MySQLDB<>();
+
+        MySQLDB<IEntity> mySQLDB = new MySQLDB<>();
+
     
-        displayStudents();
+//        displayStudents();
 //        displayStudent(4);
-        registerStudent();
+        Student student = registerStudent();
+        student.getTargetColumns().add(student.getName());
+        student.getTargetColumns().add(student.getIdNumber());
+        student.getTargetColumns().add(student.getGender());
+
+        String insertQuery = mySQLDB.createInsertQuery(student);
+        mySQLDB.executeQuery(insertQuery);
+
+
 //        deleteStudent(6);
 //        updateStudent();
     }
@@ -62,8 +76,11 @@ public class StudentUI {
 //        iStudentDB.executeQuery(query);
 //    }
 
-    public static void registerStudent(){
-        Student student = new Student();
+    public static Student registerStudent(){
+        String[] cols = {"name","idNumber","gender"};
+        List<String> columns = new ArrayList<>(Arrays.asList(cols));
+        Student student = new Student(columns);
+
         System.out.println("Enter student Name: ");
         student.setName(scanner.nextLine());
         System.out.println("Enter student Gender: ");
@@ -71,6 +88,7 @@ public class StudentUI {
         System.out.println("Enter student ID Number: ");
         student.setIdNumber(scanner.nextInt());
 
+        return student;
 //        String query = iStudentDB.createInsertQuery();
 //        iStudentDB.executeQuery(query);
     }

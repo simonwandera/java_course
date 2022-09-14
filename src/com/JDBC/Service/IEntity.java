@@ -5,9 +5,9 @@ import java.util.List;
 public class IEntity {
     private List<String> columns;
     private String tableName;
-    private List<String> targetColumns;
+    private List<Object> targetColumns;
 
-    public List<String> getTargetColumns() {
+    public List<Object> getTargetColumns() {
         return targetColumns;
     }
 

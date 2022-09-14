@@ -1,10 +1,22 @@
 package com.JDBC.Model;
 
-public class Student {
+import com.JDBC.Service.IEntity;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Student extends IEntity {
     private int id;
     private String name;
     private int IdNumber;
     private String gender;
+    static String tableName = "student";
+
+    public Student(List<String> columns) {
+        super(columns, tableName);
+    }
+
 
     public int getId() {
         return id;
