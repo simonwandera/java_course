@@ -16,7 +16,7 @@ public class MySQLDB<T extends IEntity> implements IMySQLDB<T> {
     }
 
     @Override
-    public IEntity getT(int id) throws SQLException {
+    public T getT(int id) throws SQLException {
         return null;
     }
 
@@ -30,7 +30,7 @@ public class MySQLDB<T extends IEntity> implements IMySQLDB<T> {
     }
     @Override
     public String createInsertQuery(T t) {
-        StringBuilder stringBuilder = new StringBuilder("insert into "); // insert into
+        StringBuilder stringBuilder = new StringBuilder("INSERT INTO "); // insert into
         stringBuilder.append(t.getTableName()); // tbl_students or tbl_patients
         stringBuilder.append("(");
         // (id, name, registrationNumber, idNumber) or (id, patientNumber)
@@ -50,40 +50,40 @@ public class MySQLDB<T extends IEntity> implements IMySQLDB<T> {
         return "UPDATE student SET name = \"" + student.getName() + "\", gender = \""+ student.getGender() +"\", idNumber = " + student.getIdNumber()+ " WHERE id = " +student.getId()+ ";";
     }
 
-    @Override
-    public List<Student> getStudents() throws SQLException {
+//    @Override
+//    public List<Student> getStudents() throws SQLException {
+//
+//        List<Student> studentList = new ArrayList<>();
+//        String query = "SELECT * FROM student;";
+//        resultSet = executeReadQuery(query);
+//
+//        while (resultSet.next()){
+//            Student student = new Student();
+//            student.setId(resultSet.getInt("id"));
+//            student.setIdNumber(resultSet.getInt("idNumber"));
+//            student.setName(resultSet.getString("name"));
+//            student.setGender(resultSet.getString("gender"));
+//            studentList.add(student);
+//        }
+//
+//        return studentList;
+//    }
 
-        List<Student> studentList = new ArrayList<>();
-        String query = "SELECT * FROM student;";
-        resultSet = executeReadQuery(query);
-
-        while (resultSet.next()){
-            Student student = new Student();
-            student.setId(resultSet.getInt("id"));
-            student.setIdNumber(resultSet.getInt("idNumber"));
-            student.setName(resultSet.getString("name"));
-            student.setGender(resultSet.getString("gender"));
-            studentList.add(student);
-        }
-
-        return studentList;
-    }
-
-    @Override
-    public Student getStudent(int id) throws SQLException {
-        String query = "SELECT * FROM student WHERE id = " + id + ";";
-
-        resultSet = executeReadQuery(query);
-        Student student = new Student();
-
-        while (resultSet.next()) {
-            student.setId(resultSet.getInt("id"));
-            student.setIdNumber(resultSet.getInt("IdNUmber"));
-            student.setGender(resultSet.getString("gender"));
-            student.setName(resultSet.getString("name"));
-        }
-        return student;
-    }
+//    @Override
+//    public Student getStudent(int id) throws SQLException {
+//        String query = "SELECT * FROM student WHERE id = " + id + ";";
+//
+//        resultSet = executeReadQuery(query);
+//        Student student = new Student();
+//
+//        while (resultSet.next()) {
+//            student.setId(resultSet.getInt("id"));
+//            student.setIdNumber(resultSet.getInt("IdNUmber"));
+//            student.setGender(resultSet.getString("gender"));
+//            student.setName(resultSet.getString("name"));
+//        }
+//        return student;
+//    }
 
     @Override
     public boolean executeQuery(String query) {
@@ -98,14 +98,14 @@ public class MySQLDB<T extends IEntity> implements IMySQLDB<T> {
         }
     }
 
-    @Override
-    public boolean deleteStudent(int id) {
-        String query = "DELETE FROM student WHERE id = " + id;
-        if(executeQuery(query))
-            return true;
-        else
-            return false;
-    }
+//    @Override
+//    public boolean deleteStudent(int id) {
+//        String query = "DELETE FROM student WHERE id = " + id;
+//        if(executeQuery(query))
+//            return true;
+//        else
+//            return false;
+//    }
 
     @Override
     public ResultSet executeReadQuery(String query) throws SQLException {
