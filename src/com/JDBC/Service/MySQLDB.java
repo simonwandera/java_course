@@ -6,13 +6,18 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MysqlStudentDB implements IStudentDB{
+public class MySQLDB<T extends IEntity> implements IMySQLDB<T> {
     private Connection connection;
     private ResultSet resultSet;
     Statement statement;
 
-    public MysqlStudentDB() throws SQLException {
+    public MySQLDB() throws SQLException {
         this.openConnection();
+    }
+
+    @Override
+    public IEntity getT(int id) throws SQLException {
+        return null;
     }
 
     private boolean openConnection() throws SQLException {
@@ -24,9 +29,21 @@ public class MysqlStudentDB implements IStudentDB{
         }
     }
     @Override
-    public String createInsertQuery(Student student) {
-
-        return "INSERT INTO student (idNumber, name, gender) VALUES (" + student.getIdNumber() + ", \""+ student.getName() +"\", \""+ student.getGender()+"\");";
+    public String createInsertQuery(T t) {
+        StringBuilder stringBuilder = new StringBuilder("insert into "); // insert into
+        stringBuilder.append(t.getTableName()); // tbl_students or tbl_patients
+        stringBuilder.append("(");
+        // (id, name, registrationNumber, idNumber) or (id, patientNumber)
+        boolean isFirstColumn = true;
+        for (String column : t.getColumns())
+        {
+            if (!isFirstColumn)
+                stringBuilder.append(",");
+            stringBuilder.append("`").append(column).append("`");
+            isFirstColumn = false;
+        }
+        stringBuilder.append(")");
+        return stringBuilder.toString();
     }
 
     public String createUpdateQuery(Student student) {

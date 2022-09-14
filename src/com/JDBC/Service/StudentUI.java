@@ -2,9 +2,7 @@ package com.JDBC.Service;
 
 import com.JDBC.Model.Student;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
@@ -12,12 +10,12 @@ import java.util.Scanner;
 public class StudentUI {
 
     static Scanner scanner;
-    static IStudentDB iStudentDB;
+    static IMySQLDB iStudentDB;
     public static void main(String[] args) throws SQLException, IOException {
 
         scanner = new Scanner(System.in);
 //        scanner = new BufferedReader(inputStreamReader);
-        iStudentDB = new MysqlStudentDB();
+        iStudentDB = new MySQLDB();
     
         displayStudents();
 //        displayStudent(4);
