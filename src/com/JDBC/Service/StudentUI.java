@@ -89,5 +89,15 @@ public class StudentUI {
 //        iStudentDB.executeQuery(query);
     }
 
-    public static Teacher registerT
+    public static Teacher registerTeacher(){
+        Teacher teacher = new Teacher();
+        System.out.print("Enter teacher ID Number: ");
+        teacher.setIdNumber(scanner.nextInt());
+        System.out.print("Enter teacher Name: ");
+        teacher.setName(scanner.nextLine());
+        System.out.print("Enter teacher's gender: ");
+        System.out.print("Enter teacher's TSC number: ");
+        System.out.print("Enter teacher's qualification: ");
+        return teacher;
+    }
 }

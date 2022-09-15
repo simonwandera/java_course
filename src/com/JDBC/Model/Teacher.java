@@ -10,7 +10,7 @@ public class Teacher extends IEntity {
 
     private int id;
     private int idNumber;
-    private int name;
+    private String name;
     private String gender;
     private String tscNumber;
     private String qualification;
@@ -38,11 +38,11 @@ public class Teacher extends IEntity {
         this.idNumber = idNumber;
     }
 
-    public int getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(int name) {
+    public void setName(String name) {
         this.name = name;
     }
 
