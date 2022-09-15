@@ -11,9 +11,11 @@ public class Student extends IEntity {
     private String name;
     private int IdNumber;
     private String gender;
-    static String tableName = "student";
+    private static final String tableName = "student";
+    private static final String[] columnNames = {"name", "idNumber", "gender"};
+    static List<String> columns = new ArrayList<>(Arrays.asList(columnNames));
 
-    public Student(List<String> columns) {
+    public Student() {
         super(columns, tableName);
     }
 

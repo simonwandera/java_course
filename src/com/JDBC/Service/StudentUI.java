@@ -77,9 +77,7 @@ public class StudentUI {
 //    }
 
     public static Student registerStudent(){
-        String[] cols = {"name","idNumber","gender"};
-        List<String> columns = new ArrayList<>(Arrays.asList(cols));
-        Student student = new Student(columns);
+        Student student = new Student();
 
         System.out.println("Enter student Name: ");
         student.setName(scanner.nextLine());
