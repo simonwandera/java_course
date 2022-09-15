@@ -4,6 +4,7 @@ import com.JDBC.Model.Student;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class MySQLDB<T extends IEntity> implements IMySQLDB<T> {
@@ -11,12 +12,32 @@ public class MySQLDB<T extends IEntity> implements IMySQLDB<T> {
     private ResultSet resultSet;
     Statement statement;
 
+    private T t;
+
+    HashMap<Object, Object> elementsToSelect;
+
     public MySQLDB() throws SQLException {
         this.openConnection();
     }
 
+//    @Override
+//    public T getT(int id) throws SQLException {
+//        StringBuilder stringBuilder = new StringBuilder("SELECT * FROM ");
+//        stringBuilder.append(t.getTableName()).append("WHERE ");
+//        resultSet = executeReadQuery(stringBuilder.toString());
+//
+//        return null;
+//    }
+
     @Override
-    public T getT(int id) throws SQLException {
+    public String createSelectEntityQuery(T t, int id) {
+        StringBuilder stringBuilder = new StringBuilder("SELECT * FROM ");
+        stringBuilder.append(t.getTableName()).append("WHERE ").append("");
+        return stringBuilder.toString();
+    }
+
+    @Override
+    public List<T> getList() throws SQLException {
         return null;
     }
 
@@ -52,8 +73,6 @@ public class MySQLDB<T extends IEntity> implements IMySQLDB<T> {
             isFirstColumn = false;
         }
         stringBuilder.append(")");
-
-        System.out.println(stringBuilder.toString());
 
         return stringBuilder.toString();
     }
@@ -124,6 +143,5 @@ public class MySQLDB<T extends IEntity> implements IMySQLDB<T> {
         statement = connection.createStatement();
         resultSet = statement.executeQuery(query);
         return resultSet;
-
     }
 }

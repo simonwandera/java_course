@@ -2,9 +2,7 @@ package com.JDBC.Model;
 
 import com.JDBC.Service.IEntity;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Student extends IEntity {
     private int id;
@@ -13,14 +11,25 @@ public class Student extends IEntity {
     private String gender;
     private static final String tableName = "student";
     private static final String[] columnNames = {"name", "idNumber", "gender"};
+    private static Map<String, Object> entities;
     static List<String> columns = new ArrayList<>(Arrays.asList(columnNames));
 
     public Student() {
         super(columns, tableName);
+        entities = new HashMap<>(){{
+            entities.put("id", "");
+            entities.put("name", "");
+            entities.put("idNumber", "");
+            entities.put("gender", "");
+        }};
     }
 
     public int getId() {
         return id;
+    }
+
+    public static Map<String, Object> getEntities() {
+        return entities;
     }
 
     public void setId(int id) {
