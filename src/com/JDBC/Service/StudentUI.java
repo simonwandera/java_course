@@ -126,7 +126,7 @@ public class StudentUI {
         teacher.getEntitiesMap().replace("tscNumber", teacher.getTscNumber());
         teacher.getEntitiesMap().replace("qualification", teacher.getQualification());
 
-        String teacherInsertQuery = iMySQLDB.createInsertQuery(teacher);
+        String teacherInsertQuery = iMySQLDB.createInsertQuery();
         iMySQLDB.executeQuery(teacherInsertQuery);
 
     }

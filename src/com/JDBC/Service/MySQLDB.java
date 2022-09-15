@@ -3,6 +3,7 @@ package com.JDBC.Service;
 import com.JDBC.Model.Student;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -48,7 +49,7 @@ public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
         }
     }
     @Override
-    public String createInsertQuery(T t) {
+    public String createInsertQuery() {
         StringBuilder stringBuilder = new StringBuilder("INSERT INTO "); // insert into
         stringBuilder.append(t.getTableName()); // tbl_students or tbl_patients
         stringBuilder.append("(");
@@ -132,14 +133,16 @@ public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
 
     @Override
     public void save() {
-        String insertQuery = this.createInsertQuery(t);
+        String insertQuery = this.createInsertQuery();
         this.executeQuery(insertQuery);
     }
 
     @Override
-    public List<T> fetchAll() throws SQLException {
-        String selectQuery = this.createInsertQuery(t);
-        this.executeQuery(selectQuery);
+    public ResultSet fetchAll() throws SQLException {
+        List<T> result = new ArrayList<>();
+        String selectQuery = this.createSelectQuery();
+        resultSet = this.executeReadQuery(selectQuery);
+        return resultSet;
     }
 
 //    @Override

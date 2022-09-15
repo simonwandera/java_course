@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface IMySQLDB<T extends Entity> {
 
-    String createInsertQuery(T t);
+    String createInsertQuery();
     String createUpdateQuery(Student student);
-    List<T> fetchAll() throws SQLException;
+    public ResultSet fetchAll() throws SQLException;
     String createSelectQuery();
     public String createSelectWithWhereClauseQuery();
     boolean executeQuery(String query);
