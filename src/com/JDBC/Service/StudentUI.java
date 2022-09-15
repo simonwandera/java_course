@@ -73,6 +73,7 @@ public class StudentUI {
         while (true) {
             System.out.println("1. Register Student");
             System.out.println("2. Register Teacher");
+            System.out.println("3. Display all Students");
             System.out.println("q. Exit System");
 
             String choice = scanner.nextLine();
