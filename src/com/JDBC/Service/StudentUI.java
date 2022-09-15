@@ -30,12 +30,9 @@ public class StudentUI {
 //        updateStudent();
     }
 
-//    public static void displayStudents() throws SQLException {
-//        List<Student> studentList = iStudentDB.getStudents();
-//        for (Student student: studentList){
-//            System.out.println(student);
-//        }
-//    }
+    public static void displayAllStudents() throws SQLException {
+        System.out.println("Displaying all students");
+    }
 
 //    public static void displayStudent(int id) throws SQLException {
 //        System.out.println(iStudentDB.getStudent(id));

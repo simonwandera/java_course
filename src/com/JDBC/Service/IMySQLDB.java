@@ -10,13 +10,9 @@ public interface IMySQLDB<T extends Entity> {
 
     String createInsertQuery(T t);
     String createUpdateQuery(Student student);
-
-//    T getT(int id) throws SQLException;
-    String createSelectEntityQuery(T t, int id);
-//    boolean deleteStudent(int id);
-    List<T> getList() throws SQLException;
-//    Student getStudent(int id) throws SQLException;
-
+    List<T> fetchAll() throws SQLException;
+    String createSelectQuery();
+    public String createSelectWithWhereClauseQuery();
     boolean executeQuery(String query);
     public void save();
     ResultSet executeReadQuery(String query) throws SQLException;

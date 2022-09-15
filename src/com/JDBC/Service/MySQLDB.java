@@ -27,15 +27,16 @@ public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
 //    }
 
     @Override
-    public String createSelectEntityQuery(T t, int id) {
+    public String createSelectWithWhereClauseQuery() {
         StringBuilder stringBuilder = new StringBuilder("SELECT * FROM ");
         stringBuilder.append(t.getTableName()).append("WHERE ").append("");
         return stringBuilder.toString();
     }
-
-    @Override
-    public List<T> getList() throws SQLException {
-        return null;
+    public String createSelectQuery() {
+        StringBuilder stringBuilder = new StringBuilder("SELECT * FROM ");
+        stringBuilder.append(this.t.getTableName());
+        System.out.println(stringBuilder.toString());
+        return stringBuilder.toString();
     }
 
     private boolean openConnection() throws SQLException {
@@ -131,8 +132,14 @@ public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
 
     @Override
     public void save() {
-        String studentInsertQuery = this.createInsertQuery(t);
-        this.executeQuery(studentInsertQuery);
+        String insertQuery = this.createInsertQuery(t);
+        this.executeQuery(insertQuery);
+    }
+
+    @Override
+    public List<T> fetchAll() throws SQLException {
+        String selectQuery = this.createInsertQuery(t);
+        this.executeQuery(selectQuery);
     }
 
 //    @Override
