@@ -30,6 +30,7 @@ public class Student extends IEntity {
     }
 
     public void setId(int id) {
+        this.entitiesMap.put("id", id);
         this.id = id;
     }
 
@@ -38,6 +39,7 @@ public class Student extends IEntity {
     }
 
     public void setName(String name) {
+        entitiesMap.put("name", name);
         this.name = name;
     }
 
@@ -46,6 +48,7 @@ public class Student extends IEntity {
     }
 
     public void setIdNumber(int idNumber) {
+        entitiesMap.put("idNumber", idNumber);
         IdNumber = idNumber;
     }
 
@@ -54,6 +57,7 @@ public class Student extends IEntity {
     }
 
     public void setGender(String gender) {
+        entitiesMap.put("gender", gender);
         this.gender = gender;
     }
 
