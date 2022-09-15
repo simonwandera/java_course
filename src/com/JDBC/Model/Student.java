@@ -19,7 +19,6 @@ public class Student extends IEntity {
         super(columns, tableName);
     }
 
-
     public int getId() {
         return id;
     }

@@ -18,9 +18,6 @@ public class StudentUI {
 
         scanner = new Scanner(System.in);
         iStudentDB = new MySQLDB<>();
-
-        MySQLDB<IEntity> mySQLDB = new MySQLDB<>();
-
     
 //        displayStudents();
 //        displayStudent(4);
@@ -29,8 +26,8 @@ public class StudentUI {
         student.getTargetColumns().add(student.getIdNumber());
         student.getTargetColumns().add(student.getGender());
 
-        String insertQuery = mySQLDB.createInsertQuery(student);
-        mySQLDB.executeQuery(insertQuery);
+        String insertQuery = iStudentDB.createInsertQuery(student);
+        iStudentDB.executeQuery(insertQuery);
 
 
 //        deleteStudent(6);
