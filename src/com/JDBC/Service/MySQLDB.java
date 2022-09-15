@@ -58,8 +58,6 @@ public class MySQLDB<T extends IEntity> implements IMySQLDB<T> {
         boolean isFirstColumn = true;
         for (String key : t.getEntitiesMap().keySet())
         {
-            if( key.equals("id"))
-                continue;
             if (!isFirstColumn)
                 stringBuilder.append(",");
             stringBuilder.append("`").append(key).append("`");
@@ -68,10 +66,18 @@ public class MySQLDB<T extends IEntity> implements IMySQLDB<T> {
         stringBuilder.append(")").append("values").append("(");
 
         isFirstColumn = true;
-        for (Object object: t.getEntitiesMap().entrySet()){
+        t.getEntitiesMap().forEach((key, value) -> {
+
+        });
+        for (Object object: t.getEntitiesMap().values()){
+
             if (!isFirstColumn)
                 stringBuilder.append(",");
-            stringBuilder.append("\"").append(object).append("\"");
+            if (object != null)
+                stringBuilder.append("\"").append(object).append("\"");
+            else
+                stringBuilder.append((Object) null);
+
             isFirstColumn = false;
         }
         stringBuilder.append(")");

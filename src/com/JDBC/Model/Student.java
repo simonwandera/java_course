@@ -11,7 +11,7 @@ public class Student extends IEntity {
     private String gender;
     private static final String tableName = "student";
     private static final Map<String, Object> entitiesMap = new HashMap<>(){{
-        put("id", "");
+        put("id", null);
         put("name", "");
         put("idNumber", "");
         put("gender", "");

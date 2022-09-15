@@ -27,7 +27,7 @@ public class StudentUI {
         student.getEntitiesMap().replace("idNumber", student.getIdNumber());
         student.getEntitiesMap().replace("gender", student.getGender());
 
-        Teacher teacher = registerTeacher();
+//        Teacher teacher = registerTeacher();
 //        teacher.getTargetColumns().add(teacher.getIdNumber());
 //        teacher.getTargetColumns().add(teacher.getName());
 //        teacher.getTargetColumns().add(teacher.getGender());
@@ -36,10 +36,10 @@ public class StudentUI {
 
         String studentInsertQuery = iMySQLDB.createInsertQuery(student);
 
-        String teacherInsertQuery = iMySQLDB.createInsertQuery(teacher);
-        iMySQLDB.executeQuery(teacherInsertQuery);
+//        String teacherInsertQuery = iMySQLDB.createInsertQuery(teacher);
+//        iMySQLDB.executeQuery(teacherInsertQuery);
 
-//        iStudentDB.executeQuery(studentInsertQuery);
+        iMySQLDB.executeQuery(studentInsertQuery);
 
 
 //        deleteStudent(6);

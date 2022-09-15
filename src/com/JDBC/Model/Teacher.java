@@ -13,8 +13,6 @@ public class Teacher extends IEntity {
     private String tscNumber;
     private String qualification;
     private static final String tableName = "teacher";
-    private static final String[] columnNames = {"idNumber", "name", "gender", "tscNumber", "qualification"};
-    private static final List<String> columns = new ArrayList<>(Arrays.asList(columnNames));
 
     private static final Map<String, Object> entitiesMap = new HashMap<>(){{
         put("id", "");
@@ -26,7 +24,7 @@ public class Teacher extends IEntity {
     }};;
 
     public Teacher() {
-        super(columns, tableName);
+        super(entitiesMap, tableName);
     }
 
     public int getId() {
