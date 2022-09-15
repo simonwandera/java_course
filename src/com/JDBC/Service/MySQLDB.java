@@ -36,7 +36,6 @@ public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
     public String createSelectQuery() {
         StringBuilder stringBuilder = new StringBuilder("SELECT * FROM ");
         stringBuilder.append(this.t.getTableName());
-        System.out.println(stringBuilder.toString());
         return stringBuilder.toString();
     }
 
@@ -102,22 +101,6 @@ public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
 //        return studentList;
 //    }
 
-//    @Override
-//    public Student getStudent(int id) throws SQLException {
-//        String query = "SELECT * FROM student WHERE id = " + id + ";";
-//
-//        resultSet = executeReadQuery(query);
-//        Student student = new Student();
-//
-//        while (resultSet.next()) {
-//            student.setId(resultSet.getInt("id"));
-//            student.setIdNumber(resultSet.getInt("IdNUmber"));
-//            student.setGender(resultSet.getString("gender"));
-//            student.setName(resultSet.getString("name"));
-//        }
-//        return student;
-//    }
-
     @Override
     public boolean executeQuery(String query) {
         try {
@@ -143,15 +126,6 @@ public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
         resultSet = this.executeReadQuery(selectQuery);
         return resultSet;
     }
-
-//    @Override
-//    public boolean deleteStudent(int id) {
-//        String query = "DELETE FROM student WHERE id = " + id;
-//        if(executeQuery(query))
-//            return true;
-//        else
-//            return false;
-//    }
 
     @Override
     public ResultSet executeReadQuery(String query) throws SQLException {
