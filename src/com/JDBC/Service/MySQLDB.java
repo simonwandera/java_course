@@ -1,7 +1,9 @@
 package com.JDBC.Service;
 
 import com.JDBC.Model.Student;
+import com.sun.jdi.Value;
 
+import java.security.Key;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -82,6 +84,15 @@ public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
     public String createUpdateQuery(Map <String, Object> entryMap) {
         StringBuilder stringBuilder = new StringBuilder("UPDATE ");
         stringBuilder.append(t.getTableName()).append(" SET ");
+        boolean isFirst = true;
+        for (Map.Entry<String, Object> entry: entryMap.entrySet()){
+            if (!isFirst)
+                stringBuilder.append(",");
+            stringBuilder.append(entry.getKey()).append("=").append("\"").append(entry.getValue()).append("\"");
+            isFirst = false;
+        }
+
+        stringBuilder.append(" WHERE ").append("id =").append(entryMap.get("id"));
 
         System.out.println(stringBuilder.toString());
         return stringBuilder.toString();

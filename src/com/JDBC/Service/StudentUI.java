@@ -94,6 +94,7 @@ public class StudentUI {
             System.out.println("2. Register Teacher");
             System.out.println("3. Display all Students");
             System.out.println("4. Display all Teachers");
+            System.out.println("5. Update Student");
             System.out.println("q. Exit System");
 
             String choice = scanner.nextLine();
@@ -106,6 +107,8 @@ public class StudentUI {
                 displayAllStudents();
             else if (choice.equals("4"))
                 displayAllTeachers();
+            else if (choice.equals("5"))
+                updateStudents();
             else if (choice.equals("q")){
                 System.out.println("Exiting ... ");
                 break;
