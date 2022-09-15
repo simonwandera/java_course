@@ -4,6 +4,7 @@ import com.JDBC.Model.Student;
 import com.JDBC.Model.Teacher;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -11,6 +12,7 @@ public class StudentUI {
 
     static Scanner scanner;
     static IMySQLDB<Entity> iMySQLDB;
+    private static ResultSet resultSet;
     public static void main(String[] args) throws SQLException, IOException {
 
         scanner = new Scanner(System.in);
@@ -31,11 +33,20 @@ public class StudentUI {
     }
 
     public static void displayAllStudents() throws SQLException {
-        System.out.println("Displaying all students");
+        IMySQLDB<Student> studentDB = new MySQLDB<>(new Student());
+        resultSet = studentDB.fetchAll();
+        while (resultSet.next()){
+            Student student = new Student();
+            student.setId(resultSet.getInt("id"));
+            student.setName(resultSet.getString("name"));
+            student.setGender(resultSet.getString("gender"));
+            student.setIdNumber(resultSet.getInt("idNumber"));
+            System.out.println(student);
+        }
     }
 
     public static void displayAllTeachers() throws SQLException {
-        System.out.println("Displaying all students");
+        IMySQLDB<Teacher> teacherDB = new MySQLDB<>(new Teacher());
     }
 
 //    public static void displayStudent(int id) throws SQLException {
@@ -75,6 +86,7 @@ public class StudentUI {
             System.out.println("1. Register Student");
             System.out.println("2. Register Teacher");
             System.out.println("3. Display all Students");
+            System.out.println("4. Display all Teachers");
             System.out.println("q. Exit System");
 
             String choice = scanner.nextLine();
@@ -83,6 +95,10 @@ public class StudentUI {
                 registerStudent();
             else if (choice.equals("2"))
                 registerTeacher();
+            else if(choice.equals("3"))
+                displayAllStudents();
+            else if (choice.equals("4"))
+                displayAllTeachers();
             else if (choice.equals("q")){
                 System.out.println("Exiting ... ");
                 break;

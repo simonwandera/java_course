@@ -9,7 +9,7 @@ import java.util.List;
 
 public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
     private Connection connection;
-    private ResultSet resultSet;
+    static ResultSet resultSet;
     private Statement statement;
     private T t;
 
@@ -139,7 +139,6 @@ public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
 
     @Override
     public ResultSet fetchAll() throws SQLException {
-        List<T> result = new ArrayList<>();
         String selectQuery = this.createSelectQuery();
         resultSet = this.executeReadQuery(selectQuery);
         return resultSet;
