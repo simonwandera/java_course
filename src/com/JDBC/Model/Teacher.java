@@ -77,8 +77,7 @@ public class Teacher extends Entity {
 
     @Override
     public String toString() {
-        return "Teacher{" +
-                "id=" + id +
+        return  "id=" + id +
                 ", idNumber=" + idNumber +
                 ", name=" + name +
                 ", gender='" + gender + '\'' +
