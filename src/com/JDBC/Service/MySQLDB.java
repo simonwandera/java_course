@@ -76,6 +76,8 @@ public class MySQLDB<T extends IEntity> implements IMySQLDB<T> {
             isFirstColumn = false;
         }
         stringBuilder.append(")");
+
+        System.out.println(stringBuilder.toString());
         return stringBuilder.toString();
     }
 

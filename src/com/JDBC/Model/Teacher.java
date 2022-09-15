@@ -15,7 +15,7 @@ public class Teacher extends IEntity {
     private static final String tableName = "teacher";
 
     private static final Map<String, Object> entitiesMap = new HashMap<>(){{
-        put("id", "");
+        put("id", null);
         put("idNumber", "");
         put("name", "");
         put("gender", "");

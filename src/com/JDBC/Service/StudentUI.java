@@ -18,28 +18,10 @@ public class StudentUI {
     
 //        displayStudents();
 //        displayStudent(4);
-        Student student = registerStudent();
-//        student.getTargetColumns().add(student.getName());
-//        student.getTargetColumns().add(student.getIdNumber());
-//        student.getTargetColumns().add(student.getGender());
+//        registerStudent();
+        registerTeacher();
 
-        student.getEntitiesMap().replace("name", student.getName());
-        student.getEntitiesMap().replace("idNumber", student.getIdNumber());
-        student.getEntitiesMap().replace("gender", student.getGender());
 
-//        Teacher teacher = registerTeacher();
-//        teacher.getTargetColumns().add(teacher.getIdNumber());
-//        teacher.getTargetColumns().add(teacher.getName());
-//        teacher.getTargetColumns().add(teacher.getGender());
-//        teacher.getTargetColumns().add(teacher.getTscNumber());
-//        teacher.getTargetColumns().add(teacher.getQualification());
-
-        String studentInsertQuery = iMySQLDB.createInsertQuery(student);
-
-//        String teacherInsertQuery = iMySQLDB.createInsertQuery(teacher);
-//        iMySQLDB.executeQuery(teacherInsertQuery);
-
-        iMySQLDB.executeQuery(studentInsertQuery);
 
 
 //        deleteStudent(6);
@@ -85,7 +67,7 @@ public class StudentUI {
 //        iStudentDB.executeQuery(query);
 //    }
 
-    public static Student registerStudent(){
+    public static void registerStudent(){
         Student student = new Student();
 
         System.out.println("Enter student Name: ");
@@ -95,12 +77,15 @@ public class StudentUI {
         System.out.println("Enter student ID Number: ");
         student.setIdNumber(scanner.nextInt());
 
-        return student;
-//        String query = iStudentDB.createInsertQuery();
-//        iStudentDB.executeQuery(query);
+        student.getEntitiesMap().replace("name", student.getName());
+        student.getEntitiesMap().replace("idNumber", student.getIdNumber());
+        student.getEntitiesMap().replace("gender", student.getGender());
+
+        String studentInsertQuery = iMySQLDB.createInsertQuery(student);
+        iMySQLDB.executeQuery(studentInsertQuery);
     }
 
-    public static Teacher registerTeacher(){
+    public static void registerTeacher(){
         Teacher teacher = new Teacher();
         System.out.print("Enter teacher ID Number: ");
         teacher.setIdNumber(scanner.nextInt());
@@ -113,6 +98,15 @@ public class StudentUI {
         teacher.setTscNumber(scanner.nextLine());
         System.out.print("Enter teacher's qualification: ");
         teacher.setQualification(scanner.nextLine());
-        return teacher;
+
+        teacher.getEntitiesMap().replace("idNumber", teacher.getIdNumber());
+        teacher.getEntitiesMap().replace("name", teacher.getName());
+        teacher.getEntitiesMap().replace("gender", teacher.getGender());
+        teacher.getEntitiesMap().replace("tscNumber", teacher.getTscNumber());
+        teacher.getEntitiesMap().replace("qualification", teacher.getQualification());
+
+        String teacherInsertQuery = iMySQLDB.createInsertQuery(teacher);
+        iMySQLDB.executeQuery(teacherInsertQuery);
+
     }
 }
