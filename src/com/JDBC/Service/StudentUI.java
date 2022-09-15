@@ -3,22 +3,18 @@ package com.JDBC.Service;
 import com.JDBC.Model.Student;
 import com.JDBC.Model.Teacher;
 
-import javax.swing.text.html.parser.Entity;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class StudentUI {
 
     static Scanner scanner;
-    static IMySQLDB<IEntity> iStudentDB;
+    static IMySQLDB<IEntity> iMySQLDB;
     public static void main(String[] args) throws SQLException, IOException {
 
         scanner = new Scanner(System.in);
-        iStudentDB = new MySQLDB<>();
+        iMySQLDB = new MySQLDB<>();
     
 //        displayStudents();
 //        displayStudent(4);
@@ -27,8 +23,19 @@ public class StudentUI {
         student.getTargetColumns().add(student.getIdNumber());
         student.getTargetColumns().add(student.getGender());
 
-        String insertQuery = iStudentDB.createInsertQuery(student);
-        iStudentDB.executeQuery(insertQuery);
+        Teacher teacher = registerTeacher();
+        teacher.getTargetColumns().add(teacher.getIdNumber());
+        teacher.getTargetColumns().add(teacher.getName());
+        teacher.getTargetColumns().add(teacher.getGender());
+        teacher.getTargetColumns().add(teacher.getTscNumber());
+        teacher.getTargetColumns().add(teacher.getQualification());
+
+        String studentInsertQuery = iMySQLDB.createInsertQuery(student);
+
+        String teacherInsertQuery = iMySQLDB.createInsertQuery(teacher);
+        iMySQLDB.executeQuery(teacherInsertQuery);
+
+//        iStudentDB.executeQuery(studentInsertQuery);
 
 
 //        deleteStudent(6);
@@ -93,11 +100,15 @@ public class StudentUI {
         Teacher teacher = new Teacher();
         System.out.print("Enter teacher ID Number: ");
         teacher.setIdNumber(scanner.nextInt());
+        scanner.nextLine();
         System.out.print("Enter teacher Name: ");
         teacher.setName(scanner.nextLine());
         System.out.print("Enter teacher's gender: ");
+        teacher.setGender(scanner.nextLine());
         System.out.print("Enter teacher's TSC number: ");
+        teacher.setTscNumber(scanner.nextLine());
         System.out.print("Enter teacher's qualification: ");
+        teacher.setQualification(scanner.nextLine());
         return teacher;
     }
 }
