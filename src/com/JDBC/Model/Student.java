@@ -10,18 +10,15 @@ public class Student extends IEntity {
     private int IdNumber;
     private String gender;
     private static final String tableName = "student";
-    private static final String[] columnNames = {"name", "idNumber", "gender"};
-    private static Map<String, Object> entities;
-    static List<String> columns = new ArrayList<>(Arrays.asList(columnNames));
+    private static Map<String, Object> entitiesMap = new HashMap<>(){{
+        entitiesMap.put("id", "");
+        entitiesMap.put("name", "");
+        entitiesMap.put("idNumber", "");
+        entitiesMap.put("gender", "");
+    }};;
 
     public Student() {
-        super(columns, tableName);
-        entities = new HashMap<>(){{
-            entities.put("id", "");
-            entities.put("name", "");
-            entities.put("idNumber", "");
-            entities.put("gender", "");
-        }};
+        super(entitiesMap, tableName);
     }
 
     public int getId() {

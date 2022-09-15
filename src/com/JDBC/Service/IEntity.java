@@ -5,28 +5,20 @@ import java.util.List;
 import java.util.Map;
 
 public class IEntity {
-    private List<String> columns;
     private String tableName;
-    private List<Object> targetColumns;
 
     private Map<String, Object> entitiesMap;
 
-    public List<Object> getTargetColumns() {
-        return targetColumns;
-    }
-
-    public List<String> getColumns() {
-        return columns;
+    public Map<String, Object> getEntitiesMap() {
+        return entitiesMap;
     }
 
     public String getTableName() {
         return tableName;
     }
 
-    public IEntity(List<String> columns, String tableName) {
-        this.columns = columns;
+    public IEntity(Map<String, Object> entitiesMap, String tableName) {
         this.tableName = tableName;
-        this.targetColumns = new ArrayList<>();
-        this.entitiesMap = new HashMap<>();
+        this.entitiesMap = entitiesMap;
     }
 }
