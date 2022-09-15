@@ -5,11 +5,12 @@ import com.JDBC.Model.Student;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 public interface IMySQLDB<T extends Entity> {
 
     String createInsertQuery();
-    String createUpdateQuery(Student student);
+    String createUpdateQuery(Map<String, Object> entryMap);
     public ResultSet fetchAll() throws SQLException;
     String createSelectQuery();
     public String createSelectWithWhereClauseQuery();

@@ -6,6 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
     private Connection connection;
@@ -78,8 +79,12 @@ public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
         return stringBuilder.toString();
     }
 
-    public String createUpdateQuery(Student student) {
-        return "UPDATE student SET name = \"" + student.getName() + "\", gender = \""+ student.getGender() +"\", idNumber = " + student.getIdNumber()+ " WHERE id = " +student.getId()+ ";";
+    public String createUpdateQuery(Map <String, Object> entryMap) {
+        StringBuilder stringBuilder = new StringBuilder("UPDATE ");
+        stringBuilder.append(t.getTableName()).append(" SET ");
+
+        System.out.println(stringBuilder.toString());
+        return stringBuilder.toString();
     }
 
 //    @Override

@@ -1,11 +1,12 @@
 package com.JDBC.Service;
-
 import com.JDBC.Model.Student;
 import com.JDBC.Model.Teacher;
 
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class StudentUI {
@@ -50,9 +51,14 @@ public class StudentUI {
         }
     }
 
-//    public static void displayStudent(int id) throws SQLException {
-//        System.out.println(iStudentDB.getStudent(id));
-//    }
+    public static void updateStudents() throws SQLException {
+        Map<String, Object> entryHashMap = new HashMap<>(){{
+            put("name", "Munialo");
+            put("gender", "male");
+        }};
+        IMySQLDB<Student> studentDB = new MySQLDB<>(new Student());
+        studentDB.createUpdateQuery(entryHashMap);
+    }
 //
 //    public static void deleteStudent(int id) throws SQLException {
 //        System.out.println(iStudentDB.deleteStudent(id));
