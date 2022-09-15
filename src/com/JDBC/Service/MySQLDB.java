@@ -3,20 +3,17 @@ package com.JDBC.Service;
 import com.JDBC.Model.Student;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class MySQLDB<T extends IEntity> implements IMySQLDB<T> {
+public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
     private Connection connection;
     private ResultSet resultSet;
-    Statement statement;
-
+    private Statement statement;
     private T t;
 
-    HashMap<Object, Object> elementsToSelect;
-
-    public MySQLDB() throws SQLException {
+    public MySQLDB(T t) throws SQLException {
+        this.t = t;
         this.openConnection();
     }
 
@@ -130,6 +127,12 @@ public class MySQLDB<T extends IEntity> implements IMySQLDB<T> {
             System.out.println("Failed to execute");
             return false;
         }
+    }
+
+    @Override
+    public void save() {
+        String studentInsertQuery = this.createInsertQuery(t);
+        this.executeQuery(studentInsertQuery);
     }
 
 //    @Override

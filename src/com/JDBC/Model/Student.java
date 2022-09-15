@@ -1,10 +1,10 @@
 package com.JDBC.Model;
 
-import com.JDBC.Service.IEntity;
+import com.JDBC.Service.Entity;
 
 import java.util.*;
 
-public class Student extends IEntity {
+public class Student extends Entity {
     private int id;
     private String name;
     private int IdNumber;
@@ -65,4 +65,5 @@ public class Student extends IEntity {
     public String toString() {
         return "id= " + id + "\tidNumber= " + IdNumber + "\tname= " + name + "\tgender= " + gender;
     }
+
 }

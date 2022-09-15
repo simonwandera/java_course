@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface IMySQLDB<T extends IEntity> {
+public interface IMySQLDB<T extends Entity> {
 
     String createInsertQuery(T t);
     String createUpdateQuery(Student student);
@@ -18,5 +18,6 @@ public interface IMySQLDB<T extends IEntity> {
 //    Student getStudent(int id) throws SQLException;
 
     boolean executeQuery(String query);
+    public void save();
     ResultSet executeReadQuery(String query) throws SQLException;
 }

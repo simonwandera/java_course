@@ -10,11 +10,10 @@ import java.util.Scanner;
 public class StudentUI {
 
     static Scanner scanner;
-    static IMySQLDB<IEntity> iMySQLDB;
+    static IMySQLDB<Entity> iMySQLDB;
     public static void main(String[] args) throws SQLException, IOException {
 
         scanner = new Scanner(System.in);
-        iMySQLDB = new MySQLDB<>();
 
         System.out.println("*************** WELCOME TO SCHOOL MANAGEMENT SYSTEM *************");
 
@@ -70,7 +69,7 @@ public class StudentUI {
 //        iStudentDB.executeQuery(query);
 //    }
 
-    public static void menu(){
+    public static void menu() throws SQLException {
         while (true) {
             System.out.println("1. Register Student");
             System.out.println("2. Register Teacher");
@@ -91,7 +90,7 @@ public class StudentUI {
         }
     }
 
-    public static void registerStudent(){
+    public static void registerStudent() throws SQLException {
         Student student = new Student();
 
         System.out.println("Enter student Name: ");
@@ -100,13 +99,13 @@ public class StudentUI {
         student.setGender(scanner.nextLine());
         System.out.println("Enter student ID Number: ");
         student.setIdNumber(scanner.nextInt());
-
+        scanner.nextLine();
         student.getEntitiesMap().replace("name", student.getName());
         student.getEntitiesMap().replace("idNumber", student.getIdNumber());
         student.getEntitiesMap().replace("gender", student.getGender());
 
-        String studentInsertQuery = iMySQLDB.createInsertQuery(student);
-        iMySQLDB.executeQuery(studentInsertQuery);
+        IMySQLDB<Student> iMySQLDB = new MySQLDB<>(student);
+        iMySQLDB.save();
     }
 
     public static void registerTeacher(){

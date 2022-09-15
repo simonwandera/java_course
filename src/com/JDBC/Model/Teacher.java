@@ -1,10 +1,10 @@
 package com.JDBC.Model;
 
-import com.JDBC.Service.IEntity;
+import com.JDBC.Service.Entity;
 
 import java.util.*;
 
-public class Teacher extends IEntity {
+public class Teacher extends Entity {
 
     private int id;
     private int idNumber;

@@ -1,10 +1,7 @@
 package com.JDBC.Service;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-public class IEntity {
+public class Entity {
     private String tableName;
 
     private Map<String, Object> entitiesMap;
@@ -17,8 +14,9 @@ public class IEntity {
         return tableName;
     }
 
-    public IEntity(Map<String, Object> entitiesMap, String tableName) {
+    public Entity(Map<String, Object> entitiesMap, String tableName) {
         this.tableName = tableName;
         this.entitiesMap = entitiesMap;
     }
+
 }
