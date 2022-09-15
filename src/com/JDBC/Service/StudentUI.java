@@ -1,6 +1,7 @@
 package com.JDBC.Service;
 
 import com.JDBC.Model.Student;
+import com.JDBC.Model.Teacher;
 
 import javax.swing.text.html.parser.Entity;
 import java.io.IOException;
@@ -87,4 +88,6 @@ public class StudentUI {
 //        String query = iStudentDB.createInsertQuery();
 //        iStudentDB.executeQuery(query);
     }
+
+    public static Teacher registerT
 }
