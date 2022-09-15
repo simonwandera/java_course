@@ -34,6 +34,10 @@ public class StudentUI {
         System.out.println("Displaying all students");
     }
 
+    public static void displayAllTeachers() throws SQLException {
+        System.out.println("Displaying all students");
+    }
+
 //    public static void displayStudent(int id) throws SQLException {
 //        System.out.println(iStudentDB.getStudent(id));
 //    }
@@ -106,7 +110,7 @@ public class StudentUI {
         iMySQLDB.save();
     }
 
-    public static void registerTeacher(){
+    public static void registerTeacher() throws SQLException {
         Teacher teacher = new Teacher();
         System.out.print("Enter teacher ID Number: ");
         teacher.setIdNumber(scanner.nextInt());
@@ -126,8 +130,8 @@ public class StudentUI {
         teacher.getEntitiesMap().replace("tscNumber", teacher.getTscNumber());
         teacher.getEntitiesMap().replace("qualification", teacher.getQualification());
 
-        String teacherInsertQuery = iMySQLDB.createInsertQuery();
-        iMySQLDB.executeQuery(teacherInsertQuery);
+        IMySQLDB<Teacher> iMySQLDB = new MySQLDB<>(teacher);
+        iMySQLDB.save();
 
     }
 }
