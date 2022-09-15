@@ -15,14 +15,17 @@ public class StudentUI {
 
         scanner = new Scanner(System.in);
         iMySQLDB = new MySQLDB<>();
-    
+
+        System.out.println("*************** WELCOME TO SCHOOL MANAGEMENT SYSTEM *************");
+
+        menu();
+
+
+
 //        displayStudents();
 //        displayStudent(4);
 //        registerStudent();
-        registerTeacher();
-
-
-
+//        registerTeacher();
 
 //        deleteStudent(6);
 //        updateStudent();
@@ -66,6 +69,27 @@ public class StudentUI {
 //        String query = iStudentDB.createUpdateQuery(student);
 //        iStudentDB.executeQuery(query);
 //    }
+
+    public static void menu(){
+        while (true) {
+            System.out.println("1. Register Student");
+            System.out.println("2. Register Teacher");
+            System.out.println("q. Exit System");
+
+            String choice = scanner.nextLine();
+
+            if (choice.equals("1"))
+                registerStudent();
+            else if (choice.equals("2"))
+                registerTeacher();
+            else if (choice.equals("q")){
+                System.out.println("Exiting ... ");
+                break;
+            }else {
+                System.out.println("\nInvalid choice!\n");
+            }
+        }
+    }
 
     public static void registerStudent(){
         Student student = new Student();
