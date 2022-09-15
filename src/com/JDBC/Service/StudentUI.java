@@ -19,16 +19,20 @@ public class StudentUI {
 //        displayStudents();
 //        displayStudent(4);
         Student student = registerStudent();
-        student.getTargetColumns().add(student.getName());
-        student.getTargetColumns().add(student.getIdNumber());
-        student.getTargetColumns().add(student.getGender());
+//        student.getTargetColumns().add(student.getName());
+//        student.getTargetColumns().add(student.getIdNumber());
+//        student.getTargetColumns().add(student.getGender());
+
+        student.getEntitiesMap().replace("name", student.getName());
+        student.getEntitiesMap().replace("idNumber", student.getIdNumber());
+        student.getEntitiesMap().replace("gender", student.getGender());
 
         Teacher teacher = registerTeacher();
-        teacher.getTargetColumns().add(teacher.getIdNumber());
-        teacher.getTargetColumns().add(teacher.getName());
-        teacher.getTargetColumns().add(teacher.getGender());
-        teacher.getTargetColumns().add(teacher.getTscNumber());
-        teacher.getTargetColumns().add(teacher.getQualification());
+//        teacher.getTargetColumns().add(teacher.getIdNumber());
+//        teacher.getTargetColumns().add(teacher.getName());
+//        teacher.getTargetColumns().add(teacher.getGender());
+//        teacher.getTargetColumns().add(teacher.getTscNumber());
+//        teacher.getTargetColumns().add(teacher.getQualification());
 
         String studentInsertQuery = iMySQLDB.createInsertQuery(student);
 

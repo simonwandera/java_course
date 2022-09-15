@@ -56,23 +56,27 @@ public class MySQLDB<T extends IEntity> implements IMySQLDB<T> {
         stringBuilder.append("(");
         // (id, name, registrationNumber, idNumber) or (id, patientNumber)
         boolean isFirstColumn = true;
-        for (String column : t.getColumns())
+        for (String key : t.getEntitiesMap().keySet())
         {
+            if( key.equals("id"))
+                continue;
             if (!isFirstColumn)
                 stringBuilder.append(",");
-            stringBuilder.append("`").append(column).append("`");
+            stringBuilder.append("`").append(key).append("`");
             isFirstColumn = false;
         }
         stringBuilder.append(")").append("values").append("(");
 
         isFirstColumn = true;
-        for (Object object: t.getTargetColumns()){
+        for (Object object: t.getEntitiesMap().entrySet()){
             if (!isFirstColumn)
                 stringBuilder.append(",");
             stringBuilder.append("\"").append(object).append("\"");
             isFirstColumn = false;
         }
         stringBuilder.append(")");
+
+        System.out.println(stringBuilder.toString());
 
         return stringBuilder.toString();
     }

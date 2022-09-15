@@ -10,11 +10,11 @@ public class Student extends IEntity {
     private int IdNumber;
     private String gender;
     private static final String tableName = "student";
-    private static Map<String, Object> entitiesMap = new HashMap<>(){{
-        entitiesMap.put("id", "");
-        entitiesMap.put("name", "");
-        entitiesMap.put("idNumber", "");
-        entitiesMap.put("gender", "");
+    private static final Map<String, Object> entitiesMap = new HashMap<>(){{
+        put("id", "");
+        put("name", "");
+        put("idNumber", "");
+        put("gender", "");
     }};;
 
     public Student() {
@@ -26,7 +26,7 @@ public class Student extends IEntity {
     }
 
     public static Map<String, Object> getEntities() {
-        return entities;
+        return entitiesMap;
     }
 
     public void setId(int id) {
