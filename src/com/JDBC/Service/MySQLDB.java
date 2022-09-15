@@ -66,24 +66,16 @@ public class MySQLDB<T extends IEntity> implements IMySQLDB<T> {
         stringBuilder.append(")").append("values").append("(");
 
         isFirstColumn = true;
-        t.getEntitiesMap().forEach((key, value) -> {
-
-        });
         for (Object object: t.getEntitiesMap().values()){
-
             if (!isFirstColumn)
                 stringBuilder.append(",");
             if (object != null)
                 stringBuilder.append("\"").append(object).append("\"");
             else
                 stringBuilder.append((Object) null);
-
             isFirstColumn = false;
         }
         stringBuilder.append(")");
-
-        System.out.println(stringBuilder.toString());
-
         return stringBuilder.toString();
     }
 
