@@ -85,18 +85,20 @@ public class Teacher extends Entity {
         this.qualification = qualification;
     }
 
-    public static List<Student> displayAll() throws SQLException {
-        List<Student> studentList = new ArrayList<>();
-        resultSet = getStudentDB().fetchAll();
+    public static List<Teacher> displayAll() throws SQLException {
+        List<Teacher> teacherList = new ArrayList<>();
+        resultSet = getTeacherDB().fetchAll();
         while (resultSet.next()){
-            Student student = new Student();
-            student.setId(resultSet.getInt("id"));
-            student.setName(resultSet.getString("name"));
-            student.setGender(resultSet.getString("gender"));
-            student.setIdNumber(resultSet.getInt("idNumber"));
-            studentList.add(student);
+            Teacher teacher = new Teacher();
+            teacher.setId(resultSet.getInt("id"));
+            teacher.setIdNumber(resultSet.getInt("idNumber"));
+            teacher.setName(resultSet.getString("name"));
+            teacher.setQualification(resultSet.getString("qualification"));
+            teacher.setGender(resultSet.getString("gender"));
+            teacher.setTscNumber(resultSet.getString("tscNumber"));
+            teacherList.add(teacher);
         }
-        return studentList;
+        return teacherList;
     }
 
     @Override
