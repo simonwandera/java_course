@@ -85,7 +85,6 @@ public class Student extends Entity {
         return studentList;
     }
 
-
         @Override
     public String toString() {
         return "id= " + id + "\tidNumber= " + IdNumber + "\tname= " + name + "\tgender= " + gender;

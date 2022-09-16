@@ -36,39 +36,24 @@ public class StudentUI {
         }
     }
 
-    public static void updateStudents() throws SQLException {
+    public static void updateStudents(int id) throws SQLException {
+        Student studentToUpdate = new Student();
+        studentToUpdate.setId(id);
 
-        IMySQLDB<Student> studentDB = new MySQLDB<>(new Student());
-        studentDB.createUpdateQuery(Student.getEntities());
+        IMySQLDB<Student> studentDB = new MySQLDB<>(studentToUpdate);
+        resultSet = studentDB.fetchOne();
+        while (resultSet.next()){
+            studentToUpdate.setId(resultSet.getInt("id"));
+            studentToUpdate.setName(resultSet.getString("name"));
+            studentToUpdate.setGender(resultSet.getString("gender"));
+            studentToUpdate.setIdNumber(resultSet.getInt("idNumber"));
+        }
+
+        studentToUpdate.setName("Updated Name");
+        IMySQLDB<Student> newStudentDB = new MySQLDB<>(studentToUpdate);
+        newStudentDB.update();
     }
-//
-//    public static void deleteStudent(int id) throws SQLException {
-//        System.out.println(iStudentDB.deleteStudent(id));
-//    }
-//
-//    public static void updateStudent() throws SQLException, IOException {
-//        System.out.print("Enter ID of the student to update: ");
-//        Student student = iStudentDB.getStudent(scanner.nextInt());
-//
-//        scanner = new Scanner(System.in);
-//        System.out.print("Enter student Name: ");
-//        String name = scanner.nextLine();
-//        if (name.trim().length() > 0)
-//            student.setName(name);
-//
-//        System.out.print("Enter student Gender: ");
-//        String gender = scanner.nextLine();
-//        if (gender.trim().length() > 0)
-//            student.setGender(gender);
-//
-//        System.out.print("Enter student ID Number or 0 to continue: ");
-//        int idNumber = scanner.nextInt();
-//        if (idNumber > 0)
-//            student.setIdNumber(idNumber);
-//
-//        String query = iStudentDB.createUpdateQuery(student);
-//        iStudentDB.executeQuery(query);
-//    }
+
 
     public static void menu() throws SQLException {
         while (true) {
@@ -90,7 +75,7 @@ public class StudentUI {
             else if (choice.equals("4"))
                 displayAllTeachers();
             else if (choice.equals("5"))
-                updateStudents();
+                updateStudents(3);
             else if (choice.equals("q")){
                 System.out.println("Exiting ... ");
                 break;

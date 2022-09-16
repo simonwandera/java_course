@@ -16,21 +16,21 @@ public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
         this.openConnection();
     }
 
-//    @Override
-//    public T getT(int id) throws SQLException {
-//        StringBuilder stringBuilder = new StringBuilder("SELECT * FROM ");
-//        stringBuilder.append(t.getTableName()).append("WHERE ");
-//        resultSet = executeReadQuery(stringBuilder.toString());
-//
-//        return null;
-//    }
-
     @Override
     public String createSelectWithWhereClauseQuery() {
         StringBuilder stringBuilder = new StringBuilder("SELECT * FROM ");
         stringBuilder.append(t.getTableName()).append("WHERE ").append("");
         return stringBuilder.toString();
     }
+
+    @Override
+    public String createSelectOneQuery() {
+        StringBuilder stringBuilder = new StringBuilder("SELECT * FROM ");
+        stringBuilder.append(t.getTableName()).append(" WHERE ").append("id = ").append(t.getEntitiesMap().get("id"));
+        System.out.println(stringBuilder.toString());
+        return stringBuilder.toString();
+    }
+
     public String createSelectQuery() {
         StringBuilder stringBuilder = new StringBuilder("SELECT * FROM ");
         stringBuilder.append(this.t.getTableName());
@@ -77,20 +77,20 @@ public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
     }
 
     public String createUpdateQuery(Map <String, Object> entryMap) {
-        StringBuilder stringBuilder = new StringBuilder("UPDATE ");
-        stringBuilder.append(t.getTableName()).append(" SET ");
+        StringBuilder updateQuery = new StringBuilder("UPDATE ");
+        updateQuery.append(t.getTableName()).append(" SET ");
         boolean isFirst = true;
         for (Map.Entry<String, Object> entry: entryMap.entrySet()){
             if (!isFirst)
-                stringBuilder.append(",");
-            stringBuilder.append(entry.getKey()).append("=").append("\"").append(entry.getValue()).append("\"");
+                updateQuery.append(",");
+            updateQuery.append(entry.getKey()).append("=").append("\"").append(entry.getValue()).append("\"");
             isFirst = false;
         }
 
-        stringBuilder.append(" WHERE ").append("id =").append(entryMap.get("id"));
+        updateQuery.append(" WHERE ").append("id =").append(entryMap.get("id"));
 
-        System.out.println(stringBuilder.toString());
-        return stringBuilder.toString();
+        System.out.println("Update query = " + updateQuery.toString());
+        return updateQuery.toString();
     }
 
     @Override
@@ -121,7 +121,15 @@ public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
 
     @Override
     public ResultSet fetchOne() throws SQLException {
-        return null;
+        String selectQuery = this.createSelectOneQuery();
+        resultSet = this.executeReadQuery(selectQuery);
+        return resultSet;
+    }
+
+    @Override
+    public void update() {
+        String updateQuery = this.createUpdateQuery(t.getEntitiesMap());
+        this.executeQuery(updateQuery);
     }
 
     @Override
