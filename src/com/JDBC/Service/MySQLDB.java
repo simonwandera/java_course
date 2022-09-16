@@ -1,13 +1,6 @@
 package com.JDBC.Service;
 
-import com.JDBC.Model.Student;
-import com.sun.jdi.Value;
-
-import java.security.Key;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
