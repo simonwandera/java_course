@@ -28,7 +28,7 @@ public class Student extends Entity {
         super(entitiesMap, tableName);
     }
 
-    public static IMySQLDB<Student> getMySQLDB() throws SQLException {
+    public static IMySQLDB<Student> getStudentDB() throws SQLException {
         return new MySQLDB<>(new Student());
     }
 
@@ -73,7 +73,7 @@ public class Student extends Entity {
     }
     public static List<Student> displayAll() throws SQLException {
         List<Student> studentList = new ArrayList<>();
-        resultSet = getMySQLDB().fetchAll();
+        resultSet = getStudentDB().fetchAll();
         while (resultSet.next()){
             Student student = new Student();
             student.setId(resultSet.getInt("id"));

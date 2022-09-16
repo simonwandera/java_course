@@ -1,7 +1,11 @@
 package com.JDBC.Model;
 
 import com.JDBC.Service.Entity;
+import com.JDBC.Service.IMySQLDB;
+import com.JDBC.Service.MySQLDB;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 
 public class Teacher extends Entity {
@@ -12,6 +16,8 @@ public class Teacher extends Entity {
     private String gender;
     private String tscNumber;
     private String qualification;
+    static ResultSet resultSet;
+    static IMySQLDB<Teacher> mySQLDB;
     private static final String tableName = "teacher";
 
     private static final Map<String, Object> entitiesMap = new HashMap<>(){{
@@ -25,6 +31,10 @@ public class Teacher extends Entity {
 
     public Teacher() {
         super(entitiesMap, tableName);
+    }
+
+    public static IMySQLDB<Teacher> getTeacherDB() throws SQLException {
+        return new MySQLDB<>(new Teacher());
     }
 
     public int getId() {
@@ -73,6 +83,20 @@ public class Teacher extends Entity {
 
     public void setQualification(String qualification) {
         this.qualification = qualification;
+    }
+
+    public static List<Student> displayAll() throws SQLException {
+        List<Student> studentList = new ArrayList<>();
+        resultSet = getStudentDB().fetchAll();
+        while (resultSet.next()){
+            Student student = new Student();
+            student.setId(resultSet.getInt("id"));
+            student.setName(resultSet.getString("name"));
+            student.setGender(resultSet.getString("gender"));
+            student.setIdNumber(resultSet.getInt("idNumber"));
+            studentList.add(student);
+        }
+        return studentList;
     }
 
     @Override
