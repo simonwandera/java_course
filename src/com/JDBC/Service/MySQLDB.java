@@ -98,25 +98,6 @@ public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
         return stringBuilder.toString();
     }
 
-//    @Override
-//    public List<Student> getStudents() throws SQLException {
-//
-//        List<Student> studentList = new ArrayList<>();
-//        String query = "SELECT * FROM student;";
-//        resultSet = executeReadQuery(query);
-//
-//        while (resultSet.next()){
-//            Student student = new Student();
-//            student.setId(resultSet.getInt("id"));
-//            student.setIdNumber(resultSet.getInt("idNumber"));
-//            student.setName(resultSet.getString("name"));
-//            student.setGender(resultSet.getString("gender"));
-//            studentList.add(student);
-//        }
-//
-//        return studentList;
-//    }
-
     @Override
     public boolean executeQuery(String query) {
         try {

@@ -52,12 +52,9 @@ public class StudentUI {
     }
 
     public static void updateStudents() throws SQLException {
-        Map<String, Object> entryHashMap = new HashMap<>(){{
-            put("name", "Munialo");
-            put("gender", "male");
-        }};
+
         IMySQLDB<Student> studentDB = new MySQLDB<>(new Student());
-        studentDB.createUpdateQuery(entryHashMap);
+        studentDB.createUpdateQuery(Student.getEntities());
     }
 //
 //    public static void deleteStudent(int id) throws SQLException {
