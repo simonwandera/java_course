@@ -12,6 +12,7 @@ public interface IMySQLDB<T extends Entity> {
     String createInsertQuery();
     String createUpdateQuery(Map<String, Object> entryMap);
     public ResultSet fetchAll() throws SQLException;
+    public ResultSet fetchOne() throws SQLException;
     String createSelectQuery();
     public String createSelectWithWhereClauseQuery();
     boolean executeQuery(String query);

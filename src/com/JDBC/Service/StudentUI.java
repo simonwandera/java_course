@@ -5,9 +5,7 @@ import com.JDBC.Model.Teacher;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class StudentUI {
 
@@ -24,31 +22,25 @@ public class StudentUI {
     }
 
     public static void displayAllStudents() throws SQLException {
-        IMySQLDB<Student> studentDB = new MySQLDB<>(new Student());
-        resultSet = studentDB.fetchAll();
-        while (resultSet.next()){
-            Student student = new Student();
-            student.setId(resultSet.getInt("id"));
-            student.setName(resultSet.getString("name"));
-            student.setGender(resultSet.getString("gender"));
-            student.setIdNumber(resultSet.getInt("idNumber"));
+        List<Student> studentList = new ArrayList<>(Student.displayAll());
+        for (Student student : studentList){
             System.out.println(student);
         }
     }
 
     public static void displayAllTeachers() throws SQLException {
         IMySQLDB<Teacher> teacherDB = new MySQLDB<>(new Teacher());
-        resultSet = teacherDB.fetchAll();
-        while (resultSet.next()){
-            Teacher teacher = new Teacher();
-            teacher.setId(resultSet.getInt("id"));
-            teacher.setIdNumber(resultSet.getInt("idNumber"));
-            teacher.setName(resultSet.getString("name"));
-            teacher.setQualification(resultSet.getString("qualification"));
-            teacher.setGender(resultSet.getString("gender"));
-            teacher.setTscNumber(resultSet.getString("tscNumber"));
-            System.out.println(teacher);
-        }
+//        resultSet = teacherDB.fetchAll();
+//        while (resultSet.next()){
+//            Teacher teacher = new Teacher();
+//            teacher.setId(resultSet.getInt("id"));
+//            teacher.setIdNumber(resultSet.getInt("idNumber"));
+//            teacher.setName(resultSet.getString("name"));
+//            teacher.setQualification(resultSet.getString("qualification"));
+//            teacher.setGender(resultSet.getString("gender"));
+//            teacher.setTscNumber(resultSet.getString("tscNumber"));
+//            System.out.println(teacher);
+//        }
     }
 
     public static void updateStudents() throws SQLException {

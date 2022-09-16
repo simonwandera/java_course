@@ -1,6 +1,8 @@
 package com.JDBC.Service;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
@@ -115,6 +117,11 @@ public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
         String selectQuery = this.createSelectQuery();
         resultSet = this.executeReadQuery(selectQuery);
         return resultSet;
+    }
+
+    @Override
+    public ResultSet fetchOne() throws SQLException {
+        return null;
     }
 
     @Override

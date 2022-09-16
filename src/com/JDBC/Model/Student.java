@@ -1,7 +1,11 @@
 package com.JDBC.Model;
 
 import com.JDBC.Service.Entity;
+import com.JDBC.Service.IMySQLDB;
+import com.JDBC.Service.MySQLDB;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 
 public class Student extends Entity {
@@ -9,6 +13,9 @@ public class Student extends Entity {
     private String name;
     private int IdNumber;
     private String gender;
+    static ResultSet resultSet;
+    static IMySQLDB<Student> mySQLDB;
+
     private static final String tableName = "student";
     private static final Map<String, Object> entitiesMap = new HashMap<>(){{
         put("id", null);
@@ -17,8 +24,12 @@ public class Student extends Entity {
         put("gender", "");
     }};;
 
-    public Student() {
+    public Student() throws SQLException {
         super(entitiesMap, tableName);
+    }
+
+    public static IMySQLDB<Student> getMySQLDB() throws SQLException {
+        return new MySQLDB<>(new Student());
     }
 
     public int getId() {
@@ -60,8 +71,22 @@ public class Student extends Entity {
         entitiesMap.put("gender", gender);
         this.gender = gender;
     }
+    public static List<Student> displayAll() throws SQLException {
+        List<Student> studentList = new ArrayList<>();
+        resultSet = getMySQLDB().fetchAll();
+        while (resultSet.next()){
+            Student student = new Student();
+            student.setId(resultSet.getInt("id"));
+            student.setName(resultSet.getString("name"));
+            student.setGender(resultSet.getString("gender"));
+            student.setIdNumber(resultSet.getInt("idNumber"));
+            studentList.add(student);
+        }
+        return studentList;
+    }
 
-    @Override
+
+        @Override
     public String toString() {
         return "id= " + id + "\tidNumber= " + IdNumber + "\tname= " + name + "\tgender= " + gender;
     }
