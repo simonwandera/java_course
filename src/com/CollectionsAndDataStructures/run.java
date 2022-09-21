@@ -1,5 +1,6 @@
 package com.CollectionsAndDataStructures;
 
+import java.util.Collections;
 import java.util.HashMap;
 
 public class run {
@@ -85,7 +86,10 @@ public class run {
 
         EnumMapPractise enumMapPractise = new EnumMapPractise();
 //        enumMapPractise.generateEnumMap();
-        enumMapPractise.soldierEnum();
+//        enumMapPractise.soldierEnum();
+
+        CollectionsPractise collectionsPractise = new CollectionsPractise();
+        collectionsPractise.arrayListCollection();
     }
 
 }
