@@ -2,6 +2,21 @@ package com.CollectionsAndDataStructures;
 
 import java.util.EnumMap;
 import java.util.Map;
+class Soldier {
+    int id;
+    String soldierName;
+    String soldierType;
+    String gender;
+    String country;
+
+    public Soldier(int id, String soldierName, String soldierType, String gender, String country) {
+        this.id = id;
+        this.soldierName = soldierName;
+        this.soldierType = soldierType;
+        this.gender = gender;
+        this.country = country;
+    }
+}
 
 enum Days{
     Monday, Tuesday, Wednesday, Thursday, Friday, Saturday ,Sunday
