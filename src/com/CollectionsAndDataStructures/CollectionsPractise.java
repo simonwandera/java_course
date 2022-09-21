@@ -4,6 +4,20 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+class Student implements Comparable<Student>{
+
+    String name;
+
+    public Student(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        return 0;
+    }
+}
+
 public class CollectionsPractise {
     List<String> stringArrayList = new ArrayList<>();
     List<Integer> integerArrayList = new ArrayList<>();
@@ -11,10 +25,8 @@ public class CollectionsPractise {
     public void arrayListCollection(){
         Collections.addAll(stringArrayList, "Item1", "item2", "Item3", "Item4");
         System.out.println("Added elements: " + stringArrayList);
-
         String[] moreItems = {"Item5", "Item6", "Item7", "Item8"};
         Collections.addAll(stringArrayList, moreItems);
-
         System.out.println("New ArrayList: " + stringArrayList);
     }
 
