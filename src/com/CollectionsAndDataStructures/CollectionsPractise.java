@@ -23,4 +23,11 @@ public class CollectionsPractise {
         System.out.println("Value of the maximum element from the collection: "+ Collections.max(integerArrayList));
         System.out.println("Value of minimum element from the collection: "+Collections.min(integerArrayList));
     }
+
+    public void sortingStrings(){
+        Collections.addAll(stringArrayList,"cow", "pig","donket", "leopard", "camel", "lizard", "pinguin");
+        System.out.println("Collection before sorting: " + stringArrayList);
+        Collections.sort(stringArrayList);
+        System.out.println("Collection after sorting: " + stringArrayList);
+    }
 }

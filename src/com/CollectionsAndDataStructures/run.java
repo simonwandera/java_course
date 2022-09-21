@@ -90,7 +90,9 @@ public class run {
 
         CollectionsPractise collectionsPractise = new CollectionsPractise();
 //        collectionsPractise.arrayListCollection();
-        collectionsPractise.maxElement();
+//        collectionsPractise.maxElement();
+        collectionsPractise.sortingStrings();
     }
+
 
 }
