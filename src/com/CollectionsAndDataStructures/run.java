@@ -84,7 +84,8 @@ public class run {
 //        enumSetPractise.generateWithAllOfAndNoneOf();
 
         EnumMapPractise enumMapPractise = new EnumMapPractise();
-        enumMapPractise.generateEnumMap();
+//        enumMapPractise.generateEnumMap();
+        enumMapPractise.soldierEnum();
     }
 
 }

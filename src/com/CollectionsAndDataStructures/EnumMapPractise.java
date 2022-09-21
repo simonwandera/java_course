@@ -67,5 +67,9 @@ public class EnumMapPractise {
         soldierMap.put(Key.Five, soldier5);
         soldierMap.put(Key.Six, soldier6);
 
+        for (Map.Entry<Key, Soldier> entry: soldierMap.entrySet()){
+            Soldier soldier = entry.getValue();
+            System.out.println(soldier);
+        }
     }
 }
