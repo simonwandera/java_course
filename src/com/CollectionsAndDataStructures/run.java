@@ -89,7 +89,8 @@ public class run {
 //        enumMapPractise.soldierEnum();
 
         CollectionsPractise collectionsPractise = new CollectionsPractise();
-        collectionsPractise.arrayListCollection();
+//        collectionsPractise.arrayListCollection();
+        collectionsPractise.maxElement();
     }
 
 }
