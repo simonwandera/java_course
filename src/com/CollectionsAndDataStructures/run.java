@@ -89,7 +89,10 @@ public class run {
 //        collectionsPractise.arrayListCollection();
 //        collectionsPractise.maxElement();
 //        collectionsPractise.sortingStrings();
-        collectionsPractise.sortingUserDefinedClasses();
+//        collectionsPractise.sortingUserDefinedClasses();
+
+        ComparableExample comparableExample = new ComparableExample();
+        comparableExample.sortMeals();
     }
 
 
