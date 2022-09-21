@@ -21,5 +21,6 @@ public class CollectionsPractise {
     public void maxElement(){
         Collections.addAll(integerArrayList, 23,66,2,44,101,90,12,12,55,76,95);
         System.out.println("Value of the maximum element from the collection: "+ Collections.max(integerArrayList));
+        System.out.println("Value of minimum element from the collection: "+Collections.min(integerArrayList));
     }
 }
