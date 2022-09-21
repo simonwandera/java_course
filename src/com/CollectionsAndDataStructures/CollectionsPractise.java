@@ -25,7 +25,7 @@ public class CollectionsPractise {
     }
 
     public void sortingStrings(){
-        Collections.addAll(stringArrayList,"cow", "pig","donket", "leopard", "camel", "lizard", "pinguin");
+        Collections.addAll(stringArrayList,"cow", "pig","donket", "leopard", "camel", "lizard", "pinguin", "hen", "zebra");
         System.out.println("Collection before sorting: " + stringArrayList);
         Collections.sort(stringArrayList);
         System.out.println("Collection after sorting: " + stringArrayList);
