@@ -5,7 +5,6 @@ import java.util.HashMap;
 public class run {
     public static void main(String[] args) {
         ArrayListPractise arrayListPractise = new ArrayListPractise();
-
 //        arrayListPractise.traverseUsingForEach();
 //        arrayListPractise.traverseUsingForeachMethod();
 //        arrayListPractise.accessingAnElement(2);
@@ -23,7 +22,7 @@ public class run {
 
 //        linkedListPractise.displayListItems();
 //        linkedListPractise.removeListItems();
-        linkedListPractise.reverseIterator();
+//        linkedListPractise.reverseIterator();
 //        linkedListPractise.getBicycleItems();
 //        convertArrayToList convertArrayToList = new convertArrayToList();
 //        convertArrayToList.convert();
@@ -78,7 +77,11 @@ public class run {
         NavigableMapPractise navigableMapPractise = new NavigableMapPractise();
 //        navigableMapPractise.NavigableMapOperations();
 //        treeMapPractise.sortedTreeMap();
-        treeMapPractise.traversingClassElements();
+//        treeMapPractise.traversingClassElements();
+
+        EnumSetPractise enumSetPractise = new EnumSetPractise();
+//        enumSetPractise.display();
+        enumSetPractise.generateWithAllOfAndNoneOf();
     }
 
 }
