@@ -29,5 +29,8 @@ public class CollectionsPractise {
         System.out.println("Collection before sorting: " + stringArrayList);
         Collections.sort(stringArrayList);
         System.out.println("Collection after sorting: " + stringArrayList);
+
+        Collections.sort(stringArrayList, Collections.reverseOrder());
+        System.out.println("Collection sorted in reverse Order: "+ stringArrayList);
     }
 }
