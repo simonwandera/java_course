@@ -54,8 +54,8 @@ public class ComparatorExample {
             System.out.println(pupil.name + "\t" + pupil.age + "\t" + pupil.regNo);
         }
 
-
-        System.out.println("Sorting  by name");
+        System.out.println("Sorting  by age");
+        Collections.sort(pupilList, new AgeComparator());
         for (Pupil pupil: pupilList){
             System.out.println(pupil.name + "\t" + pupil.age + "\t" + pupil.regNo);
         }
