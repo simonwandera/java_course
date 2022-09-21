@@ -18,7 +18,7 @@ public class EnumMapPractise {
 
         //Print the map
         for(Map.Entry m:map.entrySet()){
-            System.out.println(m.getKey()+" "+m.getValue());
+            System.out.println(m.getKey()+"\t"+m.getValue());
         }
     }
 }
