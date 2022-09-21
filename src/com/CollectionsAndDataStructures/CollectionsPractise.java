@@ -13,8 +13,13 @@ class Student implements Comparable<Student>{
     }
 
     @Override
-    public int compareTo(Student o) {
-        return 0;
+    public int compareTo(Student student) {
+        return name.compareTo(student.name);
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
 
@@ -44,5 +49,22 @@ public class CollectionsPractise {
 
         Collections.sort(stringArrayList, Collections.reverseOrder());
         System.out.println("Collection sorted in reverse Order: "+ stringArrayList);
+    }
+
+    public void sortingUserDefinedClasses(){
+        List<Student> studentList = new ArrayList<>();
+        studentList.add(new Student("Mike"));
+        studentList.add(new Student("David"));
+        studentList.add(new Student("Charity"));
+        studentList.add(new Student("Sharon"));
+        studentList.add(new Student("Peterson"));
+        studentList.add(new Student("Doe"));
+
+        Collections.sort(studentList);
+        for (Student st: studentList){
+            System.out.println(st);
+        }
+
+
     }
 }

@@ -1,8 +1,5 @@
 package com.CollectionsAndDataStructures;
 
-import java.util.Collections;
-import java.util.HashMap;
-
 public class run {
     public static void main(String[] args) {
         ArrayListPractise arrayListPractise = new ArrayListPractise();
@@ -91,7 +88,8 @@ public class run {
         CollectionsPractise collectionsPractise = new CollectionsPractise();
 //        collectionsPractise.arrayListCollection();
 //        collectionsPractise.maxElement();
-        collectionsPractise.sortingStrings();
+//        collectionsPractise.sortingStrings();
+        collectionsPractise.sortingUserDefinedClasses();
     }
 
 
