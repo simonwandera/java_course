@@ -3,7 +3,6 @@ package com.CollectionsAndDataStructures;
 import java.util.Comparator;
 
 class AgeComparator implements Comparator<Pupil>{
-
     @Override
     public int compare(Pupil p1, Pupil p2) {
         if (p1.age == p2.age)
@@ -12,6 +11,20 @@ class AgeComparator implements Comparator<Pupil>{
             return 1;
         else
             return 0;
+    }
+}
+
+class NameComparator implements Comparator<Pupil>{
+    @Override
+    public int compare(Pupil p1, Pupil p2){
+        return p1.name.compareTo(p2.name);
+    }
+}
+
+class TestComparator implements Comparator<Pupil>{
+    @Override
+    public int compare(Pupil o1, Pupil o2) {
+        return 0;
     }
 }
 class Pupil{
