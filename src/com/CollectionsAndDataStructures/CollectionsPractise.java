@@ -64,7 +64,5 @@ public class CollectionsPractise {
         for (Student st: studentList){
             System.out.println(st);
         }
-
-
     }
 }
