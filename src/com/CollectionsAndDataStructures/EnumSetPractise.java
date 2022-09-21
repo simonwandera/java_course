@@ -22,5 +22,8 @@ public class EnumSetPractise {
         Set<days> enumSet = EnumSet.allOf(days.class);
         System.out.println("Set generated with allOf: " + enumSet);
 
+        Set<days>setEnum = EnumSet.noneOf(days.class);
+        System.out.println("Set generated with noneOf: " + setEnum);
+
     }
 }
