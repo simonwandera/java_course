@@ -81,7 +81,10 @@ public class run {
 
         EnumSetPractise enumSetPractise = new EnumSetPractise();
 //        enumSetPractise.display();
-        enumSetPractise.generateWithAllOfAndNoneOf();
+//        enumSetPractise.generateWithAllOfAndNoneOf();
+
+        EnumMapPractise enumMapPractise = new EnumMapPractise();
+        enumMapPractise.generateEnumMap();
     }
 
 }
