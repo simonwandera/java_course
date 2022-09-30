@@ -1,7 +1,9 @@
 package com.CollectionsAndDataStructures;
 
+import java.io.IOException;
+
 public class run {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         ArrayListPractise arrayListPractise = new ArrayListPractise();
 //        arrayListPractise.traverseUsingForEach();
 //        arrayListPractise.traverseUsingForeachMethod();
@@ -92,7 +94,11 @@ public class run {
 //        collectionsPractise.sortingUserDefinedClasses();
 
         ComparableExample comparableExample = new ComparableExample();
-        comparableExample.sortMeals();
+//        comparableExample.sortMeals();
+
+        PropertiesClassPractise propertiesClassPractise = new PropertiesClassPractise();
+//        propertiesClassPractise.propertiesClass();
+        propertiesClassPractise.systemProperties();
     }
 
 
