@@ -98,7 +98,8 @@ public class run {
 
         PropertiesClassPractise propertiesClassPractise = new PropertiesClassPractise();
 //        propertiesClassPractise.propertiesClass();
-        propertiesClassPractise.systemProperties();
+//        propertiesClassPractise.systemProperties();
+        propertiesClassPractise.settingNewProps();
     }
 
 

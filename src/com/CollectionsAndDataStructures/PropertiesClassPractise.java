@@ -2,6 +2,7 @@ package com.CollectionsAndDataStructures;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
@@ -28,8 +29,14 @@ public class PropertiesClassPractise {
             Map.Entry entry=(Map.Entry)itr.next();
             System.out.println(entry.getKey()+" = "+entry.getValue());
         }
+    }
 
+    public void settingNewProps() throws IOException {
+        Properties p=new Properties();
+        p.setProperty("Name","James Korir");
+        p.setProperty("Email","simonwandera12@gmail.com");
 
+        p.store(new FileWriter("info.properties", true),"Practise properties");
     }
 
 
