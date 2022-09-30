@@ -54,7 +54,7 @@ public class HashMapPractise {
     }
     public void iteratingUsingForeach(){
         hashMap.forEach((key,value) ->{
-            System.out.println(key + "\t\t" + value);
+            System.out.println(key + "\t\t"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              + value);
         });
     }
 

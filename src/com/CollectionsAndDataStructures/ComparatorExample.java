@@ -59,6 +59,5 @@ public class ComparatorExample {
         for (Pupil pupil: pupilList){
             System.out.println(pupil.name + "\t" + pupil.age + "\t" + pupil.regNo);
         }
-
     }
 }
