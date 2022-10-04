@@ -100,6 +100,9 @@ public class run {
 //        propertiesClassPractise.propertiesClass();
 //        propertiesClassPractise.systemProperties();
         propertiesClassPractise.settingNewProps();
+
+        vectorPractise vectorPractise = new vectorPractise();
+        vectorPractise.vectorPrac();
     }
 
 
