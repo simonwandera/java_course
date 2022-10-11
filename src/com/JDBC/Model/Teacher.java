@@ -17,7 +17,6 @@ public class Teacher extends Entity {
     private String tscNumber;
     private String qualification;
     static ResultSet resultSet;
-    static IMySQLDB<Teacher> mySQLDB;
     private static final String tableName = "teacher";
 
     private static final Map<String, Object> entitiesMap = new HashMap<>(){{

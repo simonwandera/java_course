@@ -76,6 +76,8 @@ public class StudentUI {
                 displayAllTeachers();
             else if (choice.equals("5"))
                 updateStudents(3);
+            else if (choice.equals("6"))
+                selectWithWhere();
             else if (choice.equals("q")){
                 System.out.println("Exiting ... ");
                 break;
@@ -125,6 +127,19 @@ public class StudentUI {
 
         IMySQLDB<Teacher> iMySQLDB = new MySQLDB<>(teacher);
         iMySQLDB.save();
+
+    }
+
+    public static void selectWithWhere() throws SQLException{
+
+        Map<String, String> critetia = new HashMap<>(){{
+            put("id", "1");
+            put("tscNumber", "23ww");
+        }};
+
+        MySQLDB<Teacher> teacherDB = new MySQLDB<>(new Teacher());
+        String selectQ = teacherDB.createSelectWithWhereClauseQuery(critetia);
+        System.out.println("Select Query >>>: "  + selectQ);
 
     }
 }

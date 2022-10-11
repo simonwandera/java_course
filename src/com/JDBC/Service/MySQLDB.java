@@ -17,9 +17,18 @@ public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
     }
 
     @Override
-    public String createSelectWithWhereClauseQuery() {
+    public String createSelectWithWhereClauseQuery(Map<String, String> critetia) {
         StringBuilder stringBuilder = new StringBuilder("SELECT * FROM ");
-        stringBuilder.append(t.getTableName()).append("WHERE ").append("");
+        stringBuilder.append(t.getTableName()).append(" WHERE ");
+        boolean isFirst = true;
+
+        for (Map.Entry<String, String> entry: critetia.entrySet()){
+            if (!isFirst)
+                stringBuilder.append(" AND ");
+            stringBuilder.append(entry.getKey()).append("=").append("\"").append(entry.getValue()).append("\"");
+            isFirst = false;
+        }
+
         return stringBuilder.toString();
     }
 
@@ -109,6 +118,7 @@ public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
     @Override
     public void save() {
         String insertQuery = this.createInsertQuery();
+        System.out.println("Insert query>>>: " +insertQuery);
         this.executeQuery(insertQuery);
     }
 

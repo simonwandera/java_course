@@ -14,7 +14,6 @@ public class Student extends Entity {
     private int IdNumber;
     private String gender;
     static ResultSet resultSet;
-    static IMySQLDB<Student> mySQLDB;
 
     private static final String tableName = "student";
     private static final Map<String, Object> entitiesMap = new HashMap<>(){{
@@ -41,7 +40,7 @@ public class Student extends Entity {
     }
 
     public void setId(int id) {
-        this.entitiesMap.put("id", id);
+        entitiesMap.put("id", id);
         this.id = id;
     }
 
