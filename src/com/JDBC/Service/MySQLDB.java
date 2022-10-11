@@ -125,6 +125,7 @@ public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
     @Override
     public ResultSet fetchAll() throws SQLException {
         String selectQuery = this.createSelectQuery();
+        System.out.println("selectQuery = " + selectQuery);
         resultSet = this.executeReadQuery(selectQuery);
         return resultSet;
     }

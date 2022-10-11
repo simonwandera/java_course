@@ -1,4 +1,6 @@
 package com.JDBC.Service;
+
+import java.sql.SQLException;
 import java.util.Map;
 
 public class Entity {
@@ -6,8 +8,13 @@ public class Entity {
 
     private Map<String, Object> entitiesMap;
 
+
     public Map<String, Object> getEntitiesMap() {
         return entitiesMap;
+    }
+
+    public IMySQLDB<Entity> getMySqlDB() throws SQLException {
+        return new MySQLDB<>(new Entity(this.entitiesMap, this.tableName));
     }
 
     public String getTableName() {

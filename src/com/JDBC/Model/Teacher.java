@@ -1,8 +1,6 @@
 package com.JDBC.Model;
 
 import com.JDBC.Service.Entity;
-import com.JDBC.Service.IMySQLDB;
-import com.JDBC.Service.MySQLDB;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -30,10 +28,6 @@ public class Teacher extends Entity {
 
     public Teacher() {
         super(entitiesMap, tableName);
-    }
-
-    public static IMySQLDB<Teacher> getTeacherDB() throws SQLException {
-        return new MySQLDB<>(new Teacher());
     }
 
     public int getId() {
@@ -84,9 +78,9 @@ public class Teacher extends Entity {
         this.qualification = qualification;
     }
 
-    public static List<Teacher> displayAll() throws SQLException {
+    public List<Teacher> displayAll() throws SQLException {
         List<Teacher> teacherList = new ArrayList<>();
-        resultSet = getTeacherDB().fetchAll();
+        resultSet = this.getMySqlDB().fetchAll();
         while (resultSet.next()){
             Teacher teacher = new Teacher();
             teacher.setId(resultSet.getInt("id"));
