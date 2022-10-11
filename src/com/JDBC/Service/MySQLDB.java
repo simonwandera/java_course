@@ -17,12 +17,12 @@ public class MySQLDB<T extends Entity> implements IMySQLDB<T> {
     }
 
     @Override
-    public String createSelectWithWhereClauseQuery(Map<String, String> critetia) {
+    public String createSelectWithWhereClauseQuery(Map<String, String> criteria) {
         StringBuilder stringBuilder = new StringBuilder("SELECT * FROM ");
         stringBuilder.append(t.getTableName()).append(" WHERE ");
         boolean isFirst = true;
 
-        for (Map.Entry<String, String> entry: critetia.entrySet()){
+        for (Map.Entry<String, String> entry: criteria.entrySet()){
             if (!isFirst)
                 stringBuilder.append(" AND ");
             stringBuilder.append(entry.getKey()).append("=").append("\"").append(entry.getValue()).append("\"");

@@ -70,7 +70,7 @@ public class Student extends Entity {
         entitiesMap.put("gender", gender);
         this.gender = gender;
     }
-    public static List<Student> displayAll() throws SQLException {
+    public static List<Student> display() throws SQLException {
         List<Student> studentList = new ArrayList<>();
         resultSet = getStudentDB().fetchAll();
         while (resultSet.next()){
