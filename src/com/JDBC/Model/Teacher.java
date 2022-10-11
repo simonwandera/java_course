@@ -78,9 +78,9 @@ public class Teacher extends Entity {
         this.qualification = qualification;
     }
 
-    public List<Teacher> displayAll() throws SQLException {
+    public List<Teacher> display() throws SQLException {
         List<Teacher> teacherList = new ArrayList<>();
-        resultSet = this.getMySqlDB().fetchAll();
+        resultSet = this.getAll();
         while (resultSet.next()){
             Teacher teacher = new Teacher();
             teacher.setId(resultSet.getInt("id"));

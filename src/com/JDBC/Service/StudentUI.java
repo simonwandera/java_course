@@ -22,14 +22,14 @@ public class StudentUI {
     }
 
     public static void displayAllStudents() throws SQLException {
-        List<Student> studentList = new ArrayList<>(new Student().displayAll());
+        List<Student> studentList = new ArrayList<>(new Student().display());
         for (Student student : studentList){
             System.out.println(student);
         }
     }
 
     public static void displayAllTeachers() throws SQLException {
-        List<Teacher> teacherList = new ArrayList<>(new Teacher().displayAll());
+        List<Teacher> teacherList = new ArrayList<>(new Teacher().display());
         for (Teacher teacher : teacherList){
             System.out.println(teacher);
         }

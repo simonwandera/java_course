@@ -64,9 +64,10 @@ public class Student extends Entity {
         entitiesMap.put("gender", gender);
         this.gender = gender;
     }
-    public List<Student> displayAll() throws SQLException {
+
+    public List<Student> display() throws SQLException {
         List<Student> studentList = new ArrayList<>();
-        resultSet = this.getMySqlDB().fetchAll();
+        resultSet = this.getAll();
         while (resultSet.next()){
             Student student = new Student();
             student.setId(resultSet.getInt("id"));
@@ -75,9 +76,9 @@ public class Student extends Entity {
             student.setIdNumber(resultSet.getInt("idNumber"));
             studentList.add(student);
         }
+
         return studentList;
     }
-
         @Override
     public String toString() {
         return "id= " + id + "\tidNumber= " + IdNumber + "\tname= " + name + "\tgender= " + gender;

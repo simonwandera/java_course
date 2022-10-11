@@ -1,6 +1,11 @@
 package com.JDBC.Service;
 
+import com.JDBC.Model.Student;
+
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class Entity {
@@ -24,6 +29,14 @@ public class Entity {
     public Entity(Map<String, Object> entitiesMap, String tableName) {
         this.tableName = tableName;
         this.entitiesMap = entitiesMap;
+    }
+
+    public ResultSet getAll() throws SQLException {
+        return this.getMySqlDB().fetchAll();
+    }
+
+    public ResultSet getOne() throws SQLException {
+        return this.getMySqlDB().fetchOne();
     }
 
 }
